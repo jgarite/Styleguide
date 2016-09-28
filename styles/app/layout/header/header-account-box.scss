@@ -1,0 +1,841 @@
+.header--account-box {
+	display      : none;
+	border       : 1px solid $_COLOR_LIGHT_GREY_1;
+	border-top   : 0;
+	padding      : 0 15px;
+	box-shadow   : none;
+	border-radius: 0;
+	//compiles css for div.dropdown.account.active div.account-box
+	//Styling for when the account box is open
+	.dropdown.header--account.active & {
+		position     : fixed;
+		top          : $_HEADER_HEIGHT;
+		left         : 0;
+		transform    : translate3d(0,0,0);
+		width        : 100%;
+		display      : block;
+		margin-top   : 1px;
+		padding      : 0 15px 5px;
+		border       : 0;
+		border-bottom: 1px solid $_COLOR_RED_4;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position  : relative;
+			margin    : 0;
+			padding   : 0;
+			border    : 0;
+			top       : 0;
+			left      : 40px;
+			overflow  : visible;
+			width     : 560px;
+			float     : none;
+			background: transparent;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 783px;
+			float: none;
+			left : 50px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width  : 100%;
+			padding: 10px 10px 5px;
+		}
+
+		li {
+			//div.dropdown.account.active div.account-box li p.user-name
+			@include media-max-width($_BREAKPOINT_TABLET - 1) {
+				display: inline-block;
+				width:100%;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				display: table;
+				float  : left;
+				box-sizing: content-box;
+				padding:0 6px;
+		//		margin : 0 2px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			//	margin:0 11px;
+			padding: 0 11px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				//display:inline-block;
+			}
+			//div.dropdown.account.active div.account-box li p.user-name
+			&.user-name {
+				padding      : 13px 5px;
+				margin-bottom: 10px;
+				@include baskerville10ProItalic;
+				font-size    : 16px;
+				height       : 41px;
+				line-height  : 1em;
+				color        : $_COLOR_BLACK;
+				text-align   : left;
+				border-bottom: 1px solid #e3e5e8; //matching mobify color - will change in redesign
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					font-size    : 12px;
+					line-height  : $_HEADER_HEIGHT;
+					height       : $_HEADER_HEIGHT;
+					margin       : 0;
+					padding      : 0;
+					width        : 121px;
+					border-bottom: 0;
+					text-align   : center;
+					display      : table;
+					> span {
+						display       : table-cell;
+						vertical-align: middle;
+						line-height   : 14px;
+						padding-left  : 5px;
+
+					}
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					line-height: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+					height     : $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+				}
+				&:before {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						content    : '';
+						height     : 30px;
+						width      : 10px;
+						display    : block;
+						position   : absolute;
+						top        : 8px;
+						z-index    : 10;
+						border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						height: 45px;
+					}
+				}
+			}
+			&.login-account-settings {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 45px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:70px;
+				}
+			}
+			&.login-active-sales {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 35px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:50px;
+				}
+			}
+			&.login-past-sales {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 30px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:40px;
+				}
+			}
+			&.login-checkout {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 55px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:80px;
+				}
+			}
+			&.login-interests {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 55px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:70px;
+				}
+			}
+			&.login-artpricing {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 40px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:60px;
+				}
+			}
+			&.sign-out {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width:40px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width:50px;
+				}
+			}
+			a {
+				//mobile only navigation needs to match mobify
+				//Using Max-Width media query (desktop first) because the elements on desktop are using styleguide CSS. This menu is planned to be re-built in 2017, so this CSS will be deprecated.
+				//
+				@include media-max-width($_BREAKPOINT_DESKTOP - 1) {
+					 @include avenir;
+					font-size      : 10px;
+					padding        : 0;
+					height         : $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+					color          : $_COLOR_BLACK;
+					text-transform : uppercase;
+					//line-height    : $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+					text-align     : center;
+					text-decoration: none;
+					position       : relative;
+					line-height    : 14px;
+					display        : table-cell;
+					vertical-align : middle;
+					white-space    : normal;
+					&:hover {
+						background: transparent;
+					}
+					&:before {
+						border: 0;
+					}
+					&.cta {
+						margin: 0;
+						&:hover {
+							background: transparent;
+
+						}
+					}
+				}
+				@include media-max-width($_BREAKPOINT_TABLET_TO_DESKTOP - 1) {
+					font-size     : 9px;
+					height        : $_HEADER_HEIGHT;
+					line-height   : $_HEADER_HEIGHT;
+
+					line-height   : 14px;
+					display       : table-cell;
+					vertical-align: middle;
+				}
+				//mobile
+				@include media-max-width($_BREAKPOINT_TABLET - 1) {
+					 @include atlasGroteskWebRegular;
+					font-size      : 13px;
+					line-height    : 35px;
+					height         : 35px;
+					text-align     : left;
+					padding        : 0 5px;
+					text-decoration: none;
+					position       : relative;
+					color          : #494e54;
+					display: inline-block;
+					width:100%;
+					&:before {
+						position   : absolute;
+						right      : 10px;
+						left       : auto;
+						top        : 50%;
+						transform  : translateY(-50%) rotate(-45deg);
+						border     : 3px solid #d7c6a8; //matching mobify color - will change in redesign
+						border-left: 0;
+						border-top : 0;
+						height     : 9px;
+						width      : 9px;
+						content    : '';
+					}
+					&.cta {
+						border      : 1px solid #ebe3d4; //matching mobify color - will change in redesign
+						border-left : 0;
+						border-right: 0;
+						height      : 45px;
+						line-height : 45px;
+						&:hover {
+							background: $_COLOR_WHITE;
+							color     : $_COLOR_BLACK;
+
+						}
+						&.account-settings {
+							border-top   : 0;
+							margin-bottom: 6px;
+						}
+						&.sign-out {
+
+							border-bottom: 0;
+							margin-top   : 4px;
+							@include media-min-width($_BREAKPOINT_TABLET) {
+								color: $_COLOR_RED_1;
+							}
+							@include media-max-width($_BREAKPOINT_DESKTOP) {
+								&.cta.black:not(.disabled).active,
+								&.cta.black:not(.disabled):focus,
+								&.cta.black:not(.disabled):hover {
+									background: $_COLOR_WHITE;
+								}
+							}
+							@include media-min-width($_BREAKPOINT_DESKTOP) {
+								color: $_COLOR_BLACK;
+							}
+						}
+					}
+				}
+				// &.login-interests {
+				// 	@include media-min-width($_BREAKPOINT_TABLET) {
+				// 		display: none;
+				// 	}
+				// 	@include media-min-width($_BREAKPOINT_DESKTOP) {
+				// 		display: inline-block;
+				// 	}
+				// }
+				&.sign-out {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						color: #fb2121; //matching mobibfy
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						color: $_COLOR_BLACK;
+					}
+				}
+			}
+		}
+	}
+	.dropdown.header--account:hover & {
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			display   : block;
+			margin-top: 1px;
+			border    : 1px solid $_COLOR_LIGHT_GREY_1;
+			border-top: 0;
+			padding   : 10px 20px 5px;
+			//return the dropdown to the right edge to match frontify menu
+			left      : auto;
+			right     : 0;
+			transform : translate3d(1px,0,0);
+			&.logged-in {
+				width: 280px;
+			}
+		}
+		> li {
+			border: 0;
+			a {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					text-align: center;
+
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					&:not(.cta) {
+						text-align: left;
+						padding   : 13px 0;
+						&:hover {
+							background     : $_COLOR_WHITE;
+							color          : $_COLOR_BLACK;
+							text-decoration: underline;
+
+						}
+					}
+
+					&.cta {
+
+						line-height: 46px;
+						padding    : 0;
+						margin     : 10px 0;
+
+					}
+				}
+			}
+		}
+	}
+	em {
+		&.title {
+			display  : block;
+			@include baskerville10ProItalic;
+			font-size: 16px;
+			margin   : 2px 0 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				display: none;
+			}
+		}
+	}
+	label[for="username"] {
+		@include atlasGroteskWebLight;
+		font-size     : 12px;
+		text-transform: uppercase;
+		line-height   : 20px;
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			text-transform: none;
+			padding-top   : 20px;
+			margin-top    : 0;
+			font-size     : 14px;
+		}
+	}
+	&.logged-out {
+		width     : 100%;
+		position  : fixed;
+		left      : 0;
+		background: $_COLOR_WHITE;
+		z-index   : 100;
+		padding   : 0 15px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width   : 586px;
+			top     : 0;
+			right   : 0;
+			left    : auto;
+			height  : 47px;
+			overflow: hidden;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width   : 470px;
+			position: absolute;
+			top     : $_DESKTOP_HEADER_HEIGHT + 1;
+			left    : auto;
+			right   : -1px;
+			height  : auto;
+		}
+		.create-account-box,
+		.sign-in-box {
+			padding: 0;
+			label {
+				display: block;
+			}
+			input {
+				margin       : 0 0 10px;
+				padding      : 10px 10px 5px;
+				border-radius: 2px;
+				box-shadow   : inset 0 2px 5px #eaecef;
+				@include atlasGroteskWebRegular;
+				font-size    : 14px;
+				font-style   : normal;
+				height       : auto;
+				line-height  : normal;
+				max-width    : none;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					margin: 0;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					box-shadow: none;
+					margin    : 0 0 10px;
+				}
+				&[placeholder] {
+					font-size  : 14px;
+					font-weight: 400;
+					font-style : italic;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						font-size: 14px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						font-size: 14px;
+					}
+				}
+				&[type="checkbox"],
+				&[type="checkbox"]:checked {
+					background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…pZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+					background-size : 100%;
+					background-image: -webkit-gradient(linear,50% 100%,50% 0,color-stop(0%,#fff),color-stop(100%,#eaecef));
+					background-image: -moz-linear-gradient(bottom,#fff,#eaecef);
+					background-image: -webkit-linear-gradient(bottom,#fff,#eaecef);
+					background-image: linear-gradient(to top,#fff,#eaecef);
+					height          : 30px;
+					width           : 30px;
+					margin          : 0 10px 5px 0;
+					display         : inline-block;
+					float           : left;
+					&:before {
+						display: none;
+					}
+				}
+				&[type="checkbox"]:checked {
+					&:after {
+						content    : '\2713';
+						font-size  : 22px;
+						font-weight: 600;
+						color      : $_COLOR_RED_1;
+						position   : absolute;
+						top        : 50%;
+						left       : 5px;
+						line-height: 0;
+					}
+				}
+				@include media-min-width($_BREAKPOINT_TABLET) {
+
+					padding: 5px;
+					@include baskerville10ProItalic;
+					&:hover {
+						border-color: $_COLOR_LIGHT_GREY_1;
+					}
+
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					 @include atlasGroteskWebRegular;
+					height   : 40px;
+					font-size: 12px;
+					&:hover {
+						border-color: $_COLOR_GREY_2;
+					}
+				}
+			}
+		}
+		.sign-in-box {
+			padding-bottom: 10px;
+			margin-top    : 10px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				margin-top: 0;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				float     : right;
+				margin-top: 0;
+			}
+			.seperator {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display: none;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display: block;
+				}
+			}
+			label[for="password"],
+			label[for="username"] {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					font-size : 0;
+					float     : left;
+					position  : relative;
+					margin-top: 7px;
+					//	right    : -35px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					margin-top: 10px;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					float     : none;
+					margin-top: 0;
+					font-size : 14px;
+				}
+				input {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						padding-left: 15px;
+						width       : 169px;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						width      : 252px;
+						line-height: 33px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						border       : 1px solid $_COLOR_LIGHT_GREY_1;
+						border-radius: 0;
+						width        : calc(100% - 10px);
+					}
+				}
+			}
+			label[for="password"] {
+				position: relative;
+				&:before {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						content    : '';
+						height     : 20px;
+						width      : 10px;
+						display    : block;
+						position   : absolute;
+						top        : 8px;
+						z-index    : 10;
+						border-left: 2px dotted $_COLOR_LIGHT_GREY_1;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						height: 30px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						border-left  : 1px solid $_COLOR_LIGHT_GREY_1;
+						margin-bottom: 0;
+					}
+				}
+				input {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						border-left              : 0;
+						border-top-left-radius   : 0;
+						border-bottom-left-radius: 0;
+						width                    : 196px;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						width: 289px;
+
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+						line-height: normal;
+						width      : calc(100% - 10px);
+					}
+				}
+			}
+			label[for="username"] {
+				input {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						border-right              : 0;
+						border-top-right-radius   : 0;
+						border-bottom-right-radius: 0;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						border-right: 1px solid $_COLOR_LIGHT_GREY_1;
+						margin-top  : 25px;
+
+					}
+				}
+			}
+			.options {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display: none;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display: inline-block;
+					float  : right;
+				}
+				.remember-me {
+					@include atlasGroteskWebRegular;
+					font-size    : 12px;
+					float        : left;
+					line-height  : 40px;
+					margin-bottom: 0;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						display: none;
+					}
+					 > input[type="checkbox"]:checked,
+					> input[type="checkbox"] {
+						padding: 0;
+						margin : 0 5px 0 0;
+					}
+				}
+				.forgot-password {
+					float    : right;
+					color    : #ae8d50;
+					font-size: 12px;
+					@include atlasGroteskWebRegular;
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						font-size   : 14px;
+						color       : $_COLOR_GREY_1;
+						margin-right: 10px;
+					}
+				}
+			}
+			.tablet-only {
+				display: none;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display   : block;
+					//position  : absolute;
+					//top       : 5px;
+					//right     : 0;
+					width     : 147px;
+					text-align: center;
+					float     : left;
+					position  : relative;
+					left      : -35px;
+					margin-top: 7px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					margin-top: 10px;
+					width     : 195px;
+				}
+				.title {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						display    : block;
+						font-size  : 12px;
+						font-weight: normal;
+						@include baskerville10ProItalic;
+						color      : $_COLOR_GREY_2;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						font-size: 14px;
+					}
+				}
+				.create-account {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+
+						color          : $_COLOR_BLACK;
+						text-decoration: none;
+						@include atlasGroteskWebBold;
+						font-size      : 9px;
+						text-transform : uppercase;
+						line-height    : 20px;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						font-size  : 12px;
+						display    : block;
+						padding-top: 5px;
+					}
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display: none;
+				}
+			}
+			.sign-in {
+				clear                : both;
+				background-image     : url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2FlOGQ1MCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzg1NmQ0MyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+				background-size      : 100%;
+				background-image     : -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #ae8d50), color-stop(100%, #856d43));
+				background-image     : -moz-linear-gradient(top, #ae8d50, #856d43);
+				background-image     : -webkit-linear-gradient(top, #ae8d50, #856d43);
+				background-image     : linear-gradient(to bottom, #ae8d50, #856d43);
+				border-style         : solid;
+				border-color         : #ae8d50;
+				-webkit-border-radius: 2px;
+				-moz-border-radius   : 2px;
+				-ms-border-radius    : 2px;
+				-o-border-radius     : 2px;
+				border-radius        : 2px;
+				color                : $_COLOR_WHITE;
+				font-size            : 13px;
+				line-height          : 40px;
+				text-align           : center;
+				text-transform       : uppercase;
+				text-decoration      : none;
+				margin               : 0 0 10px;
+				width                : 100%;
+				height               : 40px;
+				.tablet & {
+					width     : 40px;
+					border    : 0;
+					background: transparent;
+					font-size : 0;
+					left      : -35px;
+					top       : 1px;
+					float     : left;
+					clear     : none;
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						top: 10px;
+					}
+					&::before {
+						width      : 100%;
+						height     : 40px;
+						line-height: 45px;
+						position   : absolute;
+						left       : 0;
+						@include Christies;
+						content    : $christies-icon_right-chevron;
+						color      : $_COLOR_BLACK;
+						font-size  : 16px;
+						font-weight: 600;
+
+					}
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display       : block;
+					left          : auto;
+					height        : 40px;
+					background    : transparent;
+					color         : $_COLOR_BLACK;
+					text-transform: none;
+					font-size     : 14px;
+					border        : 0;
+					width         : 90px;
+					&:before {
+						@include position(absolute, 0 0 0 0);
+						@include transition(border-color $_HOVER_DURATION);
+						border : $_CTA_BORDER_THICKNESS solid $_COLOR_BLACK;
+						content: "";
+					}
+					&:link,
+					&:visited {
+						color: $_COLOR_BLACK;
+					}
+					&:not(.disabled) {
+						&.active,
+						&:focus,
+						&:hover {
+							background-color: $_COLOR_BLACK;
+							color           : $_COLOR_WHITE;
+						}
+					}
+					&.disabled {
+						background-color: transparent;
+						color           : $_COLOR_LIGHT_GREY_1;
+						opacity         : 1;
+						text-decoration : none;
+						&:before {
+							border-color: $_COLOR_LIGHT_GREY_1;
+						}
+					}
+				}
+			}
+
+		}
+		.create-account-box {
+			padding-top   : 5px;
+			padding-bottom: 5px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				display: none;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				display: block;
+				float  : left;
+				padding: 20px 35px 0 0;
+			}
+			.subtitle {
+				display: none;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display      : block;
+					margin-bottom: 20px;
+					font-size    : 14px;
+				}
+			}
+			.create-account {
+
+				background-color     : #a8afb9;
+				background-image     : url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2VhZWNlZiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+				background-size      : 100%;
+				background-image     : -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #fff), color-stop(100%, #eaecef));
+				background-image     : -moz-linear-gradient(top, #fff, #eaecef);
+				background-image     : -webkit-linear-gradient(top, #fff, #eaecef);
+				background-image     : linear-gradient(to bottom, #fff, #eaecef);
+				border-style         : solid;
+				border-color         : rgba(168, 175, 185, .5);
+				border-width         : 1px;
+				border-style         : solid;
+				-webkit-border-radius: 2px;
+				-moz-border-radius   : 2px;
+				-ms-border-radius    : 2px;
+				-o-border-radius     : 2px;
+				border-radius        : 2px;
+				color                : #ae8d50;
+				font-size            : 13px;
+				line-height          : 40px;
+				text-align           : center;
+				text-decoration      : none;
+				text-transform       : uppercase;
+				margin               : 0 0 10px;
+				width                : 100%;
+				height               : 40px;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					height        : 40px;
+					background    : transparent;
+					color         : $_COLOR_BLACK;
+					text-transform: none;
+					font-size     : 14px;
+					border        : 0;
+					padding       : 0 10px;
+					&:before {
+						@include position(absolute, 0 0 0 0);
+						@include transition(border-color $_HOVER_DURATION);
+						border : $_CTA_BORDER_THICKNESS solid $_COLOR_BLACK;
+						content: "";
+					}
+					&:link,
+					&:visited {
+						color: $_COLOR_BLACK;
+					}
+					&:not(.disabled) {
+						&.active,
+						&:focus,
+						&:hover {
+							background-color: $_COLOR_BLACK;
+							color           : $_COLOR_WHITE;
+						}
+					}
+					&.disabled {
+						background-color: transparent;
+						color           : $_COLOR_LIGHT_GREY_1;
+						opacity         : 1;
+						text-decoration : none;
+						&:before {
+							border-color: $_COLOR_LIGHT_GREY_1;
+						}
+					}
+				}
+				a {
+					text-decoration: none;
+					text-transform : none;
+				}
+			}
+		}
+	}
+	&.logged-in {
+
+		a {
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				text-align: left;
+			}
+		}
+	}
+}

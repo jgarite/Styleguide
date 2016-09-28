@@ -1,0 +1,27 @@
+
+@mixin remove-outline {
+
+	outline: none;
+
+
+	&:link, &:visited, &:hover, &:active, &:focus {
+
+		outline: none;
+
+	}
+
+}
+
+
+@mixin reset-outline {
+
+	outline: initial;
+
+
+	&:link, &:visited, &:hover, &:active, &:focus {
+
+		outline: initial;
+
+	}
+
+}

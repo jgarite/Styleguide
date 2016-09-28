@@ -1,0 +1,24 @@
+audio {
+	width  : 300px;
+	display: block;
+	margin : auto;
+
+	&::media-controls-panel,
+	&::media-controls-volume-slider-container {
+		background: $_COLOR_LIGHT_GREY_3;
+	}
+	&::media-controls-mute-button,
+	&::media-controls-play-button,
+	&::media-controls-rewind-button,
+	&::media-controls-volume-slider {
+		background: $_COLOR_BLACK;
+	}
+	&::media-controls-timeline {
+		background: $_COLOR_LIGHT_GREY_1;
+	}
+	&::media-controls-current-time-display,
+	&::media-controls-time-remaining-display {
+		background: $_COLOR_LIGHT_GREY_1;
+	}
+
+}

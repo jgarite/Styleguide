@@ -1,0 +1,23 @@
+fieldset {
+	label {
+		display: block;
+		float: left;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-indent: -12px;
+
+		input,
+		span {
+			vertical-align: middle;
+		}
+		span {
+			padding-left: 20px;
+			display: block;
+			white-space: normal;
+			line-height: 24px;
+			margin-top: -5px;
+
+		}
+
+	}
+}

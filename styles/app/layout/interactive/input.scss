@@ -1,0 +1,153 @@
+.input_text,
+.textarea,
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="textarea"],
+input[type="textbox"] {
+	outline: none;
+	-webkit-appearance: none;
+	padding: 20px 10px;
+	@include text-rhythm($_BODY_COPY, $_BODY_COPY, 0 0 0 0, ((3 - $_BODY_COPY) / 2) $_INTERACTIVE_PADDING ((3 - $_BODY_COPY) / 2) $_INTERACTIVE_PADDING);
+	@include transition(border-color $_HOVER_DURATION, color $_HOVER_DURATION);
+	background-color: $_COLOR_WHITE;
+	border: 1px solid $_COLOR_LIGHT_GREY_1;
+	color: $_COLOR_GREY_1;
+	font-style: normal;
+	width: 100%;
+	margin: 0 0 20px;
+	&:-ms-input-placeholder,
+	&::-moz-placeholder,
+	&::-webkit-input-placeholder,
+	&::placeholder {
+		color: $_COLOR_GREY_1;
+		font-style: italic;
+	}
+	&:disabled {
+		&:-ms-input-placeholder,
+		&::-moz-placeholder,
+		&::-webkit-input-placeholder,
+		&::placeholder {
+			color: $_COLOR_LIGHT_GREY_1;
+		}
+	}
+	&:hover {
+		border-color: $_COLOR_GREY_2;
+	}
+	&:focus {
+		border-color: $_COLOR_BLACK;
+		color: $_COLOR_BLACK;
+	}
+	@include disabled(1) {
+		border-color: $_COLOR_LIGHT_GREY_1;
+		color: $_COLOR_LIGHT_GREY_1;
+	}
+}
+.input_text,
+input[type="date"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"] {
+	font-style: italic;
+	height: getRhythm($_BODY_COPY, 3);
+}
+.textarea,
+input[type="textarea"] {
+	min-height: getRhythm($_BODY_COPY, 8);
+}
+.input_checkbox,
+.input_radio,
+input[type="checkbox"],
+input[type="radio"] {
+	background-color: transparent;
+	border: 1px solid $_COLOR_LIGHT_GREY_1;
+	overflow: hidden;
+	position: relative;
+	width: 14px;
+	height: 14px;
+	&:before {
+		@include position(absolute, 0 0 0 0);
+		@include transition(border-color $_HOVER_DURATION, opacity $_HOVER_DURATION);
+		border: 3px solid $_COLOR_WHITE;
+		content: "";
+		opacity: 0;
+	}
+	&:checked {
+		background-color: $_COLOR_BLACK;
+		&:before {
+			opacity: 1;
+		}
+	}
+	@include disabled {
+		border-color: $_COLOR_LIGHT_GREY_1;
+	}
+	&:not([disabled]) {
+		&:hover {
+			background-color: $_COLOR_BLACK;
+			&:before {
+				opacity: 1;
+			}
+		}
+	}
+}
+.input_radio,
+input[type="radio"] {
+	&:before {
+		border-radius: (1em * $_BODY_COPY);
+	}
+}
+.newsletter {
+	position: relative;
+	.input_text,
+	input[type="email"] {
+		@include text-rhythm($_FOOTER_COPY, null 2.5, 0 0 0 0, ((2.5 - $_FOOTER_COPY) / 2) ($_INTERACTIVE_PADDING / 2) ((2.5 - $_FOOTER_COPY) / 2) ($_INTERACTIVE_PADDING / 2));
+		height: getRhythm($_FOOTER_COPY, 2.5);
+	}
+	.button {
+		@include transition(none);
+		background-color: transparent;
+		background-image: url("../images/buttons/newsletter-button.png");
+		background-position: left center;
+		background-repeat: no-repeat;
+		background-size: 200% 100%;
+		border: none;
+		border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+		bottom: 0;
+		height: auto;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 2.34375em;
+		&:not([disabled]) {
+			&.active,
+			&:focus,
+			&:hover {
+				background-color: black;
+				background-position: right center;
+				border: none;
+				border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+			}
+		}
+	}
+}
+.error:not(.form-select),
+.error:not(.form-select):hover {
+	border: 1px solid $_COLOR_RED_2 !important;
+	//background:$_COLOR_ERROR_BG !important;
+	color:$_COLOR_BLACK !important;
+	&:-ms-input-placeholder,
+	&::-moz-placeholder,
+	&::-webkit-input-placeholder,
+	&::placeholder {
+		color: $_COLOR_BLACK;
+	}
+}

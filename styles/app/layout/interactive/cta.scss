@@ -1,0 +1,268 @@
+
+.cta {
+	&button {
+		border: 0;
+	}
+	//@include atlasGroteskRegular;
+	@include rhythm($_BODY_COPY, null 3.5, 0 0 1 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+	@include transition(background-color $_HOVER_DURATION, color $_HOVER_DURATION);
+	background-color: $_COLOR_RED_2;
+	color: $_COLOR_WHITE;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	width: auto;
+	&.full-width {
+		width: 100%;
+	}
+	&.small {
+		@include rhythm($_BODY_COPY, null 2.5, 0 0 1 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+	}
+	/* DEFAULT / RED */
+	&:link,
+	&:visited {
+		color: $_COLOR_WHITE;
+	}
+	&:not(.disabled) {
+		&.active,
+		&:focus,
+		&:hover {
+			background-color: $_COLOR_RED_1;
+			color: $_COLOR_WHITE;
+			text-decoration: none;
+		}
+	}
+	&.disabled {
+		background-color: $_COLOR_LIGHT_GREY_3;
+		color: $_COLOR_GREY_2;
+		opacity: 1;
+		text-decoration: none;
+	}
+	/* BLACK */
+	&.black {
+		background-color: transparent;
+		color: $_COLOR_BLACK;
+		&:before {
+			@include position(absolute, 0 0 0 0);
+			@include transition(border-color $_HOVER_DURATION);
+			border: $_CTA_BORDER_THICKNESS solid $_COLOR_BLACK;
+			content: "";
+		}
+		&:link,
+		&:visited {
+			color: $_COLOR_BLACK;
+		}
+		&:not(.disabled) {
+			&.active,
+			&:focus,
+			&:hover {
+				background-color: $_COLOR_BLACK;
+				color: $_COLOR_WHITE;
+			}
+		}
+		&.disabled {
+			background-color: transparent;
+			color: $_COLOR_LIGHT_GREY_1;
+			opacity: 1;
+			text-decoration: none;
+			&:before {
+				border-color: $_COLOR_LIGHT_GREY_1;
+			}
+		}
+	}
+	/* GREY */
+	&.grey {
+		background-color: $_COLOR_LIGHT_GREY_2;
+		color: $_COLOR_BLACK;
+		&:link,
+		&:visited {
+			color: $_COLOR_BLACK;
+		}
+		&:not(.disabled) {
+			&.active,
+			&:focus,
+			&:hover {
+				background-color: $_COLOR_LIGHT_GREY_3;
+				color: $_COLOR_BLACK;
+			}
+		}
+		&.disabled {
+			background-color: $_COLOR_LIGHT_GREY_3;
+			color: $_COLOR_GREY_2;
+			opacity: 1;
+			text-decoration: none;
+		}
+	}
+	/* WHITE */
+	&.white {
+		background-color: $_COLOR_BLACK;
+		color: $_COLOR_WHITE;
+		&:before {
+			@include position(absolute, 0 0 0 0);
+			@include transition(border-color $_HOVER_DURATION);
+			border: $_CTA_BORDER_THICKNESS solid $_COLOR_WHITE;
+			content: "";
+		}
+		&:link,
+		&:visited {
+			color: $_COLOR_WHITE;
+		}
+		&:not(.disabled) {
+			&.active,
+			&:focus,
+			&:hover {
+				background-color: $_COLOR_WHITE;
+				color: $_COLOR_BLACK;
+			}
+		}
+		&.disabled {
+			background-color: transparent;
+			color: $_COLOR_GREY_1;
+			opacity: 1;
+			text-decoration: none;
+			&:before {
+				border-color: $_COLOR_GREY_1;
+			}
+		}
+	}
+}
+.cta-link {
+	//@include atlasGroteskRegular;
+	@include text-rhythm($_BODY_COPY, null, 1 0 1.5 0);
+	@include transition(color $_HOVER_DURATION);
+	color: $_COLOR_BLACK;
+	display: inline-block;
+	padding: 0;
+	position: relative;
+	text-decoration: none;
+	/* DEFAULT / BLACK */
+	&:link,
+	&:visited {
+		color: $_COLOR_BLACK;
+	}
+	&:not(.disabled) {
+		&.active,
+		&:focus,
+		&:hover {
+			color: $_COLOR_GREY_2;
+			text-decoration: none;
+		}
+	}
+	&.disabled {
+		color: $_COLOR_LIGHT_GREY_1;
+		opacity: 1;
+		text-decoration: none;
+	}
+	/* UNDERLINED */
+	&.underlined {
+		text-decoration: underline;
+		&:not(.disabled) {
+			&.active,
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+		&.disabled {
+			text-decoration: underline;
+		}
+	}
+}
+.cta-link-with-icon {
+	// background-color: red;
+	text-transform: uppercase;
+	> .icon {
+		// background-color: yellow;
+		vertical-align: top;
+		&:before {
+			vertical-align: text-top;
+		}
+	}
+	> .text {
+		// background-color: green;
+		vertical-align: middle;
+	}
+}
+$_CTA_IMAGE_PADDING: (1.5 * $_BASE_LINE_HEIGHT);
+.cta-image {
+	@extend .link-box;
+	background-color: $_COLOR_LIGHT_GREY_3;
+	margin: 0 0 $_BASE_LINE_HEIGHT;
+	padding: (4 * $_BASE_LINE_HEIGHT) $_CTA_IMAGE_PADDING $_CTA_IMAGE_PADDING $_CTA_IMAGE_PADDING;
+	// IMAGE
+	.image-preview-container {
+		margin-bottom: (3 * $_BASE_LINE_HEIGHT);
+		&:after {
+			@include position(absolute, 0 0 0 0);
+			@include transition(background-color 2 * $_HOVER_DURATION, border-bottom $_HOVER_DURATION);
+			background-color: transparent;
+			border-bottom: 0 solid $_COLOR_RED_1;
+			content: "";
+		}
+	}
+	// DISABLED
+	&.disabled {
+		opacity: 1;
+		.image-preview-container {
+			opacity: 0.8;
+			&:after {
+				background-color: rgba(0, 0, 0, 0.3);
+			}
+		}
+		.cta-icon {
+			text-decoration: line-through;
+		}
+	}
+	// INTERACTION
+	&:focus,
+	&:hover {
+		cursor:pointer;
+		.image-preview-container {
+			&:after {
+				background-color: rgba(0, 0, 0, 0.15);
+				border-bottom: 3px solid $_COLOR_RED_1;
+			}
+		}
+		.cta-icon {
+			> span {
+				background-color: $_COLOR_BLACK;
+				border: 2px solid $_COLOR_BLACK;
+				color: $_COLOR_WHITE;
+			}
+		}
+	}
+}
+.cta-icon {
+	@include clearfix;
+	//@include atlasGroteskRegular;
+	@include text-rhythm($_BODY_COPY, 3);
+	margin: 0;
+	padding: 0;
+	position: relative;
+	> span {
+		@include rhythm(1, 1.85 1.85);
+		@include transition(background-color $_HOVER_DURATION, border-color $_HOVER_DURATION, color $_HOVER_DURATION);
+		background-color: transparent;
+		border: $_CTA_BORDER_THICKNESS solid $_COLOR_LIGHT_GREY_1;
+		border-radius: $_BASE_LINE_HEIGHT;
+		color: inherit;
+		display: block;
+		float: left;
+		margin-right: ($_BASE_LINE_HEIGHT / 4);
+		position: relative;
+		&:before {
+			height: 100%;
+			left: 0;
+			line-height: 2.5;
+			position: absolute;
+			text-align: center;
+			top: 0;
+			width: 100%;
+		}
+	}
+	&.disabled,
+	.disabled & {
+		color: $_COLOR_LIGHT_GREY_1;
+	}
+}

@@ -1,0 +1,232 @@
+linters:
+
+  BangFormat:
+    enabled: true
+    space_before_bang: true
+    space_after_bang: false
+
+  BemDepth:
+    enabled: true
+    max_elements: 1
+
+  BorderZero:
+    enabled: false
+    convention: '0'
+
+  ChainedClasses:
+    enabled: false
+
+  ColorKeyword:
+    enabled: true
+
+  ColorVariable:
+    enabled: true
+
+  Comment:
+    enabled: false
+
+  ClassNameFormat:
+    allow-leading-underscore: false
+    convention: camelcase
+    convention-explanation: 'Camel Case it'
+
+  DebugStatement:
+    enabled: true
+
+  DeclarationOrder:
+    enabled: false
+
+  DisableLinterReason:
+    enabled: true
+
+  DuplicateProperty:
+    enabled: false
+
+  ElsePlacement:
+    enabled: true
+    style: same_line
+
+  EmptyLineBetweenBlocks:
+    enabled: false
+    ignore_single_line_blocks: true
+
+  EmptyRule:
+    enabled: true
+
+  ExtendDirective:
+    enabled: false
+
+  FinalNewline:
+    enabled: true
+    present: true
+
+  HexLength:
+    enabled: true
+    style: short
+
+  HexNotation:
+    enabled: true
+    style: lowercase
+
+  HexValidation:
+    enabled: true
+
+  IdSelector:
+    enabled: false
+
+  ImportantRule:
+    enabled: true
+
+  ImportPath:
+    enabled: true
+    leading_underscore: false
+    filename_extension: false
+
+  Indentation:
+    enabled: false
+    allow_non_nested_indentation: true
+    character: tab
+    width: 1
+
+  LeadingZero:
+    enabled: false
+    style: include_zero
+
+  MergeableSelector:
+    enabled: false
+    force_nesting: false
+
+  NameFormat:
+    enabled: false
+    convention: uppercase
+    allow_leading_underscore: true
+
+  NestingDepth:
+    enabled: true
+    max_depth: 2
+
+  PlaceholderInExtend:
+    enabled: true
+
+  PrivateNamingConvention:
+    enabled: true
+    prefix: ^[_A-Z]+$
+
+  PropertyCount:
+    enabled: false
+
+  PropertySpelling:
+    enabled: true
+    extra_properties: []
+  PropertySortOrder:
+    order: 'recess'
+
+  PropertyUnits:
+    enabled: false
+
+  PseudoElement:
+    enabled: true
+
+  QualifyingElement:
+    enabled: true
+    allow_element_with_attribute: false
+    allow_element_with_class: false
+    allow_element_with_id: false
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 2
+
+  SelectorFormat:
+    enabled: true
+    class_convention: \b.([a-z]*)([-]?)([-]?)([a-z]*)?([_])([a-z]*)?(([-])([a-z]*))*?\b
+    class_convention_explanation: 'Classes must be lower case and BEM IE: block--element_modifier, block--element-name, block--elem-name_mod'
+    id_convention: \b([a-z]*)\b
+    id_convention_explanation: 'IDs must be Upper Camel Case'
+
+
+  Shorthand:
+    enabled: true
+
+  SingleLinePerProperty:
+    enabled: true
+    allow_single_line_rule_sets: false
+
+  SingleLinePerSelector:
+    enabled: false
+
+  SpaceBeforeColon:
+    include: true
+
+  SpaceAfterComma:
+    enabled: true
+
+  SpaceAfterPropertyColon:
+    enabled: false
+    style: one_space
+
+  SpaceAfterPropertyName:
+    enabled: false
+
+  SpaceAfterVariableColon:
+    enabled: true
+    style: at_least_one_space
+
+  SpaceAfterVariableName:
+    enabled: false
+
+  SpaceAroundOperator:
+    enabled: true
+    style: one_space
+
+  SpaceBeforeBrace:
+    enabled: true
+    style: space
+    allow_single_line_padding: true
+
+  SpaceBetweenParens:
+    enabled: true
+    spaces: 0
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes
+
+  TrailingSemicolon:
+    enabled: true
+
+  TrailingZero:
+    enabled: true
+
+  TransitionAll:
+    enabled: false
+
+  UnnecessaryMantissa:
+    enabled: true
+
+  UnnecessaryParentReference:
+    enabled: true
+
+  UrlFormat:
+    enabled: true
+
+  UrlQuotes:
+    enabled: true
+
+  VariableForProperty:
+    enabled: false
+
+  VariableNameFormat:
+    convention: ^[_A-Z]+$
+
+  VendorPrefixes:
+    enabled: true
+    identifier_list: base
+    include: []
+    exclude: []
+
+  ZeroUnit:
+    enabled: true
+
+  SpaceBeforeColon:
+    include: false

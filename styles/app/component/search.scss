@@ -1,0 +1,559 @@
+.search-wrapper {
+	width: 100%;
+	border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+	margin-top: 10px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		margin-top: 40px;
+	}
+
+}
+//search-2 used for areas like Sale Landing Page
+.search-2 {
+	width: 100%;
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		float: right;
+		width: 325px;
+	}
+	.christies-icon_left-arrow,
+	.christies-icon_right-arrow {
+		margin: -2px 0 0;
+		float: left;
+		&:after {
+			border-right: 0;
+		}
+		&[disabled] {
+			@extend .disabled;
+			text-decoration: none !important;
+		}
+	}
+	.christies-icon_right-arrow {
+		&:after {
+			border-right: 1px solid $_COLOR_LIGHT_GREY_1;
+			border-left: 0;
+		}
+		&[disabled] {
+			left: -1px;
+		}
+	}
+	.christies-icon_left-arrow {
+		&[disabled] {
+			right: -1px;
+		}
+	}
+	//holds the search field
+	.search-container {
+		position: relative;
+		display: inline-block;
+		width: calc(100% - 80px);
+		float: left;
+		.button-icon:not([disabled]){
+				&.active,
+				&:focus,
+				&:hover {
+					&::before {
+						color:$_COLOR_GREY_1;
+					}
+				}
+		}
+		.input_text {
+			padding: 10px 15px;
+			font-size: 13px;
+			margin-top: -1px;
+			margin-bottom: 0;
+			max-width: none;
+			position: relative;
+			height: $_ICON_FONT_SIZE;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				font-size: 15px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				font-size: 13px;
+			}
+			&:focus + a,
+			&:hover + a {
+				color: $_COLOR_BLACK;
+			}
+		}
+	}
+}
+//EOF: search-2 class
+//Square icons within text fields
+.square.christies-icon_search {
+	position: absolute;
+	top: 0;
+	right: 6px;
+	display: block;
+	width: 40px;
+	height: $_ICON_FONT_SIZE - 2;
+	color: $_COLOR_LIGHT_GREY_1;
+	border: none;
+	&:after {
+		border: none;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: $_COLOR_BLACK;
+		background: none;
+		box-shadow: none !important;
+		&:after {
+			border: none !important;
+		}
+	}
+}
+
+.search-pnl {
+	padding: 0;
+	position: relative;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding: 0 0 0 $_COLUMN_GUTTER;
+		float: right;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		padding: 0 $_COLUMN_GUTTER 0 0;
+		float: left;
+	}
+	&.lot-number-search {
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding: 0 $_COLUMN_GUTTER 0 0;
+		}
+	}
+	.search-container {
+		position: relative;
+	}
+}
+//holds the "sort by" dropdown
+.sortingPanel {
+	padding-left: 0;
+	padding-right: 0;
+	float: right;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-right: 0;
+		padding-left: 1em;
+		float: left;
+		.Chinese & {
+			padding-left: 0;
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding-left: 0;
+	}
+}
+
+//BOF: Filter container
+.filter,
+.no-filter {
+	padding: 0;
+	position: relative;
+}
+//filter column contents
+.filterPanel {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		height: auto;
+	}
+	//show the filter column content
+	.active & {
+		height: auto;
+		overflow-y: scroll;
+	}
+
+	.applied-filter-box {
+		.applied-filters {
+			font-size: 14px;
+			color: $_COLOR_WHITE;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				color: $_COLOR_BLACK;
+			}
+		}
+		.remove-filter {
+			color: $_COLOR_WHITE;
+			padding-left: 5px;
+			height: $_ICON_FONT_SIZE;
+			line-height: $_ICON_FONT_SIZE;
+			display: inline-block;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				color: $_COLOR_BLACK;
+			}
+			&:before {
+				font-size: 10px;
+				position: relative;
+				top: -2px;
+			}
+		}
+	}
+	.applied-filter-title {
+		position: relative;
+		top: 2px;
+		font-size: 16px;
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			top: auto;
+			line-height: $_ICON_FONT_SIZE;
+		}
+	}
+	.applied-filter-subtitle,
+	.applied-filter-title {
+		background: $_COLOR_BLACK;
+		color: $_COLOR_WHITE;
+		font-weight: 500;
+		line-height: 60px;
+		padding-left: 15px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			background: transparent;
+			color: $_COLOR_BLACK;
+		}
+	}
+	.applied-filter-title {
+		position: relative;
+		top: 2px;
+		font-size: 16px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding: 0;
+			top: auto;
+			line-height: $_ICON_FONT_SIZE;
+		}
+	}
+	.applied-filter-subtitle {
+		background: $_COLOR_BLACK;
+		font-size: 14px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			background: transparent;
+			color: $_COLOR_BLACK;
+		}
+	}
+	.applied-filter-actions {
+		margin-top: 20px;
+		.grey-outline {
+			background-color: transparent;
+			border: 1px solid $_COLOR_LIGHT_GREY_1;
+			color: $_COLOR_WHITE;
+			width: 50%;
+			padding: 0;
+			font-size: 14px;
+			height: 60px;
+			line-height: 60px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				font-size: 12px;
+				line-height: 40px;
+				height: 40px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				font-size: 14px;
+				height: 60px;
+				line-height: 60px;
+			}
+			&.left {
+				border-left: 0;
+			}
+			&.right {
+				border-right: 0;
+				border-left: 0;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				color: $_COLOR_BLACK;
+			}
+		}
+	}
+	//"Refine" container which appears after a filter option is selected
+	.refineresults {
+		font-size: 14px;
+		line-height: 60px;
+		color: $_COLOR_WHITE;
+		padding-left: 20px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			color: $_COLOR_BLACK;
+			//margin-bottom: 40px;
+		}
+	}
+	//Close button which appears on mobile only
+	.filterClose {
+		position: absolute;
+		right: 10px;
+		top: 12px;
+		border: none;
+		box-shadow: none;
+		background: transparent;
+		color: $_COLOR_WHITE;
+		z-index: 10;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: none;
+		}
+		&:after {
+			border: 2px solid $_COLOR_GREY_2;
+		}
+		&:before {
+			font-size: 10px;
+			font-weight: 600;
+		}
+
+	}
+
+	.filter & {
+
+		display: none;
+		z-index: 90;
+		position: fixed;
+		top: $_HEADER_HEIGHT;
+		left: 0;
+		background-color: rgba(0,0,0,0.8);
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: block;
+			position: relative;
+			top: auto;
+			left: auto;
+			background-color: $_COLOR_WHITE;
+			padding-right: 20px;
+		}
+	}
+	.no-filter & {
+		display: none;
+	}
+	.Search-Filter-Panel-Box {
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			height: auto;
+		}
+		li {
+			//Parent, the category name of the filter
+			position: relative;
+			margin: 0 0 2px;
+			color: $_COLOR_WHITE;
+			&.has-submenu {
+				// .button-icon {
+				// 	@extend .christies-icon_plus;
+				// }
+				//filter list
+				&.active {
+					// .button-icon {
+					// 	@extend .christies-icon_minus;
+					// 	background-color: transparent;
+					// 	border: none;
+					// 	box-shadow: none;
+					// 	color: $_COLOR_WHITE;
+					// 	@include media-min-width($_BREAKPOINT_TABLET) {
+					// 		color: $_COLOR_BLACK;
+					// 	}
+					//
+					// }
+				}
+				ul {
+					display: none;
+					padding: 12px 20px 0;
+					max-height: 400px;
+					overflow-y: auto;
+					overflow-x: hidden;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						background-color: $_COLOR_WHITE;
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+		.filter-option-title {
+			background-color: $_COLOR_BLACK;
+			color: $_COLOR_WHITE;
+			font-size: 14px;
+			@include atlasGroteskWebMedium;
+			padding-left: 20px;
+			display: block;
+			height: 60px;
+			line-height: 60px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				background-color: $_COLOR_LIGHT_GREY_3;
+				color: $_COLOR_BLACK;
+			}
+
+			span {
+				display: inline-block;
+				line-height: 18px;
+				padding-right: $_ICON_FONT_SIZE;
+				vertical-align: middle;
+				.button-icon {
+					line-height: $_ICON_FONT_SIZE;
+					height: $_ICON_FONT_SIZE;
+					position: absolute;
+					top: 8px;
+					right: 10px;
+					&:before {
+						font-size: 10px;
+						font-weight: 600;
+					}
+					&:after {
+						border: 0;
+						box-shadow: none;
+					}
+					&:hover {
+						@include media-min-width($_BREAKPOINT_DESKTOP) {
+							background-color: transparent;
+							color: $_COLOR_GREY_2;
+							//	color: $_COLOR_BLACK;
+							border: 0;
+							box-shadow: none;
+						}
+					}
+				}
+			}
+		}
+		.filter-group {}
+		.filter-option {
+			color: $_COLOR_WHITE;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				color: $_COLOR_BLACK;
+			}
+		}
+
+		//filter list checkboxes
+		input[type="checkbox"] {
+			position: absolute;
+			top: 0;
+			&:checked {
+				outline: none;
+				background-color: $_COLOR_RED_1;
+				border: 1px solid $_COLOR_RED_1;
+			}
+		}
+		//filter list labels
+		.label {
+			//remove margin from first label to avoid breaking the height of the category
+			cursor: pointer;
+			font-size: 16px;
+			line-height: 1em;
+			display: block;
+			padding: 0;
+			margin: 25px 0;
+			&:first-of-type {
+				margin-top: 0;
+			}
+			span {
+				font-size: 14px;
+				line-height: 18px;
+				//@include atlasGroteskRegular;
+				color: $_COLOR_WHITE;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					color: $_COLOR_BLACK;
+				}
+				&.name {
+					position: relative;
+					left: 15px;
+					width: 80%;
+					display: inline-block;
+				}
+				&.check {
+					margin-right: 15px;
+					height: 15px;
+					width: 15px;
+					display: inline-block;
+				}
+			}
+		}
+		#Price {
+			.filter-option {
+				label {
+					@include atlasGroteskWebRegular;
+					font-size: 14px;
+					font-weight: 500;
+					line-height: 38px;
+					width: 100%;
+					.criteria {
+						width: 90px;
+						display: inline-block;
+						@include media-min-width($_BREAKPOINT_TABLET) {
+							width: 50px;
+						}
+						@include media-min-width($_BREAKPOINT_DESKTOP) {
+							width: 55px;
+						}
+					}
+					.currency {
+						@include atlasGroteskWebRegular;
+						font-size: 14px;
+						font-weight: 500;
+						padding-right: 5px;
+					}
+				}
+				.high-price,
+				.low-price {
+					width: 150px;
+					font-size: 14px;
+					background: transparent;
+					color: $_COLOR_WHITE;
+					font-style: normal;
+					float: right;
+					padding: 0 0 0 10px;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						display: inline-block;
+						background: $_COLOR_WHITE;
+						border-color: $_COLOR_LIGHT_GREY_1;
+						color: $_COLOR_BLACK;
+						width: 95px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						width: 150px;
+					}
+				}
+			}
+			.filter-option:last-of-type {
+				border-bottom: $_COLOR_GREY_2;
+				padding-bottom: 30px;
+			}
+		}
+	}
+}
+.search-sort-container {
+	position: relative;
+	padding: 0;
+}
+.action-Panel {
+	position: absolute;
+	bottom: 25px;
+	padding: 0;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		position: relative;
+		bottom: 0;
+	}
+	.christies-icon_grid-view,
+	.christies-icon_list-view {
+		display: none;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			display: block;
+		}
+	}
+	.christies-icon_filters {
+		display: block;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: none;
+		}
+	}
+}
+//Generic classes for search results.
+.noSearchResults {
+	display: none;
+}
+.loadMore {
+	text-align: center;
+	clear: both;
+	padding-top: 40px;
+}
+a.load-all {
+	display: block;
+	@extend .cta-link;
+	max-width: none;
+	.browseHeader & {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
+.lot-listings.container {
+	overflow: visible;
+	margin-top:5px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		margin-top:0;
+	}
+}
+.browseHeader {
+	position: relative;
+}

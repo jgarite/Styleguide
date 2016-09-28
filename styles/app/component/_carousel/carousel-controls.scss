@@ -1,0 +1,84 @@
+
+$_carousel_CONTROLS_SIZE: 60;
+
+.carousel-controls {
+
+	@include clearfix;
+
+	float: right;
+	margin-top: $_BASE_LINE_HEIGHT * $_carousel_CONTROLS_SIZE / 100;
+	margin-bottom: $_BASE_LINE_HEIGHT * $_carousel_CONTROLS_SIZE / 100;
+	margin-right: 2 * ($_BASE_LINE_HEIGHT * $_carousel_CONTROLS_SIZE / 100 - 1);
+
+
+	> li {
+
+		float: left;
+		margin-left: $_BASE_LINE_HEIGHT / 2;
+
+
+		&:first-of-type {
+
+			margin-left: 0;
+ 
+		}
+
+
+		> button {
+
+			@include remove-outline;
+			@include text-rhythm-reset;
+
+			background-color: transparent;
+			border: none;
+			height: $_BASE_LINE_HEIGHT;
+			position: relative;
+			width: $_BASE_LINE_HEIGHT;
+
+
+			&:before {
+
+				@include transition(background-color $_HOVER_DURATION);
+
+				background-color: $_COLOR_LIGHT_GREY_1;
+				border-radius: $_BASE_LINE_HEIGHT;
+				content: "";
+				height: $_carousel_CONTROLS_SIZE * 1%;
+				left: (100% - $_carousel_CONTROLS_SIZE) / 2;
+				position: absolute;
+				top: (100% - $_carousel_CONTROLS_SIZE) / 2;
+				width: $_carousel_CONTROLS_SIZE * 1%;
+
+			}
+
+
+			&:hover, &:focus, &.active {
+
+				background-color: transparent;
+				
+
+				&:before {
+
+					background-color: $_COLOR_BLACK;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+.carousel-counter {
+
+	@include text-rhythm(1, 1);
+
+	// background-color: red;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+
+}

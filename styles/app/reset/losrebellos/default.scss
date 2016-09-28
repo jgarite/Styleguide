@@ -1,0 +1,52 @@
+/* BOX-SIZING */
+*,
+*:after,
+*:before {
+	@include box-sizing(border-box);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* HTML / BODY */
+body,
+html {
+	-webkit-font-smoothing: antialiased;
+	// -webkit-font-smoothing: subpixel-antialiased;
+	font-family: 'Atlas Grotesk Web', $helvetica;
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	height: 100%;
+	margin: 0;
+	min-height: 100%;
+	padding: 0;
+	position: relative;
+	text-rendering: optimizelegibility;
+	width: 100%;
+	font-size: 1em;
+}
+/* SVG */
+svg {
+	@include user-select(none);
+	max-height: 100%;
+	width: 100%;
+}
+img {
+	@include user-select(none);
+	border: none;
+	vertical-align: bottom;
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+/* LINE */
+hr {
+	border: none;
+	background-color: black;
+	height: 1px;
+	width: 100%;
+}
+/* INTERACTIVE */
+embed,
+object {
+	outline: none;
+}

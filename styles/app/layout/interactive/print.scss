@@ -1,0 +1,74 @@
+@media print {
+	/* on modal open bootstrap adds class "modal-open" to body, so you can handle that case and hide body */
+	body.modal-open {
+		visibility: hidden;
+	}
+	body.modal-open .modal .modal-body,
+	body.modal-open .modal .modal-header {
+		visibility: visible;
+		/* make visible modal body and header */
+	}
+	.modal-header {
+		margin-bottom: 40px !important;
+	}
+	.modal-title {
+		text-align    : center !important;
+		padding-bottom: 20px !important;
+		padding-top   : 10px !important;
+		font-size     : 26px !important;
+		&.header-4 {
+			text-align    : center !important;
+			padding-bottom: 20px !important;
+			padding-top   : 10px !important;
+			font-size     : 26px !important;
+		}
+	}
+	//BOF condition report
+
+	#conditionReportContent {
+		.column {
+			> .seperator {
+				width : 100% !important;
+				margin: 10px 0 !important;
+			}
+		}
+		.small-seperator.imo {
+			display         : block !important;
+			width           : 1em !important;
+			background-color: $_COLOR_LIGHT_GREY_1 !important;
+		}
+		.category-title,
+		.sale-reference {
+			color: $_COLOR_GREY_2 !important;
+		}
+		.summary {
+			p {
+				padding-top   : 2px !important;
+				padding-bottom: 2px !important;
+			}
+		}
+		.date-time {
+			text-align: left !important;
+			p {
+				padding-top   : 2px !important;
+				padding-bottom: 2px !important;
+			}
+		}
+		.conditionReportDetails {
+			float: right !important;
+			width: 100% !important;
+		}
+		.conditionReportImage {
+			float: left !important;
+			width: 100% !important;
+
+			.image-preview-container {
+				margin    : 0 !important;
+				float     : none !important;
+			}
+		}
+
+	}
+
+	//EOF condition report
+}

@@ -1,0 +1,74 @@
+
+/* FONT */
+.f-w_b,
+.font-weight_bold {
+	font-weight: bold;
+}
+.f-s_i,
+.font-style_italic {
+	font-style: italic;
+}
+
+/* TEXT ALIGN */
+.t-a_l,
+.text-align_left {
+	text-align: left;
+}
+
+.t-a_c,
+.text-align_center {
+	text-align: center;
+}
+
+.t-a_r,
+.text-align_right {
+	text-align: right;
+}
+
+.t-a_j,
+.text-align_justify {
+	text-align  : justify;
+	text-justify: inter-word;
+}
+
+/* TEXT TRANSFORM */
+.t-t_u,
+.text-transform_uppercase,
+.uppercase {
+	text-transform: uppercase;
+}
+
+.capitalize,
+.t-t_c,
+.text-transform_capitalize {
+	text-transform: capitalize;
+}
+
+/* TEXT DECORATION */
+.t-d_u,
+.text-decoration_underline,
+.underline {
+	text-decoration: underline;
+}
+
+.with-drop-cap {
+	@include clearfix;
+	span:first-of-type {
+		@include atlasGroteskWebMedium;
+		display       : inline-block;
+		float         : left;
+		font-size     : 2.8em;
+		height        : .9em;
+		margin        : .085em .15em 0 -0.08em;
+		padding       : 0;
+		text-transform: uppercase;
+	}
+}
+
+.fine-print {
+	float      : left;
+	border-top : 1px solid $_COLOR_BLACK;
+	font-size  : 11px;
+	margin-top : 60px;
+	padding-top: 16px;
+}

@@ -1,0 +1,56 @@
+.hamburger {
+    border: none;
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    height: $_HEADER_HEIGHT;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+    position: relative;
+    text-indent: -9999px;
+    transition: background 0.3s ease 0s;
+    -webkit-transition: background 0.3s ease 0s;
+    width: 40px;
+    @include media-min-width($_BREAKPOINT_DESKTOP) {
+        display: none;
+    }
+}
+.hamburger--htx {
+    background-color: $_COLOR_WHITE;
+    span.toggle {
+        background-color: $_COLOR_BLACK;
+        border-radius: $_BUTTON_ICON_BORDER_THICKNESS;
+        display: block;
+        height: 4px;
+        width: 16px;
+        position: relative;
+        &:before {
+            top: -6px;
+        }
+        &:after,
+        &:before {
+            background-color: $_COLOR_BLACK;
+            border-radius: $_BUTTON_ICON_BORDER_THICKNESS;
+            content: '';
+            display: block;
+            height: 4px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+        &:after {
+            bottom: -6px;
+        }
+    }
+    &.active {
+        //  background-color: $_COLOR_RED_4;
+        .toggle {
+            background-color: $_COLOR_RED_4;
+            &:after,
+            &:before {
+                background-color: $_COLOR_RED_4;
+            }
+        }
+    }
+}

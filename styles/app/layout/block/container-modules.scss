@@ -1,0 +1,75 @@
+$_CONTAINER_MODULES_MARGIN_H: (4 * $_BASE_LINE_HEIGHT);
+.container-modules {
+	// background-color: brown;
+	margin: 0;
+	min-height: 100%;
+	padding: 0;
+	position: relative;
+	&:first-child {
+		padding-top: $_HEADER_HEIGHT_2;
+		// desktop
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding-top: $_HEADER_HEIGHT;
+		}
+	}
+	&.no-padding-top {
+		padding-top: 0;
+	}
+	> li {
+		@include clearfix;
+		// background-color: purple;
+		margin: $_CONTAINER_MODULES_MARGIN_H auto 0;
+		max-width: $_BASE_GRID_WIDTH_MAX;
+		padding: 0 15px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding: 0 30px;
+		}
+		position: relative;
+		width: 100%;
+		&.has-margin-bottom,
+		&:last-child {
+			margin-bottom: $_CONTAINER_MODULES_MARGIN_H;
+		}
+		// desktop
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding-left: ($_BASE_GRID_WIDTH_MAX - $_BASE_GRID_WIDTH) / 2;
+			padding-right: ($_BASE_GRID_WIDTH_MAX - $_BASE_GRID_WIDTH) / 2;
+		}
+		&.dummy {
+			@include not-clickable;
+			color: $_COLOR_LIGHT_GREY_1 !important;
+			// min-height: 25em;
+			opacity: $_OPACITY_DISABLED;
+		}
+		&.seperator {
+			@include not-clickable;
+			height: ($_BASE_LINE_HEIGHT / 2);
+			margin: $_CONTAINER_MODULES_MARGIN_H 0 0;
+			max-width: none;
+			padding: 0;
+			width: 100%;
+			&:before {
+				background-color: $_COLOR_LIGHT_GREY_1;
+				content: "";
+				height: 1px;
+				left: 0;
+				margin-top: -0.5px;
+				position: absolute;
+				top: 50%;
+				width: 100%;
+			}
+		}
+		&.full,
+		&.full-width {
+			max-width: none;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		&.no-margins {
+			margin: 0 auto;
+		}
+		&.no-margin-bottom {
+			margin-bottom: 0;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.popup_details {
+    background-color: $_COLOR_WHITE;
+    border-radius: 0px!important;
+    padding: 30px!important;
+}
+.popup_inner_detail {
+    color: $_COLOR_BLACK;
+    @include atlasGroteskWebRegular;
+    font-size: 17px!important;
+    line-height: 25px;
+    padding-bottom: 23px;
+}
+#myPopUpCloseButton
+{
+    background-color: $_COLOR_LIGHT_GREY_2;
+    color: $_COLOR_BLACK;
+    display: inline-block;
+    @include atlasGroteskWebRegular;
+    font-size: 16px;
+    line-height: 50px;
+    height: 50px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 1.40625em;
+    padding-bottom: 0em;
+    padding-left: 1.40625em;
+    -webkit-transition: background-color 0.2s, color 0.2s;
+    -moz-transition: background-color 0.2s, color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    border:none;
+}
+#myPopUpCloseButton:not(.disabled):hover,
+#myPopUpCloseButton:not(.disabled):focus,
+#myPopUpCloseButton:not(.disabled).active {
+    background-color: $_COLOR_LIGHT_GREY_2;
+    color: $_COLOR_BLACK;
+}
+div#myPopUpDetail {
+    width: 500px;
+}

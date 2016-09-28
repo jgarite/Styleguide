@@ -1,0 +1,590 @@
+//Sale Landing Template
+
+//Main Sale Header
+#MainLotHeader {
+  &.slp {
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      padding: 0;
+    }
+    @include media-min-width($_BREAKPOINT_DESKTOP) {
+      margin-bottom: 60px;
+    }
+    margin-bottom: 40px;
+    margin-top   : 15px;
+
+    .test--test_test {
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        right: 35px;
+      }
+
+      .browse-all-lots {
+        cursor: pointer;
+      }
+    }
+
+    .sale-title {
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        font-size  : 30px;
+        line-height: 35px;
+      }
+      font-size  : 22px;
+      line-height: 28px;
+      @include media-min-width($_BREAKPOINT_DESKTOP) {
+        font-size  : 30px;
+        line-height: 50px;
+      }
+    }
+  }
+}
+
+#MainSaleImage {
+  margin-bottom: 15px;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    position: absolute;
+    width   : 100px;
+  }
+  @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+    width: 140px;
+  }
+  @include media-min-width($_BREAKPOINT_DESKTOP) {
+    width: 180px;
+  }
+}
+
+#MainSaleDetails {
+  padding-left: 10px;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    padding-left : 15px;
+    padding-right: 45px;
+  }
+
+  .sale-title {
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      font-size  : 25px;
+      line-height: 35px;
+      font-weight: 500;
+    }
+  }
+  @include media-min-width($_BREAKPOINT_DESKTOP) {
+    padding-top: 10px;
+  }
+
+  .sale-reference {
+    position   : absolute;
+    top        : -40px;
+    left       : 65px;
+    line-height: 40px;
+    border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+    margin-left: 15px;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      position   : relative;
+      top        : 0;
+      left       : 0;
+      border     : 0;
+      line-height: 1em;
+      margin-left: 0;
+    }
+
+    &:before {
+      content     : "";
+      margin-right: 15px;
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.location {
+  padding-left  : 0;
+  padding-bottom: 7px;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    padding-left  : 15px;
+    padding-bottom: 0;
+  }
+
+}
+
+.total {
+  font-size  : 14px;
+  font-weight: 500;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    font-size: 16px;
+  }
+}
+
+.materials {
+  padding: 0;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    padding-left: 12px;
+  }
+}
+/*Main Sale Materials (ie: view catalogue)*/
+#MainSaleMaterials {
+  padding-left: 0;
+  margin      : 3px 0 0;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    margin-top: 25px;
+  }
+  @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+    //padding-left: 20px;
+  }
+  @include media-min-width($_BREAKPOINT_DESKTOP) {
+    //padding-left: 30px;
+  }
+
+  .resource {
+    float: left;
+    clear: both;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      clear: none;
+      width: auto;
+    }
+
+    &:nth-child(2) {
+      &:before {
+        @include media-min-width($_BREAKPOINT_TABLET) {
+          padding-right: 22px;
+          margin-left  : 20px;
+          height       : $_ICON_FONT_SIZE;
+          margin-top   : 0;
+          float        : left;
+          border-left  : 1px solid $_COLOR_LIGHT_GREY_1;
+          content      : "";
+        }
+      }
+    }
+
+    &:nth-child(n+3) {
+      //margin-left: 25px;
+      margin-top: 15px;
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        margin-top  : 0;
+        margin-left : 0;
+        padding-left: 20px;
+      }
+    }
+
+    &:nth-child(3) {
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        clear       : both;
+        padding-left: 85px;
+        margin-top  : 20px;
+      }
+      @include media-min-width($_BREAKPOINT_DESKTOP) {
+        padding-left: 20px;
+        clear       : none;
+        margin-top  : 0;
+      }
+    }
+
+    .spreadsheet {
+      float: left;
+    }
+
+    a[class*="button-icon"] {
+      float: left;
+    }
+
+    p {
+      float       : right;
+      line-height : $_ICON_FONT_SIZE;
+      padding-left: 15px;
+    }
+  }
+
+  .favourite {
+    position: absolute;
+    top     : -40px;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      position: relative;
+      top     : 0;
+      float   : left;
+    }
+  }
+
+}
+/*Main Sale CTA*/
+#MainSaleCTA {
+  margin-top: 20px;
+  padding   : 0;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    position: absolute;
+    top     : 20px;
+    right   : 0;
+  }
+
+  .cta {
+    padding: 0 10px;
+  }
+}
+/*Main Sale Subheader*/
+#MainSaleSubheader {
+  margin : 10px 0 20px;
+  padding: 0;
+
+  .cta-link {
+    margin: 20px 0;
+
+    &:first-of-type {
+      margin-right: 30px;
+    }
+
+    p {
+      display: inline;
+    }
+  }
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    padding   : 0 10px;
+    margin-top: 0;
+  }
+}
+
+#MainContent {
+  clear: both;
+
+  > .lotNumber {
+    margin-left: 0;
+  }
+
+  .imo.fav {
+    padding-left: 0;
+    margin-right: 20px;
+    width       : $_ICON_FONT_SIZE;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      display: none;
+    }
+  }
+
+  .imo.lot {
+    padding: 0;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      display: none;
+    }
+
+    h6 {
+      padding-left: 20px;
+    }
+  }
+}
+
+#saleDescription {
+  .column p:not(:first-of-type) {
+    margin-top: 15px;
+  }
+
+  .column p {
+    margin-bottom: 20px;
+  }
+}
+
+%floatCTALink {
+  position: absolute;
+  //top is same as margin top of h4
+  top     : 1.33em;
+  right   : 0;
+  display : block;
+}
+
+.contact-department {
+  ul.box-link-type-1 {
+    li {
+      //reset box-type-
+      &:nth-child(3n),
+      &:nth-child(3n-1),
+      &:nth-child(3n-2) {
+        padding-right: 0;
+        padding-left : 0;
+      }
+      //odd
+      &:nth-child(2n-1) {
+        @include media-min-width($_BREAKPOINT_TABLET) {
+          padding-right: 10px;
+          padding-left : 0;
+        }
+      }
+      //even
+      &:nth-child(2n) {
+        @include media-min-width($_BREAKPOINT_TABLET) {
+          padding-right: 0;
+          padding-left : 10px;
+        }
+      }
+
+    }
+    //when a department has multipple contacts, they get nested and need the following UL
+    ul {
+      width: 100%;
+
+      li {
+        &:nth-child(2n),
+        &:nth-child(2n-1) {
+          @include media-min-width($_BREAKPOINT_TABLET) {
+            padding-left : 0;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sale-information {
+  position: relative;
+  @include media-min-width($_BREAKPOINT_TABLET) {
+    margin-top: 25px;
+  }
+
+  .section-title {
+    margin-bottom: 0;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      display      : inline-block;
+      width        : 50%;
+      margin-bottom: 7px;
+    }
+  }
+
+  .addToCalendar {
+    font-size: 14px;
+    padding  : 5px 0;
+    margin   : 0;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      //top is same as margin top of h4
+      float    : right;
+      font-size: 16px;
+    }
+  }
+
+  .box-link-type-3 {
+    .container-fluid {
+      padding-top: 0;
+    }
+  }
+}
+
+.box-link {
+  &__special-exhibition {
+    padding: 0;
+    @include media-min-width($_BREAKPOINT_DESKTOP) {
+      padding-left: 15px;
+    }
+  }
+
+  &__viewing {
+    padding: 0;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      padding: 0 1em;
+    }
+  }
+
+}
+
+.upcoming-events {
+  position: relative;
+
+  .viewAll {
+    @extend %floatCTALink
+  }
+}
+
+.related-sales-events {
+  position: relative;
+
+  .viewAll {
+    position  : relative;
+    margin-top: -25px;
+    display   : block;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      position: absolute;
+      //top is same as margin top of h4
+      top     : 1.33em;
+      right   : 0;
+      display : block;
+      margin  : 0;
+    }
+  }
+
+  ul {
+    clear: both;
+  }
+
+  .box-link-type-2.featured {
+    .container-fluid {
+      overflow-y: hidden;
+    }
+
+    img {
+      max-width: 90px;
+      height   : auto;
+      @include media-min-width($_BREAKPOINT_TABLET) {
+        width    : 155px;
+        max-width: 160px;
+      }
+      @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+        width: 140px;
+      }
+      @include media-min-width($_BREAKPOINT_DESKTOP) {
+        width: 180px;
+      }
+    }
+
+    p {
+      padding-left: 0;
+    }
+  }
+}
+
+.related-features {
+  margin-top: 40px;
+
+  .viewAll {
+    font-size : 13px;
+    position  : relative;
+    top       : 0;
+    left      : auto;
+    right     : 0;
+    margin-top: auto;
+    @include media-min-width($_BREAKPOINT_TABLET) {
+      //top is same as margin top of h4
+      position : absolute;
+      top      : 1.33em;
+      font-size: 16px;
+    }
+  }
+}
+
+#LotListings {
+  h4 {
+    margin-top: 5px;
+  }
+
+  .search-2 {
+    //	width: 100%;
+    margin-bottom: 60px;
+
+    .search-container {
+      width: 100%;
+    }
+
+    input {
+      padding-top   : 15px;
+      padding-left  : 0;
+      padding-bottom: 20px;
+      border-top    : 0;
+      border-right  : 0;
+      border-left   : 0;
+      @include atlasGroteskWebMedium;
+      font-size     : 20px;
+
+      &:focus + a,
+      &:hover + a {
+        color: $_COLOR_BLACK;
+      }
+    }
+  }
+}
+////Modal Specific Styling
+.addToCalendarHeader,
+.viewCatalogueHeader {
+  margin-bottom: 0;
+}
+
+.addToCalendarContent,
+.viewCatalogue,
+.viewResultsContent {
+  .mainContent {
+    background: $_COLOR_LIGHT_GREY_3;
+    padding   : 20px;
+    margin-top: 60px;
+
+    &:first-child {
+      margin-top: auto;
+    }
+  }
+
+  .mainImage {
+    width        : 80px;
+    height       : 100px;
+    margin-right : 20px;
+    margin-bottom: 15px;
+    @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+      margin-bottom: 0;
+    }
+
+    img {
+      max-width: none;
+    }
+  }
+
+  .sale-number {
+    margin-bottom: 10px;
+    @include media-min-width($_BREAKPOINT_DESKTOP) {
+      margin-bottom: -4px;
+    }
+  }
+
+  .saleDetails {
+    padding-left: 0;
+    @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+      padding-left: auto;
+      margin-top  : 0;
+    }
+
+    .small-seperator {
+      &::before {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  .actionTitle {
+    margin: 15px 0;
+    @include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+      margin: 40px 0;
+    }
+  }
+
+  a.link {
+    line-height  : $_ICON_FONT_SIZE;
+    margin-bottom: 15px;
+    display      : block;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    span[class*="icon"] {
+      margin-right: 10px;
+    }
+  }
+}
+
+.viewCatalogue {
+  .mainContent {
+    //border:1px solid $_COLOR_LIGHT_GREY_1;
+    @include media-min-width($_BREAKPOINT_DESKTOP) {
+      padding-bottom: 12px;
+    }
+  }
+}
+
+.addToCalendarContent,
+.viewCatalogue {
+  // .mainContent {
+  // 	background: $_COLOR_LIGHT_GREY_3;
+  // }
+  .actions {
+    p {
+      margin-bottom: 15px;
+
+      a {
+        margin-right: 10px;
+        color       : $_COLOR_BLACK;
+      }
+
+      span {
+        color: $_COLOR_BLACK;
+      }
+    }
+  }
+}

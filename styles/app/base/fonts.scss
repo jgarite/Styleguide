@@ -1,0 +1,58 @@
+body {
+	font-size: 62.5%;
+}
+/* fonts */
+.baskerville,
+.baskerville10Pro,
+.f-f_bv {
+	@include baskerville10Pro;
+	&.bold,
+	.bold,
+	b,
+	strong {
+		font-weight: bold;
+	}
+	&.italic,
+	.italic,
+	i {
+		@include baskerville10ProItalic;
+	}
+}
+.baskerville-italic,
+.baskerville10ProItalic,
+.f-f_bv-i {
+	@include baskerville10ProItalic;
+}
+.atlas-light,
+.atlasGroteskLight,
+.f-f_a-l {
+	@include atlasGroteskWebLight;
+	&.bold,
+	.bold,
+	b,
+	strong {
+		@include atlasGroteskWebBold;
+	}
+}
+.atlas-regular,
+.atlasGroteskRegular,
+.f-f_a-r {
+	@include atlasGroteskWebRegular;
+	&.bold,
+	.bold,
+	b,
+	strong {
+		@include atlasGroteskWebBold;
+	}
+}
+.atlas-medium,
+.atlasGroteskMedium,
+.f-f_a-m {
+	@include atlasGroteskWebMedium;
+	&.bold,
+	.bold,
+	b,
+	strong {
+		@include atlasGroteskWebBold;
+	}
+}

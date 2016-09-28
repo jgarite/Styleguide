@@ -1,0 +1,11 @@
+.label {
+	font-size: 14px;
+	color: $_COLOR_GREY_1;
+	display: inline;
+	@include disabled(1) {
+		color: $_COLOR_LIGHT_GREY_1;
+	}
+	&.hotspot {
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,185 @@
+
+.toggle-button {
+
+	display: inline-block;
+
+
+	> label {
+
+		//@include atlasGroteskRegular;
+		@include rhythm($_BODY_COPY, null 3.5, 0 0 1 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+		@include transition(background-color $_HOVER_DURATION, color $_HOVER_DURATION);
+
+		// background-color: red;
+		background-color: transparent;
+		border: 2px solid $_COLOR_BLACK;
+		color: $_COLOR_BLACK;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+
+	}
+
+
+	> input:checked + label {
+
+		background-color: $_COLOR_LIGHT_GREY_2;
+		border: 2px solid transparent;
+		color: $_COLOR_BLACK;
+
+	}
+
+
+	&:not(.disabled) {
+
+		&:hover, &:focus, &.active {
+
+			> label {
+
+				background-color: $_COLOR_BLACK;
+				color: $_COLOR_WHITE;
+
+			}
+
+		}
+
+	}
+
+
+	&.disabled {
+
+		@include not-clickable;
+
+		opacity: 1;
+
+	}
+
+
+	/* WHITE */
+
+	&.white {
+
+		> label {
+
+			@include rhythm($_BODY_COPY, null 3.5, 0 0 1 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+
+			border: 2px solid $_COLOR_WHITE;
+			color: $_COLOR_WHITE;
+
+		}
+
+
+		> input:checked + label {
+
+			background-color: $_COLOR_GREY_1;
+			border: 2px solid transparent;
+			color: $_COLOR_WHITE;
+
+		}
+
+
+		&:not(.disabled) {
+
+			&:hover, &:focus, &.active {
+
+				> label {
+
+					background-color: $_COLOR_WHITE;
+					color: $_COLOR_BLACK;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+.toggle-link {
+
+	> label {
+
+		//@include atlasGroteskRegular;
+		@include rhythm($_BODY_COPY, null 2.5, 0 0 1 0);
+		@include transition(background-color $_HOVER_DURATION, color $_HOVER_DURATION);
+
+		// background-color: red;
+		background-color: transparent;
+		color: $_COLOR_BLACK;
+		padding: 0;
+		position: relative;
+		text-align: center;
+		text-decoration: none;
+
+	}
+
+
+	> input:checked + label {
+
+		color: $_COLOR_GREY_1;
+
+	}
+
+
+	&:not(.disabled) {
+
+		&:hover, &:focus, &.active {
+
+			> label {
+
+				color: $_COLOR_GREY_2;
+
+			}
+
+		}
+
+	}
+
+
+	&.disabled {
+
+		@include not-clickable;
+
+		opacity: 1;
+
+	}
+
+
+	/* WHITE */
+
+	&.white {
+
+		> label {
+
+			color: $_COLOR_WHITE;
+
+		}
+
+
+		> input:checked + label {
+
+			color: $_COLOR_LIGHT_GREY_1;
+
+		}
+
+
+		&:not(.disabled) {
+
+			&:hover, &:focus, &.active {
+
+				> label {
+
+					color: $_COLOR_GREY_2;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

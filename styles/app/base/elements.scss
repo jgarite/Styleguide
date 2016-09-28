@@ -1,0 +1,22 @@
+blockquote,
+.blockquote,
+.bq {
+	@include baskerville10ProItalic;
+	font-size: 30px;
+	line-height: 40px;
+	color: $_COLOR_BLACK;
+}
+b,
+strong,
+.bold {
+	@include atlasGroteskWebMedium;
+}
+
+.small,
+small {
+	@include text-rhythm($_BODY_COPY_SMALL, 1.5, 0 0 0.5 0);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

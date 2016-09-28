@@ -1,0 +1,145 @@
+
+$_GALLERY_BUTTONS_SIZE: 2 * $_BASE_LINE_HEIGHT;
+
+
+.gallery-title {
+
+	width: 100%;
+
+
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		padding-right: $_COLUMN_GUTTER;
+
+	}
+
+}
+
+
+.gallery-slider-container {
+
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+
+
+	.gallery-buttons-container, .image-preview.gallery-buttons-container {
+
+		left: 0;
+		position: absolute;
+		top: 0;
+
+	}
+	//Gallery 1: used in Lot Details
+	&.gallery-1 {
+		> .gallery-buttons-container {background-color:#fff;min-height:480px;}
+		> ul.gallery-slider {
+		  transition: all 0.5s ease-in-out;
+		  -webkit-transition: all 0.5s ease-in-out;
+		}
+		> ul.gallery-slider .image-preview-container {min-height:480px;max-width:290px;margin:auto;
+			// tablet+
+			@include media-min-width($_BREAKPOINT_TABLET) {
+		
+				max-width:265px
+		
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		
+				max-width:265px
+		
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+		
+				max-width:430px
+		
+			}
+		}
+		> ul.gallery-slider .image-preview {background-size:100%;}
+	/*	> ul.gallery-slider-thumbnails .image-preview-container {min-height:auto;height:80px;width:80px;margin:0;padding:0;}
+		> ul.gallery-slider-thumbnails .image-preview {background-size:100%;}*/
+	}
+}
+
+
+
+.gallery-slider {
+
+	@include clearfix;
+	@include transition(margin-left $_PANEL_DURATION);
+
+	margin-left: 0%;
+	position: relative;
+
+
+	> li {
+
+		float: left;
+		padding: 0;
+
+	}
+	
+
+	@mixin generate-gallery-classes($images: 20) {
+
+		@for $i from 1 through $images {
+
+			$className: '&.gallery-slider-count-' + $i;
+
+		    #{$className} {
+
+		    	width: $i * 100%;
+
+
+		    	> li {
+
+		    		width: 100% / $i;
+
+		    	}
+
+		    }
+
+		}
+
+	}
+
+	@include generate-gallery-classes();
+
+
+	.content {
+
+		.category-title {
+
+			margin-top: getRhythm(1.1, 1);
+
+		} 
+
+	}
+
+
+	.box-link {
+
+		> a {
+
+			padding-bottom: 0;
+
+		}
+
+	}
+	
+}
+
+.gallery-slider-thumbnails {
+	margin:15px 0;
+		li {
+			overflow:hidden;padding:0 5px;
+			// tablet+
+			@include media-min-width($_BREAKPOINT_TABLET) {
+		
+				padding:0 10px;
+		
+			}
+
+		}
+}

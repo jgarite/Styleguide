@@ -1,0 +1,778 @@
+//@import '../element/tooltip';
+.container,
+.container-modules:first-child {
+	padding-top: 0;
+}
+.lot-header-container {
+	margin-top: 20px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		margin-top: 40px;
+	}
+}
+/*Sale Landing Template*/
+#MainLotHeader {
+	//	margin-top: -40px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-left: 0;
+		margin-top  : 0;
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding: 0 0 0 10px;
+	}
+	.category-title {
+		line-height: 11px;
+	}
+	.sale-title {
+		font-size  : 18px;
+		line-height: 24px;
+		margin-top : 10px;
+		//@extend .header-4;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			font-size  : 25px;
+			line-height: 35px;
+			font-weight: 500;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			font-size  : 20px;
+			line-height: 25px;
+			margin-top : 15px;
+		}
+	}
+}
+#MainLotTitle {
+	padding-left : 35px;
+	padding-right: 0;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-left: 0;
+		margin-left : -5px;
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding-left: 20px;
+		margin-left : 0;
+	}
+}
+#MainLotImage {
+	.image-preview-container {
+		width     : 70px;
+		min-height: 100px;
+		padding   : 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width : 80px;
+			margin: 0 0 0 9px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin: 0;
+		}
+	}
+}
+/*Main Sale Materials (ie: view catalogue)*/
+#MainLotMaterials {
+	.favourite {
+		position: absolute;
+		top     : -40px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position: relative;
+			top     : 0;
+		}
+		.side-seperator-right {
+			margin: 0 15px;
+			float : right;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				margin: 0 20px;
+			}
+		}
+	}
+	p {
+		float       : right;
+		line-height : $_ICON_SIZE;
+		padding-left: 10px;
+		font-size   : 11px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			font-size: initial;
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		margin-top  : 25px;
+		padding-left: 10px;
+	}
+}
+/*Main Sale CTA*/
+#MainLotCTA {
+	padding: 0;
+	a {
+		&.cta {
+			white-space: nowrap;
+			float      : left;
+			margin     : 0 20px 0 0;
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		position: absolute;
+		top     : 20px;
+		right   : 0;
+	}
+}
+/*Main Sale Subheader*/
+#MainLotSubheader {
+	margin: 10px 0 20px;
+	@extend .no-padding;
+	.cta-link {
+		margin: 20px 0;
+		&:first-of-type {
+			margin-right: 30px;
+		}
+		p {
+			display: inline;
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-left: 0;
+		margin-top  : 5px;
+		margin-left : -5px;
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding    : 0 20px;
+		margin-left: 0;
+	}
+}
+.allContent {
+	> li {
+		margin-top: 20px;
+		//  padding: 0 10px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-top: 25px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-top: 20px;
+		}
+	}
+}
+#MainContent {
+	clear: both;
+	.favoriteIcon,
+	.lotNumberContainer {
+		//Absolute positioning is used on mobile because the content lives deeper in the HTML structure than it should to appear in the desired location on mobile, but lives in the correct place in the HTML structure to appear in the desired location on desktop. Rather than add the lotnumber and follow logic twice in the backend code, we are using position:absolute to move the icon and lot number above the main image. -JG
+		position: absolute;
+		top     : 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position: relative;
+		}
+	}
+	.favoriteIcon {
+		left: 15px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding: 0;
+			left   : 0;
+		}
+		.inactive-lot & {
+			display: none;
+		}
+	}
+	.lotNumberContainer {
+		left   : 75px;
+		top    : 5px;
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin : 0;
+			padding: 0 $_COLUMN_GUTTER;
+			left   : 0;
+			top    : 0;
+		}
+		&.past-lot {
+			left        : 0;
+			padding-left: 15px;
+			border-left : 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-left: 0;
+			}
+			h6 {
+				border-left : 0;
+				padding-left: 0;
+			}
+		}
+	}
+	.imo.fav {
+		padding-left: 0;
+		margin-right: 20px;
+		width       : $_ICON_FONT_SIZE;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: none;
+		}
+	}
+	.lotDetails {
+		clear: right;
+		float: right;
+	}
+	.lotDetails:before {
+		content: '';
+		@extend .seperator;
+		margin : 25px 0 12px;
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			margin-top: 40px;
+		}
+	}
+	.lotDescription:after {
+		@extend .seperator;
+		margin: 12px 0 0;
+	}
+	.lotLink {
+		&:after {
+			@extend .seperator;
+			margin: 14px 0;
+		}
+	}
+	.contact {
+		margin-bottom: 40px;
+	}
+}
+//Lot number shared in #MainContent and #MainContentDetails
+.lotNumber {
+	line-height : 30px;
+	position    : relative;
+	border-left : 1px solid $_COLOR_LIGHT_GREY_1;
+	margin      : 0;
+	padding-left: 20px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-left: 20px;
+		margin      : 6px 0 0 20px;
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin-left: 10px;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		margin-left: 0;
+	}
+
+	.inactive-lot & {
+		margin-left : 0;
+		padding-left: 0;
+		border      : 0;
+	}
+}
+#MainContentImage {
+	margin: 60px 0 20px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		float : left;
+		margin: 0 0 30px;
+	}
+}
+/*Main Content*/
+#MainContentDetails {
+	margin-top: 10px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		float     : right;
+		margin-top: 0;
+	}
+	.christies-icon_favourite {
+		margin-bottom: 20px;
+	}
+	h1.lotName,
+	h1.lotName b,
+	h1.lotName em,
+	h1.lotName i,
+	h1.lotName strong {
+		@extend .header-4;
+		margin       : 0;
+		line-height  : 40px;
+		margin-bottom: 25px;
+		font-size    : 24px;
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			font-size    : 30px;
+			margin-bottom: 20px;
+		}
+	}
+	h2.itemName {
+		@include atlasGroteskWebRegular;
+		margin     : 0;
+		padding    : 0;
+		position   : relative;
+		line-height: 21px;
+		font-size  : 18px;
+		&.small-seperator {
+			line-height: 1.5em !important;
+		}
+	}
+	.christies-icon_information {
+		/*	position:relative;
+		float:right;
+		top:-2px;*/
+		color     : $_COLOR_LIGHT_GREY_1;
+		transition: color .3s;
+		&:hover {
+			color: $_COLOR_BLACK;
+		}
+	}
+	.price {
+		font-size:14px;
+		padding-bottom: 15px;
+		line-height   : 1em;
+		display       : block;
+		clear         : both;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			font-size:16px;
+		}
+		.estimate-realised {
+			//@extend .header-3;
+			font-size     : 16px;
+			font-weight   : 500;
+			padding-bottom: 15px;
+			float         : left;
+			display       : block;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				clear: both;
+			}
+			&.small-seperator:before {
+				padding: 0;
+				width  : 10px;
+			}
+			span {
+				line-height: 24px;
+			}
+		}
+	}
+	.info {
+		float     : left;
+		margin-top: 0;
+		top       : 30px;
+		position  : relative;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-top: 30px;
+			top       : 0;
+		}
+	}
+	.tooltip {
+		@extend .tooltip;
+		width: 271px;
+		top  : 57px;
+		right: -28px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width: 281px;
+			right: -63px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			right: -190px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			position: absolute;
+			top     : -10px;
+			left    : 50px;
+		}
+		//for the arrow
+		&:before {
+			right      : 38px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				right: 72px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				right: 198px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				right    : auto;
+				left     : -20px;
+				top      : 20px;
+				transform: rotate(-90deg);
+			}
+			margin-left: 0;
+			left       : auto;
+		}
+	}
+	h5 {
+		clear  : both;
+		display: block;
+		margin : 10px 0;
+	}
+	.changeCurrency {
+		overflow: visible;
+		a.cta-link {
+			line-height: 1.2em;
+			overflow   : visible;
+		}
+	}
+	.register {
+		margin-top   : 15px;
+		margin-bottom: 15px;
+		padding      : 0;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-bottom: 0;
+			padding      : 0 20px 0 0;
+		}
+		> a.cta {
+			padding: 0;
+			width  : 100%;
+		}
+	}
+	.condition {
+		margin : 0;
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin : 15px 0 0;
+			padding: 0 20px 0 0;
+		}
+		> a.cta {
+			padding: 0;
+			width  : 100%;
+		}
+	}
+	.interests {
+		text-align: center;
+		margin-top: 15px;
+		padding   : 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			clear: both;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			clear: none;
+		}
+		> .followThisSearch {
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				line-height: 50px;
+				margin-left: -40px;
+			}
+			&:before {
+				margin-left: -10px;
+				margin-top : -3px;
+				font-size  : 16px;
+				font-weight: 500;
+				width      : 30px;
+				content    : $christies-icon_plus;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					margin-left: 0;
+				}
+			}
+			&[disabled="disabled"]:before {
+				content: $christies-icon_tick;
+			}
+		}
+	}
+}
+.additional-details {
+	.accordion {
+		//never style the .in container with padding or margin - it will cause jumping when you open and close the acccordion
+		.content {
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				padding-top: 40px;
+			}
+		}
+	}
+}
+#RelatedFeatures {
+	h4 {
+		margin: 10px 0;
+	}
+	.viewAllRelatedFeatures {
+		margin: 0 0 15px;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			position: absolute;
+			top     : 20px;
+			right   : 0;
+		}
+	}
+}
+#ContactDepartment {
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		border-top: 0;
+	}
+	header {
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			pointer-events: none;
+		}
+	}
+	.content {
+		padding-bottom: 0;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			display: block;
+		}
+		ul[class^="box-link"] {
+			padding-bottom: 32px;
+			li:last-of-type {
+				padding-bottom: 0;
+			}
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		.button-icon {
+			display: none;
+		}
+	}
+}
+.accordion-1 {
+	//LF-81: Align all button icons to center
+	.button-icon::before {
+		margin-left: 0;
+	}
+}
+
+//Condition Report specific CSS
+#conditionReportTitle.modal-title {
+	text-align   : center;
+	margin-top   : 0;
+	padding      : 0;
+	margin-bottom: 15px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		text-align   : left;
+		margin-top   : 0;
+		margin-bottom: 20px;
+	}
+}
+#conditionReportContent {
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin-top: -24px;
+	}
+	.column{
+		padding:0;
+		//text-align: right;
+	}
+	.date-time {
+		text-align: left;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			text-align: right;
+		}
+
+	}
+	.lotTitle {
+		margin: 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			font-size: 16px;
+		}
+	}
+	.conditionReportDetails {
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			padding-left: 8px;
+		}
+		.small-seperator {
+			padding-top: 6px;
+			padding-bottom: 11px;
+		}
+		.seperator {
+			margin:23px 0;
+		}
+		.conditionReport_lotNumber {
+			padding-top: 20px;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				padding-top: 0;
+			}
+		}
+	}
+}
+#conditionReportFooter {
+	#idPhone {
+		margin-top: 20px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+				margin-top: 30px;
+		}
+	}
+}
+.modal-footer {
+	.user-information {
+			padding: 0;
+		clear      : both;
+		.column{
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				padding:0;
+			}
+
+		}
+		.input_text{
+			width: 100%;
+			margin-top: 30px;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				width: 96.9%;
+				margin: 0 9px 20px;
+			}
+		}
+		.form-select{
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				padding-left: 9px;
+			}
+		}
+	}
+}
+//TODO: replace # with class
+@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+	.conditionReportFooter_Unavailable .cta.grey {
+		margin-left: 90px;
+	}
+	#idVerificationcode {
+		margin-top: 57px;
+	}
+}
+//"Email Lot to a friend" specific CSS
+#emailLotTitle {
+	text-align   : center;
+	margin-top   : 0;
+	padding      : 0;
+	margin-bottom: 20px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		text-align   : left;
+		margin-top   : 0;
+		margin-bottom: 20px;
+	}
+
+}
+#emailLotContent {
+	background   : $_COLOR_LIGHT_GREY_3;
+	overflow     : auto;
+	margin-bottom: 30px;
+	padding: 20px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin-top: -20px;
+		padding: 20px 0 20px 20px;
+	}
+	.image-preview-container{
+		&::before {
+			background:transparent;
+		}
+	}
+	.artist {
+		margin: 0;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			font-weight: normal;
+		}
+	}
+}
+#emailLotImage {
+	margin-bottom: 20px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding: 0;
+		margin-bottom: 0;
+		width  : 65px;
+	}
+	.image-preview-container {
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width     : 65px;
+			max-height: 70px;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+.emailLotDetails {
+	padding: 0;
+	.lotSaleInfoContainer {
+		.location {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-left: 0;
+			}
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding-left: 5px;
+		width       : calc(100% - 65px);
+		.small-seperator {
+			display: none;
+		}
+		.price p {
+			font-weight: 500;
+		}
+		.date,
+		.location {
+			font-size: 14px;
+		}
+		.artist,
+		.category-title,
+		.date,
+		.location,
+		.lotSaleInfo {
+			text-align : right;
+			font-size  : 14px;
+			font-weight: 300;
+			line-height: 24px;
+			color      : $_COLOR_BLACK;
+		}
+		.artist {
+			text-align : left;
+			line-height: auto;
+			font-size  : 16px;
+		}
+	}
+	.lotSaleInfoContainer {
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			position: absolute;
+			right   : 10px;
+		}
+	}
+}
+#emailLotFooter {
+	padding: 0 10px;
+	.verification	{
+		margin-bottom: 20px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-bottom: 0;
+		}
+	}
+	.thank-you {
+		font-size : 16px;
+		width     : 90%;
+		text-align: left;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			font-size : 18px;
+			width     : 100%;
+			padding: 0;
+			text-align: center;
+
+		}
+	}
+	.label,
+	label {
+		line-height: 32px;
+		&.under {
+			line-height  : 1em;
+			margin-top   : -10px;
+			margin-bottom: 15px;
+			font-size    : 13px;
+			width        : 100%;
+			text-align   : right;
+			display      : inline-block;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				margin-top   : -5px;
+				margin-bottom: 40px;
+			}
+		}
+	}
+	.seperator.seperator-4 {
+		margin: 40px 0;
+	}
+	fieldset {
+		border : 0;
+		padding: 0;
+	}
+	.label {
+		margin-bottom: 30px;
+		display      : block;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-bottom: 25px;
+			width        : 100%;
+		}
+		input[type="checkbox"],
+		input[type="radio"] {
+			float         : left;
+			display       : block;
+			margin-top    : 0;
+			vertical-align: middle;
+		}
+		span {
+			padding-left: 20px;
+			font-weight:400;
+		}
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		&.under {
+			margin-bottom:40px;
+			//color        : $_COLOR_BLACK;
+			font-weight:400;
+		}
+	}
+}
+#MainContentDetails,
+.lotDetails {
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding-left: 15px;
+	}
+}
+.christies_fav_Title {
+    position: relative;
+    top: 2px;
+    padding-left: 20px;
+}

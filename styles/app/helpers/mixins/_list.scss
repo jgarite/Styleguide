@@ -1,0 +1,9 @@
+@mixin numberListElement($num) {
+
+  &:nth-child(#{$num}):before {
+
+    content: $num + quote(".");
+
+  }
+
+}

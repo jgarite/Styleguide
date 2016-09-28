@@ -1,0 +1,28 @@
+#imageModal {
+	//For Carousels
+	.modal-dialog {
+		margin: auto;
+		width: 100%;
+	}
+	.modal-content {
+		//the height is calculated by the 100% of the viewport height (vh) - some space for padding
+		height: calc(100vh - 10px);
+		overflow: hidden;
+		border-top: 40px solid $_COLOR_WHITE;
+		border-bottom: 40px solid $_COLOR_WHITE;
+		border-left: 20px solid $_COLOR_WHITE;
+		border-right: 20px solid $_COLOR_WHITE;
+		padding: 0;
+		margin: 5px;
+		img {
+			width: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			cursor: move;
+		}
+		.close {
+			position: fixed;
+		}
+	}
+}

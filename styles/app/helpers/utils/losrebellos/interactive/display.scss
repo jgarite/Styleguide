@@ -1,0 +1,62 @@
+
+@mixin show-object($displayValue: null) {
+
+	@include clickable;
+
+	@if($displayValue == null or $displayValue == 'inline-block') {
+	
+		display: inline-block;
+
+	}
+	@else {
+	
+		display: $displayValue;
+
+	}
+
+}
+
+
+@mixin show-interactive-object($displayValue: null) {
+
+	@include show-object($displayValue);
+
+	cursor: pointer;
+
+
+	&:hover, &:focus {
+
+		cursor: pointer;
+
+	}
+
+}
+
+
+@mixin hide-object {
+
+	@include not-clickable;
+
+	display: none;
+
+}
+
+
+/* FADE */
+
+@mixin fade-in-object {
+
+	@include clickable;
+
+	opacity: 1;
+
+}
+
+
+@mixin fade-out-object {
+
+	@include not-clickable;
+
+	opacity: 0;
+
+}

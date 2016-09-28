@@ -1,0 +1,12 @@
+@import "basic";
+@import "fullscreen";
+@import "iframe";
+@import "image";
+
+//First-time interaction Modal
+.modal--text_favorite-title,
+.christies_fav_Title {
+	position:absolute;
+	top:3px;
+	padding-left: 20px;
+}

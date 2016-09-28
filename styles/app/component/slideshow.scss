@@ -1,0 +1,195 @@
+$_SLIDESHOW1_PADDING_TOP: 60px; //made into a variable because the value is used in a calculation for the controls.
+.slideshow {
+	background-color: $_COLOR_LIGHT_GREY_3;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		padding-top: 60px;
+		padding-bottom: 60px;
+	}
+	.title {
+		padding: 0 0 30px 1em;
+		margin: 0;
+	}
+	.slideshow-control-left,
+	.slideshow-control-right {
+		position: absolute;
+		top: 67px;
+		//left: -10px;
+		height: $_ICON_FONT_SIZE;
+		width: $_ICON_FONT_SIZE;
+		right: 0;
+		bottom: 0;
+		z-index: 999;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			top: 100px;
+			height: $_ICON_FONT_SIZE;
+			width: $_ICON_FONT_SIZE;
+			right: 0;
+			left: 0;
+		}
+		.button-icon {
+			left: 23px;
+			top: 13px;
+		}
+	}
+	.slideshow-control-left {
+		left: 0;
+		right: auto;
+	}
+	.slideshow-control-right {
+		left: auto;
+		//right: -10px;
+		// .button-icon {
+		// 	left: auto;
+		// 	right: -17px;
+		// 	@include media-min-width($_BREAKPOINT_TABLET) {
+		// 		height: $_ICON_FONT_SIZE;
+		// 		width: $_ICON_FONT_SIZE;
+		// 		right: 0;
+		// 	}
+		//
+		// }
+	}
+}
+.slideshow-1 {
+	position: relative;
+	> ul,
+	li {
+		padding:0;
+		.small {
+			margin: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+	}
+	> ul {
+		transform: translateX(0);
+	}
+	ul {
+		padding: 0;
+		left: 0;
+		transition: transform 0.5s ease-out;
+		-webkit-transition: transform 0.5s ease-out;
+		box-sizing: content-box;
+		position: relative;
+	}
+	li {
+		width: 320px;
+		float: left;
+		//display: inline-block;
+		white-space: normal;
+		position: relative;
+		padding: 0 10px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width: 330px;
+			margin: 0 10px;
+			padding: 0;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 300px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width: 380px;
+		}
+		.box-item-container {
+			border: 0;
+			padding: 0;
+			.christies-icon_favourite {
+				position: absolute;
+				top: 0;
+				right: 10px;
+				z-index: 10;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					top: -5px;
+					right: 5px;
+				}
+			}
+		}
+		&:first-child {
+			@include media-width($_BREAKPOINT_TABLET,$_BREAKPOINT_TABLET_TO_DESKTOP) {
+				margin-left: 40px;
+			}
+		}
+	}
+	.image-overlay-box {
+		//display: table-cell;
+		//	height: $_MOBILE_FIXED_GRID_SIZE;
+		position: relative;
+		padding-bottom: 20px;
+		//vertical-align: middle;
+		//	width: $_MOBILE_FIXED_GRID_SIZE;
+		margin: auto;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding-bottom: 40px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding-bottom: 30px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			//		width: $_TABLET_FIXED_GRID_SIZE;
+			//		height: $_TABLET_FIXED_GRID_SIZE;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			//		width: $_DESKTOP_FIXED_GRID_SIZE;
+			//		height: $_DESKTOP_FIXED_GRID_SIZE;
+		}
+		.image-preview-container {
+			width: 200px;
+			height: 195px;
+			margin: auto;
+			padding: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width: 260px;
+				height: 250px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				width: 230px;
+				height: 230px;
+			}
+			min-height: auto;
+			max-width: auto;
+			img {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				display: block;
+				margin: auto;
+				width: auto;
+				height: auto;
+				max-width: 200px;
+				max-height: 195px;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					max-width: 260px;
+					max-height: 250px;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					max-width: 230px;
+					max-height: 230px;
+				}
+			}
+		}
+		/*img {
+			display: block;
+			//width:auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+			margin: auto;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding: 40px;
+			}
+		}*/
+	}
+	.detailscontainer {
+		margin: 15px 0 20px;
+	}
+}

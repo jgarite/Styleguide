@@ -1,0 +1,190 @@
+//This file could be DRY-ed if someone has time -JG
+
+@mixin column($cols, $columnNum: $_COLUMN_NUMBER) {
+		width: getColumnWidth($cols, $columnNum);
+}
+
+@mixin columnPull($cols, $columnNum: $_COLUMN_NUMBER) {
+		right: getColumnWidth($cols, $columnNum);
+}
+@mixin columnPush($cols, $columnNum: $_COLUMN_NUMBER) {
+		left: getColumnWidth($cols, $columnNum);
+}
+@mixin columnOffset($cols, $columnNum: $_COLUMN_NUMBER) {
+		margin-left: getColumnWidth($cols, $columnNum);
+}
+
+
+
+@function getColumnDefaultWidth($columnNum: $_COLUMN_NUMBER) {
+
+	@return 100% / $columnNum;
+
+}
+
+@function getColumnWidth($cols, $columnNum: $_COLUMN_NUMBER) {
+
+	@return 100% * $cols / $columnNum;
+
+}
+
+//making mobile columns
+@function getColumnWidth($cols, $columnNum: $_COLUMN_NUMBER) {
+
+	@return 100% * $cols / $columnNum;
+
+
+}
+
+
+@mixin generate-columns($columnsNum: $_COLUMN_NUMBER) {
+
+	@for $i from 1 through $columnsNum {
+
+		$original: '.col-' + $i + '-' + $columnsNum;
+		$mobile: '.col-sm-' + $i;
+		$tabletP:  '.col-md-' + $i;
+		$tabletL:  '.col-lg-' + $i;
+		$desktop:  '.col-xl-' + $i;
+		$originalPull: '.col-pull-' + $i;
+		$mobilePull: '.col-sm-pull-' + $i;
+		$tabletPPull:  '.col-md-pull-' + $i;
+		$tabletLPull:  '.col-lg-pull-' + $i;
+		$desktopPull:  '.col-xl-pull-' + $i;
+		$originalPush: '.col-push-' + $i;
+		$mobilePush: '.col-sm-push-' + $i;
+		$tabletPPush:  '.col-md-push-' + $i;
+		$tabletLPush:  '.col-lg-push-' + $i;
+		$desktopPush:  '.col-xl-push-' + $i;
+		$originalOffset: '.col-offset-' + $i;
+		$mobileOffset: '.col-sm-offset-' + $i;
+		$tabletPOffset:  '.col-md-offset-' + $i;
+		$tabletLOffset:  '.col-lg-offset-' + $i;
+		$desktopOffset:  '.col-xl-offset-' + $i;
+
+		@if $columnsNum == $_COLUMN_NUMBER {
+
+			$original: '.col-' + $i;
+
+		}
+
+
+		$special1: '';
+		$special2: '';
+//6
+		@if $i == $columnsNum / 2 {
+
+			$special1: '.col-half-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.col-half';
+
+			}
+
+		}
+//4
+		@if $i == $columnsNum / 3 {
+
+			$special1: '.col-third-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.col-third';
+
+			}
+
+		}
+//3
+		@if $i == $columnsNum / 4 {
+
+			$special1: '.col-quarter-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.col-quarter';
+
+			}
+
+		}
+		//mobile
+		@include media-width(0, ($_BREAKPOINT_TABLET - 1)) {
+			#{$original} {
+
+				@include column($i, $columnsNum);
+
+			}
+			#{$originalPull} {
+
+				@include columnPull($i, $columnsNum);
+			}
+			#{$originalPush} {
+
+				@include columnPush($i, $columnsNum);
+			}
+			#{$originalOffset} {
+
+				@include columnOffset($i, $columnsNum);
+			}
+		}
+		//tablet p
+		@include media-width($_BREAKPOINT_TABLET,($_BREAKPOINT_TABLET_TO_DESKTOP - 1)) {
+			#{$tabletP} {
+
+				@include column($i, $columnsNum);
+			}
+			#{$tabletPPull} {
+
+				@include columnPull($i, $columnsNum);
+			}
+			#{$tabletPPush} {
+
+				@include columnPush($i, $columnsNum);
+			}
+			#{$tabletPOffset} {
+
+				@include columnOffset($i, $columnsNum);
+			}
+		}
+		//tablet l
+		@include media-width($_BREAKPOINT_TABLET_TO_DESKTOP,( $_BREAKPOINT_DESKTOP - 1)) {
+			#{$tabletL} {
+
+				@include column($i, $columnsNum);
+			}
+			#{$tabletLPull} {
+
+				@include columnPull($i, $columnsNum);
+			}
+			#{$tabletLPush} {
+
+				@include columnPush($i, $columnsNum);
+			}
+			#{$tabletLOffset} {
+
+				@include columnOffset($i, $columnsNum);
+			}
+		}
+		//desktop
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			#{$desktop} {
+
+				@include column($i, $columnsNum);
+			}
+			#{$desktopPull} {
+
+				@include columnPull($i, $columnsNum);
+			}
+			#{$desktopPush} {
+
+				@include columnPush($i, $columnsNum);
+			}
+			#{$desktopOffset} {
+
+				@include columnOffset($i, $columnsNum);
+			}
+		}
+
+	}
+
+}

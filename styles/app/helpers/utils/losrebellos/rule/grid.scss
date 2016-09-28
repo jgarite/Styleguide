@@ -1,0 +1,82 @@
+
+@function getColumnDefaultWidth($columnNum: $_COLUMN_NUMBER) {
+
+	@return 100% / $columnNum;
+
+}
+
+@function getColumnWidth($cols, $columnNum: $_COLUMN_NUMBER) {
+
+	@return 100% * $cols / $columnNum;
+
+}
+
+
+@mixin column($cols, $columnNum: $_COLUMN_NUMBER) {
+
+	width: getColumnWidth($cols, $columnNum);
+
+}
+
+
+@mixin generate-columns($columnsNum: $_COLUMN_NUMBER) {
+
+	@for $i from 1 through $columnsNum {
+
+		$original: '.column-' + $i + '-' + $columnsNum;
+
+		@if $columnsNum == $_COLUMN_NUMBER {
+
+			$original: '.column-' + $i;
+
+		}
+
+
+		$special1: '';
+		$special2: '';
+
+		@if $i == $columnsNum / 2 {
+
+			$special1: '.column-half-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.column-half';
+
+			}
+
+		}
+
+		@if $i == $columnsNum / 3 {
+
+			$special1: '.column-third-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.column-third';
+
+			}
+
+		}
+
+		@if $i == $columnsNum / 4 {
+
+			$special1: '.column-quarter-' + $columnsNum;
+
+			@if $columnsNum == $_COLUMN_NUMBER {
+
+				$special2: '.column-quarter';
+
+			}
+
+		}
+
+		#{$original}, #{$special1}, #{$special2} {
+
+			@include column($i, $columnsNum);
+
+		}
+
+	}
+	
+}

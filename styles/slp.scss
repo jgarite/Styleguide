@@ -1,0 +1,22 @@
+/*test*/
+/*Base CSS*/
+@import 'app/helpers/utils/bourbon/_bourbon';
+@import 'app/helpers/utils/losrebellos/_losrebellos';
+@import 'app/reset/losrebellos/_losrebellos';
+@import 'app/helpers/mixins/_grid';
+@import 'app/helpers/mixins/_list';
+@import 'app/helpers/mixins/_responsive-visibility';
+@import 'app/helpers/mixins/_rhythm';
+@import "app/base/typography/_font-var";
+@import "app/base/typography/_sizes";
+@import "app/base/_colors";
+@import "app/base/_icon-var";
+@import "app/base/_animations";
+@import "app/base/_sizes";
+@import "app/base/typography/fonts";
+@import "app/base/icons";
+@import "app/base/typography/headers";
+@import "app/base/typography/utils";
+@import "app/base/typography/weight";
+@import "app/templates/_lot-detail";
+@import "app/templates/sale-landing";

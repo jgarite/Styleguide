@@ -1,0 +1,194 @@
+//As a general rule, there are only two sizes of modals: Mobile is used from 0-1023. Desktop is used for 1024+
+.modal-open {
+	//overflow: hidden;
+	position: fixed;
+	overflow: hidden;
+	.modal {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+.modal {
+	display: none;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1050;
+	-webkit-overflow-scrolling: auto !important;
+	outline: 0;
+
+}
+
+.modal-dialog {
+	position: relative;
+	width: auto;
+	margin: 10px auto 0;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		margin-top: 30px;
+	}
+
+}
+.modal-content {
+	position: relative;
+	background-color: $_COLOR_WHITE;
+	border: 0;
+	outline: 0;
+	padding: 50px 20px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding: 40px 30px;
+	}
+	.seperator {
+		margin: 15px 0;
+	}
+	.close {
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		border: 0;
+		outline: 0;
+		padding: 0;
+		&::before {
+			font-size: 15px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			top: 0;
+			right: 0;
+		}
+	}
+
+}
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	background-color: #000000;
+}
+.modal-backdrop.fade {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.modal-header {
+	border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+	margin-bottom: 15px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin-bottom: 40px;
+	}
+}
+.modal-title {
+	margin: 0;
+	padding-bottom: 30px;
+	font-size: 25px;
+	line-height: 24px;
+	text-align: center;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding-bottom: 40px;
+		text-align: left;
+		line-height: 35px;
+		font-weight: 500;
+	}
+}
+.modal-body {
+	position: relative;
+	font-size: 16px;
+	.image-preview-container {
+		float: left;
+		clear: both;
+		width: 125px;
+		height: 125px;
+		margin: auto;
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 350px;
+			height: 350px;
+			clear: none;
+		}
+		min-height: inherit;
+		max-width: inherit;
+		img {
+			position: absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			display: block;
+			margin: 0 auto;
+			width: auto;
+			height: auto;
+			max-width: 125px;
+			max-height: 125px;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				max-width: 350px;
+				max-height: 350px;
+			}
+		}
+	}
+}
+.modal-footer {
+	.cta {
+		cursor: pointer;
+		width: 100%;
+		margin-top: 40px;
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: auto;
+		}
+	}
+}
+.modal-footer .btn + .btn {
+	margin-left: 5px;
+	margin-bottom: 0;
+}
+.modal-footer .btn-group .btn + .btn {
+	margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+	margin-left: 0;
+}
+.modal-scrollbar-measure {
+	position: absolute;
+	top: -9999px;
+	width: 50px;
+	height: 50px;
+	overflow: scroll;
+}
+// .modal-sm {
+// 	width: 300px;
+// }
+.modal-dialog {
+	max-width: 420px;
+}
+
+@include media-min-width($_BREAKPOINT_TABLET) {
+	.modal-dialog {
+		max-width: none;
+		width: 420px;
+	}
+	.modal-content {
+		-webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+	}
+}
+@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+	.modal-dialog {
+		width: 780px;
+	}
+}
+.modal-footer:after,
+.modal-footer:before,
+.modal-header:after,
+.modal-header:before {
+	content: " ";
+	display: table;
+}
+.modal-footer:after,
+.modal-header:after {
+	clear: both;
+}

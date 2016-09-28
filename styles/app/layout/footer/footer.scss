@@ -1,0 +1,602 @@
+.global-footer {
+	position  : relative;
+	background: $_COLOR_WHITE;
+
+	padding   : 10px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding   : 0;
+		background: $_COLOR_LIGHT_GREY_3;
+	}
+	.form-select.lang {
+		padding   : 0;
+		background: #fefefe;
+		background: -moz-linear-gradient(top, #fefefe 0%, #efefef 100%);
+		background: -webkit-linear-gradient(top, #fefefe 0%,#efefef 100%);
+		background: linear-gradient(to bottom, #fefefe 0%,#efefef 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=  '#fefefe', endColorstr='#efefef',GradientType=0 );
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: none;
+		}
+		&::before {
+			width       : 0;
+			height      : 0;
+			border-style: solid;
+			border-width: 5px 5px 0 5px;
+			border-color: $_COLOR_GREY_2 transparent transparent transparent;
+			content     : ' ';
+			position    : absolute;
+			top         : 18px;
+			right       : 15px;
+		}
+		&::after {
+			background: $_COLOR_GREY_1;
+			position  : absolute;
+			right     : 40px;
+			top       : 10px;
+			height    : 20px;
+			width     : 1px;
+			opacity   : 1;
+			content   : '';
+		}
+		&:not(.disabled) {
+			&:active,
+			&:focus,
+			&:hover {
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+		.select {
+			@include baskerville10Pro;
+			height      : 40px;
+			line-height : 40px;
+			padding-left: 15px;
+			font-size   : 15px;
+			border-color: $_COLOR_LIGHT_GREY_1;
+			color       : $_COLOR_GREY_1;
+
+		}
+	}
+	.accordion-footer {
+		margin-bottom: 10px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-bottom: 25px;
+		}
+		&:after {
+			visibility: hidden;
+			display   : block;
+			font-size : 0;
+			content   : " ";
+			clear     : both;
+			height    : 0;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-bottom: 0;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width : 1200px;
+			margin: auto;
+		}
+		section {
+			padding: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-top: 55px;
+				display    : none;
+				border     : 0;
+				&#footer_howTo {
+					display: block;
+				}
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				display: inline-block;
+			}
+			.wrapper {
+				//display: none;
+				//padding: 15px 0;
+				border-top: 1px solid $_COLOR_LIGHT_GREY_4;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					border-top: 0;
+				}
+			}
+			&.active {
+				.wrapper {
+					//display:block;
+				}
+			}
+			.header-content {
+				padding: 0;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display: none;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display       : inline-block;
+					pointer-events: none;
+				}
+				.controls {
+					top: 4px;
+					.close::before,
+					.open::before {
+						font-size: 10px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						display: none;
+					}
+				}
+
+			}
+			.title {
+				@include atlasGroteskWebLight;
+				font-size     : 13px;
+				text-transform: uppercase;
+				padding       : 20px 5px 15px;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					padding    : 0;
+					font-weight: 600;
+				}
+				line-height   : 1em;
+			}
+			.content {
+				padding: 0;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					border : 0;
+					padding: 15px 0;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display: block !important; //preent Boostrap Collapse from hiding on desktop
+				}
+				&:first-of-type {
+
+					left     : auto;
+					transform: translateX(0);
+				}
+				a {
+					color          : $_COLOR_BLACK;
+					display        : inline-block;
+					@include atlasGroteskWebLight;
+					font-size      : 15px;
+					font-weight    : 400;
+					line-height    : 23px;
+					padding        : 5px 0 5px 5px;
+					width          : 100%;
+					text-decoration: none;
+					margin         : 0;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						font-size  : 14px;
+						line-height: 18px;
+						padding    : 0;
+
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						margin   : 0 0 25px;
+						max-width: 225px;
+					}
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			&:last-of-type {
+				border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+			}
+		}
+		//BOF: How To block
+		#footer_howTo {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding   : 5px;
+				border-top: 2px solid $_COLOR_LIGHT_GREY_1;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				border : 0;
+				padding: 25px 0 35px;
+			}
+			header {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display: none;
+				}
+			}
+			.wrapper {
+				padding: 0;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					display: block;
+				}
+				ul {
+
+					width     : 100%;
+					text-align: left;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						padding: 5px;
+						display: table;
+					}
+					li {
+						@include media-min-width($_BREAKPOINT_TABLET) {
+							padding   : 0;
+							border    : 0;
+							display   : table-cell;
+							text-align: center;
+						}
+						@include media-min-width($_BREAKPOINT_DESKTOP) {
+							border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+							padding   : 25px 0;
+							display   : block;
+							text-align: left;
+						}
+						&:last-of-type {
+							@include media-min-width($_BREAKPOINT_DESKTOP) {
+								border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+							}
+						}
+						a {
+							@include media-min-width($_BREAKPOINT_TABLET) {
+								padding       : 5px 10px;
+								font-size     : 11px;
+								text-transform: uppercase;
+								@include avenirBlack;
+							}
+							@include media-min-width($_BREAKPOINT_DESKTOP) {
+								padding       : 0;
+								color         : #000000;
+								@include baskerville10ProItalic;
+								font-size     : 21px;
+								//	font-style: italic;
+								line-height   : 21px;
+								margin        : 0;
+								text-transform: none;
+							}
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+					}
+				}
+			}
+		}
+		//EOF: How to
+	}
+	.social-bar {
+		display: table;
+		clear  : both;
+		margin : 0;
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin: 0 auto;
+			float : left;
+			width : 60%;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width     : 100%;
+			background: $_COLOR_WHITE;
+		}
+		.social-container {
+			text-align: center;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-top: 5px;
+			}
+			> ul {
+				display: inline-block;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				text-align: left;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				text-align: center;
+			}
+		}
+		li {
+			display   : inline-block;
+			text-align: center;
+			width     : calc(90% / 9); //9 = number of social icons
+			height    : 40px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width : 45px;
+				height: auto;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				width: 145px;
+			}
+		}
+		a {
+			position: relative;
+			display : block;
+			height  : $_ICON_FONT_SIZE;
+			overflow: hidden;
+			color   : $_COLOR_GREY_1;
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				background-image   : url('/static/images/header_footer/social_icons.png') !important;
+				//important is only necessary to override Gigya buttons
+				background-position: 0 bottom;
+				width              : 140px;
+				height             : 114px;
+				text-indent        : -9999px;
+				overflow           : auto;
+			}
+			&[class^="christies-icon"] {
+				&::before {
+					font-size: 17px;
+					width    : 30px;
+				}
+			}
+			&.christies-icon_social-facebook {
+				background-image: none !important;
+				//important is only necessary to override Gigya buttons
+				text-indent     : 0;
+				margin          : auto;
+				position        : relative;
+				top             : 0;
+				left            : 0;
+				right           : 0;
+				bottom          : 0;
+				&:hover {
+					background-image: none !important;
+					color           : $_COLOR_LEGACY_GREY_1;
+					//important is only necessary to override Gigya buttons
+					&:before {
+						color: $_COLOR_LEGACY_GREY_1;
+					}
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					 @include atlasGroteskWebRegular;
+					font-size     : 12px;
+					text-transform: capitalize;
+					color         : $_COLOR_GREY_2;
+					top           : 21px;
+					&:before {
+						display       : block;
+						margin        : auto;
+						font-size     : 28px;
+						color         : $_COLOR_GREY_2;
+						position      : relative;
+						padding-bottom: 9px;
+					}
+				}
+			}
+			&.christies-icon_social-twitter {
+				background-position: -114px bottom;
+				&:hover {
+					background-position: -114px top;
+				}
+			}
+			&.christies-icon_social-tumblr {
+				background-position: -237px bottom;
+				&:hover {
+					background-position: -237px top;
+				}
+			}
+			&.christies-icon_social-instagram {
+				background-position: -359px bottom;
+				&:hover {
+					background-position: -359px top;
+				}
+			}
+			&.christies-icon_social-wechat {
+				background-position: -967px bottom;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					&:hover {
+						background: transparent url('/static/images/header_footer/QR CodeHover state.jpeg') 35% 50% no-repeat !important;
+						display   : block;
+						height    : 114px;
+						width     : 150px;
+					}
+				}
+
+			}
+			&.christies-icon_social-wechat.chinese {
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					background: transparent url('/static/images/header_footer/social_icons_ch.png') -1012px bottom no-repeat!important;
+					display   : block;
+					height    : 114px;
+					width     : 150px;
+					&:hover {
+						background: transparent url('/static/images/header_footer/QR CodeHover state.jpeg') 35% 50% no-repeat !important;
+						display   : block;
+						height    : 114px;
+						width     : 150px;
+					}
+				}
+			}
+			&.christies-icon_social-pinterest {
+				background-position: -479px bottom;
+				&:hover {
+					background-position: -479px top;
+				}
+			}
+			&.christies-icon_social-youtube {
+				background-position: -603px bottom;
+				&:hover {
+					background-position: -603px top;
+				}
+			}
+			&.christies-icon_social-weibo {
+				background-position: -722px bottom;
+				&:hover {
+					background-position: -722px top;
+				}
+			}
+			&.christies-icon_social-weibo.chinese {
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					background-image   : url('/static/images/header_footer/social_icons_ch.png') !important;
+					//important is only necessary to override Gigya buttons
+					display            : block;
+					height             : 114px;
+					width              : 150px;
+					background-position: -1132px bottom;
+					&:hover {
+						background-position: -1132px top;
+					}
+				}
+			}
+			&.christies-icon_social-youku {
+				background-image: url('/static/images/header_footer/social_icons.png')!important;
+				background-position: -844px bottom;
+				&:hover {
+					background-position: -844px top;
+				}
+			}
+			&.christies-icon_social-youku.chinese {
+			background: none;
+			text-indent: 0;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					background-image   : url('/static/images/header_footer/social_icons_ch.png')!important;
+					height             : 114px;
+					width              : 150px;
+					background-position: -774px bottom;
+					background-size    : auto;
+					text-indent:-9999px;
+				}
+				&:hover {
+					background-position: -774px top;
+				}
+			}
+			&.christies-icon_social-youku.chinese {
+				.zh & {
+					background-image   : url('/static/images/header_footer/social_icons_ch.png')!important;
+					background-position: -774px bottom;
+					background-repeat  : no-repeat;
+					//height: 40px;
+					//width: 37px;
+					background-size    : 21px auto;
+					text-indent        : -999px;
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						background-image   : url('/static/images/header_footer/social_icons_ch.png')!important;
+						height             : 114px;
+						width              : 150px;
+						background-position: -896px bottom;
+						background-size    : auto;
+					}
+					&:hover {
+						background-position: -896px top;
+					}
+				}
+			}
+		}
+	}
+	.copyright {
+		height    : 20px;
+		width     : 100%;
+		position  : relative;
+		text-align: left;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			height       : auto;
+			width        : 40%;
+			text-align   : right;
+			padding-right: 20px;
+			display      : inline-block;
+			float        : right;
+
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 40%;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width     : 100%;
+			background: $_COLOR_BLACK;
+			text-align: center;
+			padding   : 0;
+			height    : 50px;
+		}
+		a,
+		p {
+			font-size     : 11px;
+			color         : #a7a7a7; //matching mobify color
+			text-transform: uppercase;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-left: 20px;
+				line-height : 50px;
+				display     : inline-block;
+
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				font-size   : 14px;
+				@include baskerville10Pro;
+				display     : block;
+				color       : $_COLOR_WHITE;
+				padding-left: 0;
+				float       : none;
+			}
+		}
+
+		a {
+			color          : $_COLOR_BLACK;
+			text-decoration: none;
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				display: none;
+			}
+		}
+		.icp {
+			width  : 100%;
+			display: block;
+			font-family: arial;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width     : 180px;
+				height    : 50px;
+				float     : right;
+				margin-top: -5px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				position: absolute;
+				top     : 15px;
+				right   : 6%;
+				width		: 200px;
+			}
+			a {
+				display      : inline-block;
+				color        : $_COLOR_BLACK;
+				line-height  : 29px; //height of the gov-icon
+				font-size    : 12px;
+				padding-right: 15px;
+				float        : left;
+				//@include atlasGroteskLight;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					float      : left;
+					font-size  : 9px;
+					font-weight: 500;
+					line-height: 30px;
+					padding    : 0;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					color    : $_COLOR_WHITE;
+					font-size: 12px;
+
+				}
+				&.gov-icon {
+					float     : right;
+					background: url("../assets/logos/icp-black.png") center / auto no-repeat;
+					height    : 25px;
+					width     : 86px;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						//margin-top: ;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						background: url("../assets/logos/icp-white.png") no-repeat;
+					}
+				}
+			}
+		}
+	}
+	.language {
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display    : inline;
+			width      : 160px;
+			margin-left: -20px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			margin-left: auto;
+		}
+		li {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				display: inline;
+
+			}
+			a {
+				text-decoration: underline;
+				font-weight    : 400;
+				text-decoration: none;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					font-size  : 9px;
+					font-weight: 500;
+				}
+			}
+		}
+
+	}
+}

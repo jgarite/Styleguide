@@ -1,0 +1,29 @@
+header.main {
+	z-index: 20;
+	//border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+	background-color: $_COLOR_WHITE;
+	//@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP + 1) {
+	.logo {
+		// z-index: 30;
+		// position: absolute;
+		// img {
+		// 	margin: 15px 0 0 15px;
+		// 	width: $_LOGO_WIDTH;
+		// 	@include media-min-width($_BREAKPOINT_TABLET) {
+		// 		width: $_TABLET_LOGO_WIDTH;
+		// 	}
+		// 	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		// 		width: $_DESKTOP_LOGO_WIDTH;
+		// 	}
+		// }
+	}
+	.topRight {
+		//	position: absolute;
+		//	top: 0;
+		//right: 0;
+		border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+		width: 100%;
+		z-index: 20;
+	}
+}
+//@import 'layout/header/navigation.scss'

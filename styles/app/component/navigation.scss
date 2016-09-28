@@ -1,0 +1,954 @@
+///BOF navbar-christies (the entire header)
+
+.navbar-christies {
+	//border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+	margin-bottom: 0;
+	width        : 100%;
+	background   : $_COLOR_WHITE;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		//	border-bottom: 1px solid $_COLOR_RED_1;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+	}
+
+	&_locked {
+		position: fixed;
+
+		.navbar-header {
+			border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				border-bottom: 1.5px solid $_COLOR_RED_4;
+			}
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position: relative;
+		}
+
+	}
+
+	.navbar-header {
+		//float: none;
+		width        : 100%;
+		border-bottom: 1px solid $_COLOR_RED_4;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position     : relative;
+			border-bottom: 1.5px solid $_COLOR_RED_4;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			height: $_TABLET_LANDSCAPE_HEADER_HEIGHT + 1;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			border: 0;
+			height: $_DESKTOP_HEADER_HEIGHT;
+			width : auto;
+
+		}
+	}
+
+	.navbar-toggle {
+		border       : 0;
+		//margin-right: 5px;
+		//margin-bottom: 0;
+		width        : 40px;
+		border-radius: 0;
+		display      : block;
+		//padding-top: 6px;
+		position     : absolute;
+		right        : 0;
+		//line-height: $_HEADER_HEIGHT;
+		//height: $_HEADER_HEIGHT;
+		margin-right : 5px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding    : 0;
+			margin     : -1px 0 3px;
+			height     : $_TABLET_PORTRAIT_HEADER_HEIGHT;
+			width      : 35px;
+			line-height: $_TABLET_PORTRAIT_HEADER_HEIGHT;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin     : 0 2px 0 0;
+			height     : $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+			line-height: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+		}
+		//transition: right 0.5s ease;
+		&:before {
+			height       : 46px;
+			width        : 40px;
+			position     : absolute;
+			top          : -3px;
+			left         : 0;
+			border       : 1px solid $_COLOR_LIGHT_GREY_1;
+			border-bottom: 1px solid $_COLOR_WHITE;
+			content      : '';
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				border: 0;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				height: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+			}
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			position: absolute;
+			top     : 0;
+			right   : 0;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			display: none;
+		}
+
+		&.collapsed {
+			border: none;
+
+			&:before {
+				border: 0;
+			}
+
+			.icon-bar {
+				background: $_COLOR_BLACK;
+			}
+		}
+
+		.icon-bar {
+			margin       : 0 2px 0 auto;
+			background   : $_COLOR_RED_4;
+			height       : 4px;
+			width        : 16px;
+			border-radius: 0;
+
+			&:nth-child(2n+1) {
+				margin: 2px 2px 0 auto;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width : 19px;
+				height: 5px;
+			}
+
+			+ .icon-bar {
+				margin: 2px 2px 0 auto;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					margin: 2px auto auto;
+				}
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				margin: 2px auto auto;
+			}
+
+		}
+
+		&.active-tablet {
+			right      : calc(100% - 250px);
+			border     : 0;
+			margin     : 0 14px 0 0;
+			height     : $_HEADER_HEIGHT;
+			width      : 44px;
+			background : $_COLOR_LIGHT_GREY_3;
+			border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+			z-index    : 10;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-left : 7px;
+				padding-right: 5px;
+				height       : $_TABLET_PORTRAIT_HEADER_HEIGHT - 1;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				right : calc(100% - 300px);
+				height: $_TABLET_LANDSCAPE_HEADER_HEIGHT - 1;
+				width : 52px;
+			}
+
+			&:after {
+				content    : ' ';
+				display    : block;
+				height     : 32px;
+				position   : absolute;
+				width      : 1px;
+				border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+				right      : 14px;
+				top        : 50%;
+				transform  : translateY(-50%);
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					right: 0;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					height: 40px;
+				}
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				//	right: calc(100% - 256px);
+			}
+		}
+	}
+
+	.navbar-collapse {
+		display: block !important; //override bootstrap style
+		//	transition: right 0.5s ease;
+		//display: none !important; //override bootstrap style
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			display: block !important; //override bootstrap style
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			//	padding-right: 14px;
+		}
+
+		.tablet & {
+			height: 0 !important;
+		}
+
+		.user-actions {
+			position: absolute;
+			left    : auto;
+			margin  : 0;
+			right   : 40px;
+			top     : 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				//position: absolute;
+				right   : 33px;
+				overflow: visible;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				position: relative;
+				right   : 0;
+				width   : auto;
+			}
+
+			&.active {
+				top: 0;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					right      : 0;
+					background : $_COLOR_LIGHT_GREY_3;
+					border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+					width      : 570px;
+
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width: 784px;
+				}
+
+				.search {
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						display: none;
+					}
+				}
+			}
+
+			> li {
+				display: inline-block;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+				}
+
+        &.header--account {
+					border-bottom: 0;
+					top          : -1px;
+					left         : -3px;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						top          : auto;
+						//	background: blue !important;
+						padding-right: 0;
+						padding-left : 0;
+
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						//width: 40px;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						left : 0;
+						width: 182px;
+					}
+				}
+
+				&.language {
+					.dropdown-menu {
+						min-width: 0;
+						width    : 99px;
+						left     : 50%;
+
+						.Chinese & {
+							width       : 91px;
+							left        : 43px;
+							padding-left: 1px;
+						}
+					}
+				}
+
+				&.search {
+					top : -2px;
+					left: -5px;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						top          : auto;
+						left         : auto;
+						width        : 44px;
+						padding-left : 0;
+						padding-right: 0;
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						width: 60px;
+					}
+				}
+
+				.wrapper {
+					display: none;
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						display: table;
+						height : $_DESKTOP_HEADER_HEIGHT;
+						width  : 100%;
+
+						.dropdown-toggle {
+							display        : table-cell;
+							vertical-align : middle;
+							height         : $_DESKTOP_HEADER_HEIGHT;
+							text-align     : center;
+							text-decoration: none;
+							text-transform : uppercase;
+						}
+					}
+				}
+			}
+		}
+
+		.site-nav {
+			display: none;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width   : auto;
+				top     : 0;
+				right   : 0;
+				display : none;
+				//	transition: right 0.5s;
+				position: absolute;
+
+				> li {
+					display: inline-block;
+					float  : left;
+				}
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				position: relative;
+				display : block;
+				right   : 0;
+			}
+		}
+
+		&.collapsing,
+		&.in {
+			//	display: block !important; //override bootstrap style
+			//	overflow-y: visible;
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				display: none !important; //override bootstrap style
+			}
+
+			.site-nav {
+				display: block;
+			}
+		}
+
+		&.active-tablet {
+			&.collapsing {
+				overflow-y: visible;
+			}
+
+			.user-actions {
+				display: none;
+			}
+
+			.site-nav {
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width       : auto;
+					left        : 240px;
+					padding-left: 20px;
+					display     : block;
+					background  : $_COLOR_LIGHT_GREY_3;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					//padding-left: 0; //margin-left: -15px;
+					left        : 260px;
+					padding-left: 50px;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					background: $_COLOR_WHITE;
+				}
+			}
+		}
+
+		&.collapsing,
+		&.in {
+			//	border-top: 1px solid $_COLOR_LIGHT_GREY_3;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				overflow-y: hidden;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				overflow-y: visible;
+			}
+
+		}
+	}
+}
+///EOF navbar-christies (the entire header)
+
+//BOF Logo area (only contains the logo)
+.navbar-brand {
+	width  : auto;
+	padding: 15px 0 0 15px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding   : 15px 0 0 30px;
+		min-height: none;
+		height    : $_TABLET_PORTRAIT_HEADER_HEIGHT + 1;
+	}
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		padding: 21px 0 0 30px;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		padding: 15px 0 0 20px;
+	}
+
+	.Chinese & {
+		padding-top: 18px;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding-top : 16px;
+			padding-left: 15px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding-left: 23px;
+		}
+	}
+
+	img {
+		width : 176px;
+		height: auto;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width: 132px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 176px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width: 214px;
+		}
+
+		.Chinese & {
+			width: 169px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width: 165px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				width: 305px;
+			}
+		}
+	}
+}
+//EOF Logo area (only contains the logo)
+
+//BOF Navbar Navigation (user-actions and site-nav)
+.navbar-nav {
+	//margin-left tied to padding left of nav>li>a
+	margin: 0 -15px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin: 0;
+	}
+	//Give styling to the backdrop (mask) when user hovers the navbar. Applies only to desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		&:hover {
+			&~.mask {
+				opacity   : .1;
+				visibility: visible;
+			}
+		}
+	}
+
+	a {
+		color: $_COLOR_BLACK;
+	}
+	//First level nav items
+	> li {
+		height       : $_HEADER_HEIGHT;
+		border-bottom: 1px solid $_COLOR_LIGHT_GREY_2;
+		background   : $_COLOR_WHITE;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding   : 0 5px;
+			height    : $_TABLET_PORTRAIT_HEADER_HEIGHT;
+			background: transparent;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			border-bottom: 0;
+			height       : $_TABLET_LANDSCAPE_HEADER_HEIGHT - 1;
+			padding      : 0 12px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			height    : $_DESKTOP_HEADER_HEIGHT;
+			padding   : 0 20px;
+			background: $_COLOR_WHITE;
+		}
+		//First level nav item's text links
+		> a {
+			@include atlasGroteskWebRegular;
+			padding        : 0;
+			color          : $_COLOR_GREY_1;
+			font-size      : $_HEADER_FONT_SIZE;
+			line-height    : $_HEADER_HEIGHT;
+			text-transform : uppercase;
+			text-decoration: none;
+			margin         : 0 15px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				margin     : 0;
+				font-size  : 8px;
+				font-weight: 600;
+				color      : $_COLOR_BLACK;
+				line-height: 48.5px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				line-height: $_TABLET_LANDSCAPE_HEADER_HEIGHT + 1px;
+				font-size  : 12px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				line-height: $_DESKTOP_HEADER_HEIGHT;
+				font-size  : $_HEADER_DESKTOP_FONT_SIZE;
+				font-weight: 400;
+
+				&:focus,
+				&:hover {
+					//Undo Bootstrap default background color on hover
+					background-color: transparent;
+				}
+			}
+		}
+	}
+	//dropdown class applies to first level nav items and can also apply to any nav item under it
+	.dropdown {
+		.dropdown-toggle {
+			//padding: 0;
+			margin  : 0 15px;
+			position: relative;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				margin: 0;
+			}
+
+			&:after {
+				content   : '';
+				height    : 0;
+				width     : 100%;
+				display   : block;
+				position  : absolute;
+				bottom    : -1px;
+				background: $_COLOR_RED_1;
+				z-index   : 10000;
+			}
+
+			&.disabled {
+				pointer-events: auto;
+				color         : $_COLOR_GREY_1;
+			}
+		}
+
+		&:hover {
+			> a {
+				background: transparent;
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					background: $_COLOR_WHITE;
+				}
+
+				&:after {
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						height: 1px;
+					}
+				}
+			}
+
+			.dropdown-menu {
+				left         : 50%;
+				right        : auto;
+				text-align   : center;
+				transform    : translate3d(-50%, 0, 0);
+				width        : 200px;
+				padding      : 0;
+				border       : 0; //undo bootstrap css
+				border-radius: 0; //undo bootstrap css
+				box-shadow   : none; //undo bootstrap css
+				//border: 1px solid $_COLOR_LIGHT_GREY_1;
+				border-top   : 1px solid $_COLOR_LIGHT_GREY_1;
+				border-bottom: 1px solid $_COLOR_LIGHT_GREY_1;
+
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					display: block;
+				}
+				//////BOF Second level nav items
+				li {
+					border-left : 1px solid $_COLOR_LIGHT_GREY_1;
+					border-right: 1px solid $_COLOR_LIGHT_GREY_1;
+					//Second level nav item's links
+					a {
+						text-align     : center;
+						font-size      : 14px;
+						text-decoration: none;
+						padding        : 20px 10px;
+						white-space    : normal;
+						color          : $_COLOR_BLACK;
+
+					}
+					//Second Level nav hover state
+					&:hover {
+						a {
+							@include media-min-width($_BREAKPOINT_DESKTOP) {
+								color           : $_COLOR_WHITE;
+								background-color: $_COLOR_BLACK;
+							}
+						}
+						@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+							//	background-color: $_COLOR_BLACK;
+						}
+					}
+					//////Second Level nav item has a submenu
+					&.dropdown-submenu {
+						position: relative;
+						//////BOF Third level nav items
+						> .dropdown-menu {
+							display   : none;
+							top       : 0;
+							left      : 150%;
+							margin-top: -1px;
+
+							li {
+								border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+
+								&:first-child {
+									> a:before {
+										display          : block;
+										content          : " ";
+										width            : 0;
+										height           : 0;
+										border-color     : transparent;
+										border-style     : solid;
+										border-width     : 6px 0 6px 6px;
+										border-left-color: $_COLOR_BLACK;
+										margin-left      : -11px;
+										margin-top       : -3px;
+										transform        : translateY(50%);
+									}
+								}
+
+								a {
+									background: $_COLOR_WHITE;
+									color     : $_COLOR_BLACK;
+
+								}
+
+								&:hover {
+									border-left : 1px solid $_COLOR_BLACK;
+									border-right: 1px solid $_COLOR_BLACK;
+
+									a {
+										background: $_COLOR_BLACK;
+										color     : $_COLOR_WHITE;
+									}
+								}
+							}
+						}
+
+						&:hover {
+							> .dropdown-menu {
+								display: block;
+
+							}
+						}
+						//////EOF Third level nav items
+					}
+				}
+				//////EOF Second level nav items
+				.divider {
+					margin    : 0;
+					background: $_COLOR_LIGHT_GREY_1;
+				}
+			}
+		}
+
+		&.header--account {
+			//position: absolute;
+			//top: 0;
+			//right: 70px;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				top     : auto;
+				right   : auto;
+				position: relative;
+				width   : 38px;
+				//	background: red !important;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				width: 52px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {}
+
+			&:hover {
+				&:after {
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						position: absolute;
+						bottom  : -1px;
+						left    : 0;
+						border  : 1px solid $_COLOR_WHITE;
+						width   : 100%;
+						content : ' ';
+					}
+				}
+			}
+
+			.dropdown-toggle {
+				//	display: none;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					margin: 0;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					width      : 100%;
+					text-align : center;
+					font-size  : 12px;
+					display    : inline-block;
+					line-height: 20px;
+					height     : $_DESKTOP_HEADER_HEIGHT;
+
+					&:after {
+						height: 0;
+					}
+				}
+
+			}
+
+			.user-icon {
+				line-height: $_HEADER_HEIGHT - 2; //2px to compensate for border
+				height     : $_HEADER_HEIGHT - 2;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					margin-right: -13px;
+					height      : $_TABLET_PORTRAIT_HEADER_HEIGHT;
+					line-height : $_TABLET_PORTRAIT_HEADER_HEIGHT;
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					line-height: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+					height     : $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					margin-right: auto;
+				}
+
+				&:before {
+					font-size: 16px;
+					color    : $_COLOR_BLACK;
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						font-size: 18px;
+						width    : 52px;
+					}
+				}
+
+				&:after {
+					height  : 46px;
+					width   : 40px;
+					position: absolute;
+					top     : 6px;
+					left    : 0;
+					content : '';
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						top   : 0;
+						height: $_TABLET_PORTRAIT_HEADER_HEIGHT;
+					}
+					@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+						height: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+					}
+				}
+
+				&.active {
+					&::before {
+						//color: $_COLOR_RED_1;
+						color: #ff3535; //Matching Mobify
+					}
+
+					&:after {
+						border       : 1px solid $_COLOR_LIGHT_GREY_1;
+						border-bottom: 1px solid $_COLOR_WHITE;
+						@include media-min-width($_BREAKPOINT_TABLET) {
+							border     : 0;
+							border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+						}
+						@include media-min-width($_BREAKPOINT_DESKTOP) {
+							border       : 1px solid $_COLOR_LIGHT_GREY_1;
+							border-bottom: 1px solid $_COLOR_WHITE;
+						}
+
+					}
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						position: relative;
+						left    : 10px;
+						z-index : 110;
+
+						&.active {
+							position: absolute;
+							left    : 0;
+							color   : #fb2121; //matching mobify color - will change in redesign
+
+							&:after {
+								content    : ' ';
+								display    : block;
+								height     : 32px;
+								position   : absolute;
+								width      : 1px;
+								border-left: 1px solid $_COLOR_LIGHT_GREY_1;
+
+								right      : 14px;
+								top        : 50%;
+								transform  : translateY(-50%);
+								@include media-min-width($_BREAKPOINT_TABLET) {
+
+									display: none;
+								}
+							}
+						}
+					}
+					@include media-min-width($_BREAKPOINT_DESKTOP) {
+						position: relative;
+						left    : auto;
+
+						&.active {
+							left : auto;
+							color: $_COLOR_BLACK;
+						}
+					}
+				}
+			}
+
+			//dropdown-toggle used to add red line under nav item
+
+		}
+
+		.mask {
+			position          : fixed;
+			left              : 0;
+			right             : 0;
+			top               : $_HEADER_HEIGHT;
+			bottom            : 0;
+			background        : rgba(0,0,0,1);
+			z-index           : 990;
+			zoom              : 1;
+			opacity           : 0;
+			filter: alpha(opacity=0);
+			visibility        : hidden;
+			-webkit-transition: all $_PANEL_DURATION ease-in-out;
+			-moz-transition   : all $_PANEL_DURATION ease-in-out;
+			-ms-transition    : all $_PANEL_DURATION ease-in-out;
+			-o-transition     : all $_PANEL_DURATION ease-in-out;
+			transition        : all $_PANEL_DURATION ease-in-out;
+
+			&.active {
+				opacity   : .1;
+				visibility: visible;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				top: $_TABLET_PORTRAIT_HEADER_HEIGHT;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				top: $_TABLET_LANDSCAPE_HEADER_HEIGHT;
+			}
+
+		}
+
+		//Level 1
+		// .dropdown {
+		// 	//Level 2
+		// 	.dropdown-menu {
+		// 		//Level 2 has Level 3
+		// 		.dropdown-submenu {
+		//
+		// 			//Level 3
+		//
+		// 		}
+		// 	}
+		// }
+	}
+
+	.search {
+		border-bottom: 0;
+
+		&:after {
+			content   : '';
+			height    : 0;
+			width     : 100%;
+			display   : block;
+			position  : absolute;
+			bottom    : 0;
+			background: $_COLOR_RED_1;
+		}
+
+		&:hover {
+			&:after {
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					height: 1px;
+				}
+			}
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			//border-bottom: 1px solid $_COLOR_LIGHT_GREY_2;
+			padding: 0;
+		}
+
+		a {
+			margin: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width: 45px;
+				top  : 3px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				width     : 55px;
+				padding   : 0;
+				text-align: center;
+				top       : 0;
+			}
+
+			&:hover {
+				background: transparent;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				//margin: 0 10px;
+			}
+
+			&:before {
+				transform  : scale(-1, 1);
+				color      : $_COLOR_BLACK;
+				font-size  : 16px;
+				font-weight: 600;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					font-size: 18px;
+					position : relative;
+					top      : -1px;
+				}
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					font-size  : 24px;
+					color      : $_COLOR_GREY_1;
+					top        : auto;
+					font-weight: normal;
+
+				}
+			}
+		}
+	}
+	//EOF Navbar Navigation (user-actions and site-nav)
+}
+
+.dropdown-menu > li > a {
+	color: $_COLOR_BLACK;
+}
+
+//language
+.Chinese {
+	.language {
+		.dropdown-menu {
+			width       : 91px;
+			left        : 43px;
+			padding-left: 1px;
+		}
+	}
+}
+@include media-max-width($_BREAKPOINT_TABLET - 1) {
+	//this code needa to be restructured to follow the SASS markup above  and should not use media-max-width. this was done to meet the proj deadline -JG 8/4/2016
+.navbar-christies .navbar-collapse .user-actions.active {
+	top: 0;
+}
+.navbar-christies .navbar-collapse.collapsing .user-actions {
+
+	top:-52px;
+}
+.navbar-christies .navbar-collapse.collapsing {
+	overflow:visible;
+}
+}

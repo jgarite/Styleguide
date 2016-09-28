@@ -1,0 +1,163 @@
+$_carousel_BUTTONS_SIZE: 2 * $_BASE_LINE_HEIGHT;
+.carousel-title {
+	width: 100%;
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		padding-right: $_COLUMN_GUTTER;
+	}
+}
+.carousel-slider-container {
+	overflow: hidden;
+	position: relative;
+	width   : 100%;
+	.carousel-buttons-container,
+	.image-preview.carousel-buttons-container {
+		left    : 0;
+		position: absolute;
+		top     : 0;
+	}
+	//carousel 1: used in Lot Details
+	&.carousel-1 {
+		.disabled {
+			opacity: 1;
+		}
+		> .carousel-buttons-container {
+			background-color: #fff;
+			min-height      : 380px;
+		}
+		> ul.carousel-slider {
+			transition        : all .5s ease-in-out;
+			-webkit-transition: all .5s ease-in-out;
+		}
+		> ul.carousel-slider .image-preview-container {
+			min-height: 320px;
+			max-width : 300px;
+			background-color: $_COLOR_LIGHT_GREY_3;
+			&::before {
+				content   : '';
+				background: rgba(0, 0, 0, 0.03);
+				top       : 0;
+				right     : 0;
+				bottom    : 0;
+				left      : 0;
+				position  : absolute;
+				height    : auto;
+				width     : 100%;
+			}
+			//margin: auto;
+			//	position: relative;
+			img {
+				// position: absolute;
+				// top: 0;
+				// bottom: 0;
+				// right: 0;
+				// left: 0;
+				// display: block;
+				// margin: auto;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				min-height: inherit;
+				max-width : inherit;
+				width     : 265px;
+			}
+			@include media-min-width($_BREAKPOINT_DESKTOP) {
+				width: 430px;
+			}
+		}
+	}
+}
+.carousel-slider {
+	@include clearfix;
+	@include transition(margin-left $_PANEL_DURATION);
+	margin-left: 0;
+	position   : relative;
+	@mixin generate-carousel-classes($images: 20) {
+		 @for $i from 1 through $images{
+			$className: '&.carousel-slider-count-' + $i;
+			#{$className} {
+				width: $i * 100%;
+				> li {
+					width: 100% / $i;
+				}
+			}
+		}
+	}
+	@include generate-carousel-classes();
+	> li {
+		float     : left;
+		padding   : 0;
+		text-align: center;
+		a {
+			display: inline;
+			width  : 265px;
+			.image-preview-container {
+				display: inline-block;
+				&::before {
+					background-color: $_COLOR_WHITE;
+				}
+			}
+		}
+	}
+	.content {
+		.category-title {
+			margin-top: getRhythm(1.1, 1);
+		}
+	}
+	.box-link {
+		> a {
+			padding-bottom: 0;
+		}
+	}
+}
+.carousel-slider-thumbnails {
+	transform  : translateX(0);
+	margin     : 15px 0;
+	height     : auto;
+	overflow-x : hidden;
+	float      : none;
+	white-space: nowrap;
+	margin-top : 40px;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		//height: 80px;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		//height: 80px;
+		width : 580px;
+		margin: auto;
+	}
+	li {
+		overflow-x: hidden;
+		padding   : 0 5px;
+		float     : none;
+		display   : inline-block;
+		width     : 16.1%;
+		// tablet+
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			//padding: 0 10px;
+			padding   : 0;
+			box-sizing: content-box;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			padding: 0 1px;
+		}
+		.image-preview-container {
+			//	height: 40px;
+			//width: 40px;
+			margin: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				//	height: 80px;
+				//width: 80px;
+			}
+			&.active {
+				&:after {
+					background-color: rgba(0, 0, 0, 0.15);
+					border-bottom   : 3px solid $_COLOR_RED_1;
+				}
+			}
+
+			.image-preview {
+				background-size: auto;
+			}
+		}
+	}
+}

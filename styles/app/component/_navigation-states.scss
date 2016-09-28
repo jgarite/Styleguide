@@ -1,0 +1,28 @@
+/*Active and open states for global header navigation*/
+/*extended into elements/navigation.scss*/
+//
+// @mixin offscreen($direction) {
+// 	if ($direction == 'left'){
+// 		left:-100%;
+// 	}
+// 	if ($direction == 'right') {
+// 		left:100%;
+// }
+// @mixin onscreen {
+// 	left:0;
+// }
+%pull-offscreen-left {
+	left:-100%;
+}
+%pull-offscreen-right {
+	left:100%;
+}
+
+%pull-onscreen {
+	left:0;
+}
+
+%pull-transition {
+	transition:left 0.3s ease-out;
+	-webkit-transition:left 0.3s ease-out;
+}

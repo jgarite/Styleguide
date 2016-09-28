@@ -1,0 +1,869 @@
+$_LI_PADDING_BOTTOM: 40px;
+.box-container {
+	width: 100%;
+}
+.box-wide {
+	@include clearfix;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $_BASE_GRID_WIDTH;
+	padding: 0 $_COLUMN_GUTTER;
+	width: 100%;
+}
+.box-item-container {
+	border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+	padding: 25px 10px 0;
+	width: 100%;
+	// &:focus,
+	// &:hover {
+	// 	* {
+	// 		color: $_COLOR_GREY_2;
+	// 	}
+	// }
+}
+// .box-item-container {
+// 	a {
+// 		&:focus,
+// 		&:hover {
+// 			color: $_COLOR_GREY_2;
+// 		}
+// 	}
+// }
+// BOX LINK
+$_IMAGE_PREVIEW_ZOOM: -0.75em;
+.box-link {
+	padding-left: 0;
+	padding-right: 0;
+	// tablet
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-left: $_COLUMN_GUTTER;
+		padding-right: $_COLUMN_GUTTER;
+	}
+	> .box-item-container {
+		@extend .box-item-container
+	}
+	> h4 {
+		line-height: 1em;
+		margin-top: 2.5em;
+	}
+	> h5 {
+		font-size: 1.3em;
+		line-height: 1.8em;
+	}
+	 > a,
+	 > div,
+	> button {
+		@extend .link-box;
+		@include remove-outline;
+		border: none;
+		.content {
+			@include clearfix;
+		}
+		// IMAGE
+		.image-preview-container {
+			&:after {
+				@include position(absolute, 0 0 0 0);
+				@include transition(background-color 2 * $_HOVER_DURATION, border-bottom $_HOVER_DURATION);
+				background-color: transparent;
+				border-bottom: 0 solid $_COLOR_RED_1;
+				content: "";
+			}
+		}
+		.image-preview {
+			// @include transition(bottom 5 * $_HOVER_DURATION, left 5 * $_HOVER_DURATION, right 5 * $_HOVER_DURATION, top 5 * $_HOVER_DURATION);
+			@include transition(bottom 2 * $_HOVER_DURATION, left 2 * $_HOVER_DURATION, right 2 * $_HOVER_DURATION, top 2 * $_HOVER_DURATION);
+		}
+		&.selected,
+		&:focus,
+		&:hover {
+			// * {
+			// 	color: $_COLOR_GREY_2;
+			// }
+			 > h4,
+			.play,
+			> h5 {
+				opacity: 1;
+			}
+			.image-preview-container {
+				&:after {
+					background-color: rgba(0, 0, 0, 0.15);
+					border-bottom: (1em / 3) solid $_COLOR_RED_1;
+				}
+			}
+			.image-preview {
+				&.image-preview-zoom {
+					@include position(absolute, $_IMAGE_PREVIEW_ZOOM $_IMAGE_PREVIEW_ZOOM $_IMAGE_PREVIEW_ZOOM $_IMAGE_PREVIEW_ZOOM);
+				}
+			}
+			.play-icon-overlay {
+			opacity: 1;
+			}
+		}
+	}
+}
+.box-link-type-1 {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	li {
+		@extend .box-link;
+		padding-bottom: 20px;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		&:last-of-type {
+			padding-bottom: 60px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			&:nth-child(2n-1) {
+				padding-left: 0;
+			}
+			&:nth-child(2n) {
+				padding-right: 0;
+			}
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			&:nth-child(3n) {
+				padding-right: 0;
+				padding-left: 10px;
+			}
+			&:nth-child(3n-1) {
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+			&:nth-child(3n-2) {
+				padding-left: 0;
+				padding-right: 10px;
+			}
+		}
+		.box-item-container {
+			@extend .box-item-container;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		&:focus,
+		&:hover {
+			* {
+				color: $_COLOR_BLACK;
+			}
+		}
+		a:focus,
+		a:hover {
+			color: $_COLOR_GREY_2;
+		}
+	}
+	p.itemHeader {
+		font-weight: 500;
+		@extend .small-seperator-after;
+	}
+}
+.box-link-type-2 {
+	@extend .box-link-type-1;
+	ul.parent:first-of-type {
+		.title {
+			padding-left: 10px;
+			position: relative;
+			&:before {
+				content: "";
+				border-left: 3px solid $_COLOR_RED_1;
+				position: absolute;
+				left: 0;
+				height: 100%;
+			}
+		}
+	}
+	li {
+		//@extend .box-link;
+		display: block; //may need to remove if it's breaking.
+		padding-bottom: 0;
+		padding-left: 0;
+		&:focus,
+		&:hover {
+			* {
+				color: $_COLOR_GREY_2;
+			}
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-bottom: 10px;
+		}
+		&:last-of-type {
+			padding-bottom: 60px;
+		}
+		div.child:not(:first-of-type) {
+			display: none;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			&:nth-child(3n) {
+				padding-left: 10px;
+				padding-right: 0;
+			}
+			&:nth-child(3n-1) {
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			&:nth-child(3n-2) {
+				padding-left: 0;
+				padding-right: 10px;
+			}
+		}
+		.box-item-container {
+			//@extend .box-item-container;
+
+			padding: 20px 0 0;
+			margin: 20px 0 0;
+			.container-fluid{
+				padding-top: 0;
+				.image-preview-container {
+							min-height: 110px;
+							max-width: 90px;
+							@include media-min-width($_BREAKPOINT_TABLET) {
+								min-height: inherit;
+								max-width: inherit;
+								width: 60px;
+							}
+							@include media-min-width($_BREAKPOINT_DESKTOP) {
+								width: 80px;
+							}
+						}
+			}
+			.auctionTitle {
+				margin-top: -6px;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					padding-left: 10px;
+					font-weight: normal;
+				}
+			}
+			.auctionDate,
+			.auctionLocation {
+				text-transform: uppercase;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					padding-left: 10px;
+				}
+			}
+			.auctionLocation {
+				line-height: 1em;
+				&:before {
+					@extend .small-seperator;
+					margin: 5px 0 15px;
+				};
+			}
+		}
+		.active > .title,
+		.title {
+			&:focus,
+			&:hover {
+				padding-left: 10px;
+				position: relative;
+				&:before {
+					content: "";
+					border-left: 3px solid $_COLOR_RED_1;
+					position: absolute;
+					left: 0;
+					height: 100%;
+				}
+			}
+		}
+	}
+}
+.box-link-type-3 {
+	//	@extend .box-link-type-2;
+	.box-link-type-3 li:last-of-type {
+		padding-bottom: $_LI_PADDING_BOTTOM;
+	}
+	ul.parent {
+		float: left;
+		margin-bottom: 40px;
+		padding: 0;
+	}
+	.category-title {
+		padding-left: 0;
+		@extend .seperator;
+		@extend .seperator-7;
+	}
+	.category-title.locations {
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			width: 50%;
+			margin-bottom: 0;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-bottom: 20px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			width: 100%;
+		}
+	}
+	li {
+		&:focus,
+		&:hover {
+			* {
+				color: $_COLOR_GREY_2;
+			}
+		}
+		&.children-items {
+			//padding: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				//padding-left: 15px;
+			}
+			&.map {
+				padding-left: 0;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					padding-left: 15px;
+				}
+				//keeps the map to the edge
+				> ul:not(.moreInfo) {
+					padding: 0;
+				}
+				.mapImage {
+					//margin-top: -20px;
+				}
+				.mapLink {
+					padding-bottom: $_LI_PADDING_BOTTOM;
+					a {
+						font-size: 14px;
+						@include media-min-width($_BREAKPOINT_TABLET) {
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+		&.children-items > ul {
+			padding-left: 0;
+			padding-right: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				//padding: 0.75em 1.5em;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				padding: 0 1.5em;
+			}
+			&.moreInfo {
+				@include media-min-width($_BREAKPOINT_DESKTOP) {
+					padding: 0;
+				}
+			}
+		}
+
+		.title {
+			cursor: pointer;
+			position: relative;
+			&:not(:first-child) {
+				margin-top: 30px;
+			}
+			&:before {
+				content: "";
+				background-color: $_COLOR_RED_1;
+				width: 0;
+				height: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+			&.active {
+				padding-left: 10px;
+				&:before {
+					width: 3px;
+				}
+			}
+		}
+		.child {
+			&.selected,
+			&:focus,
+			&:hover {
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6,
+				p {
+					color: inherit !important;
+				}
+			}
+			> ul {
+				margin-bottom: 30px;
+				padding: 0;
+			}
+		}
+	}
+	.christies-icon_location {
+		width: 13px;
+		//	position: relative;
+		//	left: 0;
+		margin-right: 10px;
+		&:before {
+			text-align: left;
+			//position: relative;
+			//	left: -13px;
+			width: 13px;
+			//	font-size: 35px;
+		}
+	}
+	ul.moreInfo {
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			//margin-top: -55px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			margin-top: -50px;
+		}
+		> li {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding: 0;
+			}
+		}
+		.content {
+			padding-bottom: 40px;
+			.moreInfo_title {
+				padding-bottom: 0;
+				font-weight: 500;
+			}
+		}
+	}
+	/*	.additionalContent > ul {
+			width: 100%;
+		}
+		.additionalContent li {
+		display: block;
+		flex-wrap: nowrap;
+	}*/
+}
+
+.box-link-type-4 {
+	@extend .box-link-type-1;
+	float: left;
+	padding: 0;
+	li.features {
+		//UL contains image and title/description LI tags
+		padding: 0;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			&:nth-child(2n-1) {
+				padding-right: 10px;
+			}
+			&:nth-child(2n) {
+				padding-left: 10px;
+			}
+		}
+		ul {
+			padding: 20px 0;
+			border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+			width: 100%;
+			li {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				padding-right: 0;
+				display: block;
+				//first of type contains the image
+				&:first-of-type {
+					display: none;
+					padding: 0;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						display: block;
+					}
+					.image-container {
+						.image-preview-container {
+							margin-bottom: 0;
+
+						}
+					}
+				}
+
+				//last contians title/description
+				&:last-of-type {
+					padding: 0;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						padding: 0 20px;
+					}
+
+					.header-4 {
+						line-height: 26px;
+
+						padding-top: 3px;
+						display: block;
+						@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+							margin-bottom: 15px;
+							margin-top: 0;
+						}
+					}
+					.description {
+						display: none;
+						@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+							display: block;
+						}
+					}
+				}
+				&:focus,
+				&:hover {
+					* {
+						color: $_COLOR_GREY_2;
+					}
+				}
+			}
+		}
+	}
+}
+// li:last-of-type {
+// 	padding-bottom: 0;
+// 	@include media-min-width($_BREAKPOINT_TABLET) {
+// 		padding-left: 20px;
+// 	}
+// }
+// > li:last-of-type {
+// 	padding-bottom: $_LI_PADDING_BOTTOM;
+// }
+//li {
+// margin-bottom: 0;
+// padding-bottom: 0;
+// padding-right: 0;
+// &:focus,
+// &:hover {
+// 	* {
+// 		color: $_COLOR_GREY_2;
+// 	}
+//}
+// @include media-min-width($_BREAKPOINT_TABLET) {
+// 	margin-top: 20px;
+// }
+// @include media-min-width($_BREAKPOINT_DESKTOP) {
+// 	margin-top: 0;
+// }
+
+// ul {
+// 	// border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+// 	// width: 100%;
+//
+// 	li {
+// 		// display: block;
+// 		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+// 			//	padding-right: 20px;
+// 		}
+//
+// 	}
+// }
+// .image-container,
+// p.description {
+// 	display: none;
+// 	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+// 		display: block;
+// 	}
+// }
+// .image-container {
+// 	@include media-min-width($_BREAKPOINT_TABLET) {
+// 		display: block;
+// 	}
+// 	.image-preview-container {
+// 		margin-bottom: 0;
+// 	}
+// }
+// .header-4 {
+// 	line-height: 26px;
+// 	margin-top: 15px;
+// 	margin-bottom: 18px;
+// 	padding-top: 3px;
+// 	display: block;
+// 	@include media-min-width($_BREAKPOINT_TABLET) {
+// 		margin-bottom: 15px;
+// 		margin-top: 0;
+// 	}
+// }
+//}
+// 	> li {
+// 		@include media-min-width($_BREAKPOINT_DESKTOP) {
+// 			&:nth-child(3n),
+// 			&:nth-child(3n-1),
+// 			&:nth-child(3n-2) {
+// 				padding-left: 0;
+// 				padding-right: 0;
+// 			}
+// 			&:nth-child(2n) {
+// 				padding-left: 10px;
+// 			}
+// 			&:nth-child(2n+1) {
+// 				padding-right: 10px;
+// 			}
+// 		}
+// 	}
+// }
+.box-link-type-5,
+[class*="box-link-type-5x"],
+[class^="box-link-type-5x"] {
+	float: left;
+	padding: 0;
+	.filter & {
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			width: 75%;
+		}
+	}
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		overflow: visible;
+	}
+	li {
+		padding: 0 0 30px;
+		margin: 40px 0 20px 20px;
+		position: relative;
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			margin-left: 25px;
+		}
+		&:focus,
+		&:hover {
+			* {
+				color: $_COLOR_GREY_2;
+			}
+		}
+
+		//every other element starting with the first
+		&:nth-child(2n+1) {
+			margin-left: 0;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			padding-bottom: 0;
+		}
+
+		.christies-icon_favourite {
+			position: absolute;
+			bottom: $_ICON_FONT_SIZE/2 * -1;
+			top: auto;
+			@include media-min-width(($_BREAKPOINT_TABLET)) {
+				bottom: auto;
+				left: auto;
+				top: -5px;
+				right: -5px;
+			}
+		}
+		> ul li {
+			display: block;
+		}
+		h5 {
+			margin: 15px 0 0;
+		}
+		p {
+			font-weight: 400;
+			padding: 0;
+			margin-bottom: 0;
+			a {
+				text-decoration: none;
+			}
+		}
+		.cta-image {
+			display: table;
+			.image-preview-container {
+				// display: table-cell;
+				// vertical-align: middle;
+				// text-align: center;
+				// padding: 0;
+				// width: auto;
+				max-height: 220px;
+				@include media-min-width(($_BREAKPOINT_DESKTOP)) {
+					max-width: 275px;
+					max-height: 275px;
+				}
+				img {
+					//width: 100%;
+					width: auto;
+					max-width: 100%;
+					@include media-min-width($_BREAKPOINT_TABLET) {
+						padding: 25px;
+					}
+					//	max-height: 220px;
+					@include media-min-width(($_BREAKPOINT_DESKTOP)) {
+						//	width: auto;
+						width: auto;
+						max-height: 275px;
+					}
+				}
+				// &:after {
+				// 	max-height: 220px;
+				// 	@include media-min-width($_BREAKPOINT_TABLET) {
+				// 		max-height: 250px;
+				// 	}
+				// }
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+		.box-item-container {
+			border: 0;
+			padding: 0;
+		}
+		.seperator {
+			margin: 10px 0;
+		}
+	}
+	li:last-of-type {
+		padding-bottom: $_LI_PADDING_BOTTOM;
+	}
+	&.gridView {
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		.Chinese & {
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				margin-left: 25%;
+
+			}
+		}
+		.christies-icon_favourite {
+			//	display: none;
+			position: relative;
+			bottom: 0;
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				position: absolute;
+				bottom: auto;
+				left: auto;
+				top: -5px;
+				right: -5px;
+			}
+			& + .seperator {display: none;}
+		}
+		.seperator.imo {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				display: none;
+			}
+		}
+		li {
+			display: -webkit-flex;
+			display: -ms-flexbox;
+			display: flex;
+			width: calc(50% - 10px); //2 columns = 50%, 2 columns / total margin-left = 10px
+			margin-top: 0;
+			margin-bottom: 0;
+			//this media query handles the spacing between the <li>
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				width: calc(25% - 15px); //4 columns = 25%, 4 columns / total margin-left = 15px
+				margin-bottom: 50px;
+				//each row has 2 columns, we want to target the 1st element in the row
+				&:nth-child(2n-1) {
+					margin-left: 0;
+				}
+				//first two elements should be flush with the top of the filter element
+				&:nth-child(-n+2) {
+					margin-top: 0;
+				}
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				//Reset every <li>
+				margin-left: 0;
+				//each row has 3 columns, we want to target the 2nd element in the row
+				&:nth-child(3n+2) {
+					margin-left: 24px;
+					margin-right: 24px;
+				}
+				//first three elements should be flush with the top of the filter element
+				&:nth-child(-n+3) {
+					margin-top: 0;
+				}
+			}
+			> a {
+				text-decoration: none;
+			}
+			.cta-image {
+				.image-preview-container {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.filter & {
+			li {
+				//this media query handles the spacing between the <li>
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: calc(50% - 13px); //3 columns = 33%, 3 columns / total margin-left = 20px //changed 20 to 13 to remove some whitespace
+					//Reset every other element starting with the first
+				}
+				@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+					width: calc(33.333% - 16px); //3 columns = 33%, 3 columns / total margin-left = 20px //changed 20 to 16 to align fav icon
+					//Reset every other element starting with the first
+				}
+			}
+		}
+	}
+	//List View is available only in tablet landscape and desktop
+	&.listView {
+		.Chinese & {
+			margin-left: 33%;
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				margin-left: 25%;
+			}
+		}
+		.christies-icon_favourite {
+			right: auto;
+			left: calc(25% - 35px);
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				left: 115px; //width of cta-image - 25px
+			}
+		}
+		li {
+			> a {
+				text-decoration: none;
+			}
+			&:first-child {
+				margin-top: 0;
+			}
+			margin-left: 0;
+			width: 100%;
+			.cta-image {
+				width: 25%;
+				float: left;
+				height: auto;
+				@include media-min-width($_BREAKPOINT_TABLET) {
+					width: 140px;
+				}
+				.image-preview-container {
+					width: 100%;
+					height: auto;
+					img {
+						padding: 20px;
+						@include media-min-width($_BREAKPOINT_TABLET) {
+							padding: 35px;
+						}
+					}
+				}
+			}
+			.detailscontainer,
+			.infoContainer,
+			.priceContainer {
+				width: calc(33% - (140px / 3));
+				float: left;
+				display: block;
+				padding: 0 15px;
+			}
+			.infoContainer {
+				padding-right: 0;
+			}
+			.priceContainer {
+				float: right;
+			}
+			.detailscontainer {
+				padding-left: 25px;
+			}
+			h5 {
+				margin-top: 0;
+			}
+			.seperator {
+				display: none;
+			}
+		}
+	}
+}
+//4 column version of box-link-type-5
+.box-link-type-5x4 {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	margin-bottom: 40px;
+	@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+		margin-bottom: 0;
+	}
+	li {
+		padding-left: 10px;
+		padding-right: 10px;
+		margin: 40px 0 20px;
+	}
+}

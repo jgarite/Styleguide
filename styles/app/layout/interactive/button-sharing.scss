@@ -1,0 +1,111 @@
+
+.buttons-image-sharing {
+
+	padding: $_BASE_LINE_HEIGHT;
+	text-align: center;
+
+
+	&.horizontal {
+
+		display: inline-block;
+		
+
+		> li {
+
+			margin-bottom: 0;
+
+		}
+
+	}
+
+
+	> li {
+
+		margin-bottom: $_BASE_LINE_HEIGHT / 2;
+
+
+		&:last-of-type {
+
+			margin-bottom: 0;
+
+		}
+
+	}
+
+
+	button {
+
+		margin: 0;
+
+	}
+
+}
+
+
+.button-sharing {
+
+	@include remove-outline;
+	@include rhythm(2, 3 3);
+
+	background-color: rgba(0, 0, 0, $_OPACITY_DISABLED / 2);
+	border: none;
+	border-radius: 3em;
+	color: $_COLOR_WHITE;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+	text-align: center;
+
+	// FIX for having the icons centered
+	// line-height: getRhythm(2, 2.75);
+	line-height: 0;
+	//
+
+
+	&:after {
+
+		@include position(absolute, 0 null null 0);
+		@include size(100%);
+		@include transition(border-color $_HOVER_DURATION, color $_HOVER_DURATION);
+
+		border: $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_WHITE;
+		border-radius: 3em;
+		content: "";
+
+	}
+
+
+	&:not([disabled]) {
+
+		&:hover, &:focus, &.active {
+
+			background-color: $_COLOR_BLACK;
+			color: $_COLOR_WHITE;
+
+
+			&:after {
+
+				border-color: $_COLOR_BLACK;
+
+			}
+
+		}
+
+	}
+
+
+	&.black {
+
+		background-color: transparent;
+		color: $_COLOR_BLACK;
+
+
+		&:after {
+
+			border-color: $_COLOR_LIGHT_GREY_1;
+
+		}
+
+	}
+
+}

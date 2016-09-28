@@ -1,0 +1,115 @@
+
+.tooltip {
+	position   : absolute;
+	z-index    : 1070;
+	display    : block;
+	//@include atlasGroteskRegular;
+	font-size  : 12px;
+	line-height: 20px;
+	filter: alpha(opacity=0);
+	opacity    : 0;
+	line-break : auto;
+	//float: none;
+	.tooltip-arrow {
+		border-color: transparent;
+		border-style: solid;
+		height      : 0;
+		position    : absolute;
+		width       : 0;
+		top         : 50%;
+		left        : -20px;
+		border-right: 12px solid $_COLOR_LIGHT_GREY_3;
+		transform   : translateY(-50%);
+	}
+	.tooltip-inner {
+		background-color: $_COLOR_LIGHT_GREY_2;
+		color           : $_COLOR_BLACK;
+		max-width       : 280px;
+		padding         : 20px;
+		font-weight     : 100;
+	}
+	&.in {
+		filter: alpha(opacity=0);
+		opacity: 1;
+	}
+	&.top {
+		margin-top: -3px;
+		padding   : 5px 0;
+		.tooltip-arrow {
+			border-right-color: $_COLOR_LIGHT_GREY_2;
+			border-width      : 10px 10px 9px 0;
+			left              : -5px;
+			margin-top        : -10px;
+			top               : 50%;
+		}
+	}
+	&.top-left {
+		.tooltip-arrow {
+			border-top-color: $_COLOR_BLACK;
+			border-width    : 10px 10px 0;
+			bottom          : 0;
+			margin-bottom   : -5px;
+			right           : 5px;
+		}
+	}
+	&.top-right {
+		.tooltip-arrow {
+			border-top-color: $_COLOR_LIGHT_GREY_2;
+			border-width    : 10px 10px 0;
+			bottom          : 0;
+			left            : 5px;
+			margin-bottom   : -5px;
+		}
+	}
+	&.right {
+		margin-left: 3px;
+		padding    : 0 5px;
+		.tooltip-arrow {
+			border-right-color: $_COLOR_LIGHT_GREY_2;
+			border-width      : 10px 10px 9px 0;
+			left              : -5px;
+			margin-top        : -10px;
+			top               : 50%;
+		}
+	}
+	&.left {
+		margin-left: -3px;
+		padding    : 0 5px;
+		.tooltip-arrow {
+			border-left-color: $_COLOR_LIGHT_GREY_2;
+			border-width     : 10px 0 10px 10px;
+			margin-top       : -5px;
+			right            : 0;
+			top              : 50%;
+		}
+	}
+	&.bottom {
+		margin-top: 3px;
+		padding   : 5px 0;
+		.tooltip-arrow {
+			border-bottom-color: $_COLOR_LIGHT_GREY_2;
+			border-width       : 0 10px 10px;
+			left               : 50%;
+			margin-left        : -5px;
+			top                : 0;
+		}
+	}
+	&.bottom-left {
+		.tooltip-arrow {
+			border-bottom-color: $_COLOR_LIGHT_GREY_2;
+			border-width       : 0 10px 10px;
+			margin-top         : -5px;
+			right              : 5px;
+			top                : 0;
+		}
+	}
+	&.bottom-right {
+		.tooltip-arrow {
+			border-bottom-color: $_COLOR_LIGHT_GREY_2;
+			border-width       : 0 10px 10px;
+			left               : 5px;
+			margin-top         : -5px;
+			top                : 0;
+		}
+	}
+}

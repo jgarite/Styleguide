@@ -1,0 +1,123 @@
+$_FORM_SELECT_SIZE: 3;
+.form-drop-down,
+.form-select {
+	@extend .icon;
+	background-color: transparent;
+	display         : inline-block;
+	position        : relative;
+	width           : 100%;
+	margin-bottom   : 20px;
+	&:after,
+	&:before {
+		@include not-clickable;
+		@include transition(opacity $_HOVER_DURATION);
+		height     : 100%;
+		position   : absolute;
+		right      : 0;
+		top        : 0;
+		width      : 40px;
+		font-family: Christies;
+		content    : $christies-icon_down-chevron;
+		font-size  : 18px;
+		border     : 1px solid $_COLOR_LIGHT_GREY_1;
+		opacity    : 1;
+		text-align : center;
+		line-height: $_ICON_FONT_SIZE;
+
+	}
+	&:after {
+		opacity     : 0;
+		border-color: $_COLOR_GREY_2;
+	}
+	&:not(.disabled) {
+		&:hover {
+			background-color: transparent;
+			&:before {
+				opacity: 0;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
+		&.selected {
+			color: $_COLOR_BLACK;
+			&:before {
+				opacity: 0;
+			}
+			&:after {
+				opacity: 1;
+			}
+		}
+	}
+	&.disabled {
+		@include not-clickable;
+		opacity: 1;
+		&:before {
+			background-position: right bottom;
+			border             : 1px solid $_COLOR_LIGHT_GREY_1;
+		}
+	}
+	&.error {
+		&:after {
+			border : 1px solid $_COLOR_RED_2 !important;
+			opacity: 1 !important;
+			color:$_COLOR_BLACK !important;
+		}
+		select {
+			border    : 1px solid $_COLOR_RED_2 !important;
+			opacity   : 1 !important;
+			//background: $_COLOR_ERROR_BG !important;
+			color:$_COLOR_BLACK !important;
+		}
+	}
+	.select {
+		background-color  : transparent;
+		padding-right     : $_FORM_SELECT_SIZE + $_BASE_PADDING;
+		width             : 100%;
+		outline           : none;
+		-webkit-appearance: none;
+		border-radius     : 0;
+		//@include atlasGroteskRegular;
+		font-style        : italitalic;
+		color             : $_COLOR_GREY_2;
+		&::-ms-expand {
+			display: none;
+		}
+		&:not([disabled]) {
+			&.selected,
+			&:hover {
+				background-color: transparent;
+				color           : $_COLOR_BLACK;
+			}
+		}
+		&::ms-expand {
+			display: none;
+		}
+	}
+
+}
+.select {
+	-webkit-appearance: none;
+	border-radius     : 0;
+	-moz-appearance   : none;
+	text-indent       : 1px;
+	text-overflow     : '';
+	//@include atlasGroteskRegular;
+	@include rhythm($_BODY_COPY, null $_FORM_SELECT_SIZE, 0 0 0 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+	@include transition(border-color $_HOVER_DURATION, color $_HOVER_DURATION);
+	background-color  : transparent;
+	border            : 1px solid $_COLOR_LIGHT_GREY_1;
+	color             : $_COLOR_GREY_1;
+	&:not([disabled]) {
+		&.selected,
+		&:hover {
+			background-color: $_COLOR_BLACK;
+			border-color    : $_COLOR_GREY_2;
+			color           : $_COLOR_WHITE;
+		}
+	}
+	@include disabled(1) {
+		border-color: $_COLOR_LIGHT_GREY_1;
+		color       : $_COLOR_LIGHT_GREY_1;
+	}
+}

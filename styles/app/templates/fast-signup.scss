@@ -1,0 +1,59 @@
+///convert to proper SCSS code in FSU phase 2
+body #iSignUp iframe {
+	height: 500px;
+	width: 300px;
+	padding: 0;
+	margin-bottom: 0;
+	border: 0;
+}
+@media screen and (min-width:767px) {
+	body #iSignUp iframe {
+		width: 740px;
+	}
+}
+@media only screen and (max-height: 768px) {
+	body #iSignUp iframe {
+		padding-bottom: 0;
+		margin-bottom: 0;
+	}
+}
+body div#iSignUp {
+	display: none;
+	font-size: 10px;
+	z-index: 11000 !important;
+	padding: 0;
+	background: #fff;
+	position: fixed;
+	top: 30px !important;
+	left: 50% !important;
+	overflow: scroll !important;
+	box-shadow: 0 0 10px #999;
+	width: 300px !important;
+	margin: auto -150px !important;
+}
+@media screen and (min-width:500px) and (min-height:500px) {
+	body div#iSignUp {
+		position: fixed;
+		overflow: hidden !important;
+	}
+}
+
+body #iSignUp * {
+	box-sizing: border-box;
+}
+@media screen and (min-width:767px) {
+	body div#iSignUp {
+		width: 740px !important;
+		margin: auto -370px !important;
+	}
+}
+div.iSignUp.whiteBG {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+	background: rgba(0,0,0,0.3);
+	z-index: 10000;
+}

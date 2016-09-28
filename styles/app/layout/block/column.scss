@@ -1,0 +1,57 @@
+
+$_COLUMN_NUMBER_8: 8;
+.column {
+	padding-bottom: 0;
+	padding-top: 0;
+	min-height: 1px;
+	&.has-margin-bottom {
+		margin-bottom: (2 * $_BASE_LINE_HEIGHT);
+	}
+}
+.columns-container {
+
+	@include clearfix;
+
+	margin: 0 auto;
+	max-width: $_BASE_GRID_WIDTH;
+	min-height: 100%;
+	position: relative;
+	width: 100%;
+
+}
+
+.column {
+	@include column($_COLUMN_NUMBER);
+
+	float  : left;
+	padding: 0 $_COLUMN_GUTTER;
+
+	&.clear-both {
+
+		clear: both;
+
+	}
+
+	&.inline-block {
+
+		// display: inline-block;
+		float       : none;
+		margin-left : auto;
+		margin-right: auto;
+		max-width   : 100%;
+		text-align  : left;
+		width       : auto;
+
+	}
+	&.has-margin-bottom {
+		margin-bottom: (2 * $_BASE_LINE_HEIGHT);
+	}
+}
+
+.extendRow {
+	padding-left : 5000px;
+	padding-right: 5000px;
+	margin-left  : -5010px;
+	margin-right : -5010px;
+}
+@include generate-columns($_COLUMN_NUMBER);

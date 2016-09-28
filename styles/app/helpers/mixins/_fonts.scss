@@ -1,0 +1,73 @@
+/* Baskerville 10 Pro */
+//@include font-face-2( 'Baskerville10Pro', '../assets/fonts/Baskerville10/Baskerville10Pro');
+@mixin baskerville10Pro {
+	font-family: 'Baskerville10Pro', $georgia;
+	font-weight: normal;
+	font-style: normal;
+}
+/* Baskerville 10 Pro Italic */
+//@include font-face-2( 'Baskerville10Pro-Italic', '../assets/fonts/Baskerville10/Baskerville10Pro-Italic');
+@mixin baskerville10ProItalic {
+	font-family: 'Baskerville10Pro-Italic', $georgia;
+	font-weight: normal;
+	font-style: normal;
+}
+/* Lyon */
+//@include font-face( 'Lyon', '../assets/fonts/Lyon/LyonDisplay-Regular-Web', normal);
+@mixin lyon {
+	font-family: 'Lyon', $georgia;
+	font-weight: normal;
+	font-style: normal;
+}
+/* Avenir */
+//Only used in Mobify version of the logged in menu on tablet only
+//@include font-face( 'Avenir', '../assets/fonts/Avenir/Avenir', normal);
+@mixin avenir {
+	font-family: 'Avenir', Atlas Grotesk Web, verdana, arial;
+	font-weight: normal;
+	font-style: normal;}
+//@include font-face( 'Avenir', '../assets/fonts/Avenir/Avenir-Black', normal);
+@mixin avenirBlack {
+	font-family: 'Avenir', Atlas Grotesk Web, verdana, arial;
+	font-weight: 700;
+	font-style: normal;
+}
+
+/* Atlas Grotesk Web light */
+//@include font-face( 'Atlas Grotesk Web', '../assets/fonts/AtlasGroteskWeb/AtlasGrotesk-Light-Web', 300);
+@mixin atlasGroteskWebLight {
+	font-family: 'Atlas Grotesk Web', $helvetica;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+}
+/* Atlas Grotesk Web regular */
+//@include font-face( 'Atlas Grotesk Web', '../assets/fonts/AtlasGroteskWeb/AtlasGrotesk-Regular-Web', 400);
+@mixin atlasGroteskWebRegular {
+	font-family: 'Atlas Grotesk Web', $helvetica;
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+}
+/* Atlas Grotesk Web bold */
+//@include font-face( 'Atlas Grotesk Web', '../assets/fonts/AtlasGroteskWeb/AtlasGrotesk-Bold-Web', 600);
+@mixin atlasGroteskWebBold {
+	font-family: 'Atlas Grotesk Web', $helvetica;
+	font-weight: 600;
+	font-style: normal;
+	font-stretch: normal;
+}
+/* Atlas Grotesk Web medium */
+//@include font-face( 'Atlas Grotesk Web', '../assets/fonts/AtlasGroteskWeb/AtlasGrotesk-Medium-Web', 500);
+@mixin atlasGroteskWebMedium {
+	font-family: 'Atlas Grotesk Web', $helvetica;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+}
+//@include font-face( 'Christies', '../assets/fonts/Christies/Christies');
+@mixin Christies {
+	font-family: 'Christies';
+	font-weight: normal;
+	font-style: normal;
+}

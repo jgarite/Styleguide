@@ -1,0 +1,279 @@
+
+$_BUTTON_LINE_HEIGHT_COEFFICIENT: 3.2 / 3.5;
+
+
+// button, .button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"],
+.button-text {
+
+	//@include atlasGroteskRegular;
+	@include rhythm($_BODY_COPY, null 3, 0 0 1 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+
+	background-color: transparent;
+	border: 2px solid $_COLOR_BLACK;
+	color: $_COLOR_BLACK;
+	position: relative;
+	text-decoration: none;
+
+
+	&:not([disabled]) {
+
+		&:hover, &:focus, &.active {
+
+			background-color: $_COLOR_BLACK;
+			color: $_COLOR_WHITE;
+
+		}
+
+	}
+
+
+	&:disabled {
+
+		border: 2px solid $_COLOR_LIGHT_GREY_1;
+		color: $_COLOR_LIGHT_GREY_1;
+		opacity: 1;
+
+	}
+
+}
+
+
+.button {
+
+	// FIX for text to be vertically center
+	line-height: getRhythm($_BODY_COPY, 3 * $_BUTTON_LINE_HEIGHT_COEFFICIENT);
+	//
+
+
+	&:link {
+
+		color: $_COLOR_BLACK;
+
+	}
+
+	&:visited {
+
+		color: $_COLOR_BLACK;
+		text-decoration: none;
+
+	}
+
+
+	&:hover, &:focus, &.active {
+
+		background-color: $_COLOR_BLACK;
+		color: $_COLOR_WHITE;
+
+	}
+
+}
+
+
+// button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"] {
+
+// 	line-height: inherit;
+
+// }
+
+
+.main-cta {
+
+	//@include atlasGroteskRegular; 
+	@include has-borders(2px, $_COLOR_BLACK);
+	@include rhythm($_BODY_COPY, null 3.5, 0 0 0 0, 0 $_INTERACTIVE_PADDING 0 $_INTERACTIVE_PADDING);
+	@include transition(background-color $_HOVER_DURATION, color $_HOVER_DURATION);
+
+	background-color: transparent;
+	color: $_COLOR_BLACK;
+	display: inline-block;
+	text-decoration: none;
+
+
+	&:link, &:visited {
+
+		color: $_COLOR_BLACK;
+		text-decoration: none;
+
+	}
+
+
+	&:not([disabled]) {
+
+		&:hover, &:focus, &.active {
+
+			background-color: $_COLOR_BLACK;
+			color: $_COLOR_WHITE;
+			text-decoration: none;
+
+		}
+
+	}
+
+
+	&.inverted {
+
+		@include has-borders(2px, $_COLOR_WHITE);
+
+		color: $_COLOR_WHITE;
+
+
+		&:link, &:visited {
+
+			color: $_COLOR_WHITE;
+
+		}
+
+
+		&:not([disabled]) {
+
+			&:hover, &:focus, &.active {
+
+				background-color: $_COLOR_WHITE;
+				color: $_COLOR_BLACK;
+
+			}
+
+		}
+
+	}
+
+
+	&.disabled {
+
+		@include not-clickable;
+
+		opacity: $_OPACITY_DISABLED;
+		text-decoration: none;
+
+	}
+
+}
+
+
+
+$_BUTTON_PLAY_SIZE: 6;
+$_BUTTON_PLAY_SIZE_REAL: $_BUTTON_PLAY_SIZE * $_BASE_LINE_HEIGHT;
+$_BUTTON_PLAY_BORDER_THICKNESS: ceil($_BUTTON_PLAY_SIZE * 5 / 6) * 1px;
+$_BUTTON_PLAY_ARROW_HEIGHT: 1em * ceil($_BUTTON_PLAY_SIZE / 3);
+$_BUTTON_PLAY_ARROW_WIDTH: $_BUTTON_PLAY_ARROW_HEIGHT * $golden;
+
+$_BUTTON_PLAY_MINI_SIZE: 2.5;
+$_BUTTON_PLAY_MINI_SIZE_REAL: $_BUTTON_PLAY_MINI_SIZE * $_BASE_LINE_HEIGHT;
+$_BUTTON_PLAY_MINI_BORDER_THICKNESS: ceil($_BUTTON_PLAY_MINI_SIZE * 5 / 6) * 1px;
+$_BUTTON_PLAY_MINI_ARROW_HEIGHT: 1em * ceil($_BUTTON_PLAY_MINI_SIZE / 3);
+$_BUTTON_PLAY_MINI_ARROW_WIDTH: $_BUTTON_PLAY_MINI_ARROW_HEIGHT * $golden;
+
+
+.play {
+
+	@include rhythm(1, $_BUTTON_PLAY_SIZE);
+	@include transition(opacity $_HOVER_DURATION);
+
+	background-color: transparent;
+	border: $_BUTTON_PLAY_BORDER_THICKNESS solid $_COLOR_WHITE;
+	border-radius: 50%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	opacity: 0.7;
+
+
+	&:after {
+
+		@include position(absolute, 50% null null 50%);
+		@include triangle($_BUTTON_PLAY_ARROW_WIDTH $_BUTTON_PLAY_ARROW_HEIGHT, $_COLOR_WHITE, right);
+
+		content: "";
+		font-size: 1em;
+		// margin-top: -1em * $_BUTTON_PLAY_SIZE / 4;
+		margin-top: -(floor(10 * $_BUTTON_PLAY_ARROW_WIDTH / 2) / 10);
+		// margin-left: -$_BUTTON_PLAY_ARROW_WIDTH / 4;
+		margin-left: -$_BUTTON_PLAY_ARROW_HEIGHT * 1 / (2 * $golden);
+
+	}
+
+
+	&:not([disabled]) {
+
+		&:hover {
+
+			background-color: transparent;
+			opacity: 1;
+
+		}
+
+	}
+
+
+	&.mini {
+
+		@include rhythm(1, $_BUTTON_PLAY_MINI_SIZE, 0 0 1 0);
+
+		border: $_BUTTON_PLAY_MINI_BORDER_THICKNESS solid $_COLOR_WHITE;
+
+
+		&:after {
+
+			@include triangle($_BUTTON_PLAY_MINI_ARROW_WIDTH $_BUTTON_PLAY_MINI_ARROW_HEIGHT, $_COLOR_WHITE, right);
+
+			// margin-top: -1em * $_BUTTON_PLAY_MINI_SIZE / 4;
+			margin-top: -(floor(10 * $_BUTTON_PLAY_MINI_ARROW_WIDTH / 2) / 10);
+			// margin-left: -$_BUTTON_PLAY_MINI_ARROW_WIDTH / 4;
+			margin-left: -$_BUTTON_PLAY_MINI_ARROW_HEIGHT * 1 / (2 * $golden);
+
+		}
+
+	}
+
+}
+
+
+.button-takeover {
+
+	@include text-rhythm-reset;
+	@include transition(none);
+
+	background-color: $_COLOR_BLACK;
+	color: $_COLOR_WHITE;
+	border: none;
+	bottom: 0;
+	height: auto;
+	left: 0;
+	position: absolute;
+	width: 100%;
+
+
+	> span {
+
+		@include rhythm($_BODY_COPY, null 3);
+
+		background-image: url(../images/buttons/takeover-button.png);
+		background-position: right top;
+		background-repeat: no-repeat;
+		background-size: auto 200%;
+		display: inline-block;
+		margin: 0;
+		padding: 0 1.5 * $_BASE_LINE_HEIGHT 0 $_BASE_LINE_HEIGHT;
+
+	}
+
+
+	&:not([disabled]) {
+
+		&:hover {
+
+			background-color: $_COLOR_WHITE;
+			color: $_COLOR_BLACK;
+
+
+			> span {
+
+				background-position: right bottom;
+
+			}
+
+		}
+
+	}
+
+}

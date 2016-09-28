@@ -1,0 +1,176 @@
+%dark-theme {
+	text-decoration: none;
+	background-color: $_COLOR_BLACK;
+	color           : $_COLOR_WHITE;
+	box-shadow      : 0 0 1px $_COLOR_BLACK;
+&:before {
+	color: $_COLOR_WHITE;
+}
+&:after {
+	top: 0;
+		border: $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_BLACK;
+}
+}
+$_ICON_SIZE: 40px;
+.button-icon {
+	//	@extend .button;
+	//@include rhythm($_BODY_COPY, 3 3);
+	// background-color: transparent;
+	font-size       : 2em;
+	line-height     : 0;
+	height          : $_ICON_SIZE;
+	width           : $_ICON_SIZE;
+	background-color: $_COLOR_WHITE;
+	border          : none;
+	border-radius   : $_ICON_SIZE;
+	color           : $_COLOR_BLACK;
+	margin          : 0;
+	padding         : 0;
+	position        : relative;
+	text-align      : center;
+	top             : 1px;
+	&:after {
+		@include position(absolute, 0 0 0 0);
+		@include transition(border-color $_HOVER_DURATION);
+		border       : $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_LIGHT_GREY_1;
+		border-radius: $_ICON_SIZE;
+		color        : $_COLOR_WHITE;
+		content      : "";
+	}
+	&:not([disabled]) {
+		&:before {
+			color: $_COLOR_BLACK;
+		}
+		body:not(.touch) & {
+			&.added,
+			&.active,
+			&:active,
+			&:focus,
+			&:hover {
+					@extend %dark-theme;
+			}
+		}
+		body.touch & {
+			&.added,
+			&.active{
+				@extend %dark-theme;
+			}
+
+		}
+
+
+		&.cancel-focus {
+			&:focus {
+				&:after {
+					border: $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_LIGHT_GREY_1;
+				}
+			}
+		}
+
+	}
+	@include disabled(1) {
+		background-color: transparent;
+		border          : none;
+		&:before {
+			color: $_COLOR_LIGHT_GREY_1;
+		}
+		&:after {
+			border: $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_LIGHT_GREY_1;
+		}
+	}
+	/* SQUARE */
+	&.square {
+		border-radius: 0;
+		&:after {
+			border-radius: 0;
+		}
+	}
+}
+.play-icon-overlay {
+	width     : 68px;
+	height    : 68px;
+	background: none;
+	top       : 50%;
+	left      : 50%;
+	transform : translate(-50%,-50%);
+	position  : absolute;
+	z-index   : 100;
+	opacity   : .75;
+	&:hover {
+	// 	opacity: 1;
+	}
+	&:before {
+		color       : $_COLOR_WHITE;
+		width       : 0;
+		height      : 0;
+		border-style: solid;
+		border-width: 13px 0 13px 18px;
+		border-color: transparent transparent transparent rgba(255,255,255,1);
+		content     : '';
+		top         : 50%;
+		left        : 50%;
+		transform   : translate(-50%,-50%);
+		position    : absolute;
+	}
+	&:after {
+		content      : '';
+		border       : 5px solid rgba(255,255,255,1);
+		border-radius: $_ICON_FONT_SIZE;
+		top          : 0;
+		right        : 0;
+		bottom       : 0;
+		left         : 0;
+		position     : absolute;
+	}
+}
+/////////////////GIGYA ICONS CSS///////////
+.gig-button {
+	//!important is needed to overwrite the inline styling set by Gigya.
+	font-size  : 2em !important;
+	line-height: 0 !important;
+	height     : $_ICON_SIZE !important;
+	width      : $_ICON_SIZE !important;
+	position   : relative;
+	&:after {
+		@include position(absolute, 0 0 0 0);
+		@include transition(border-color $_HOVER_DURATION);
+		border       : $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_LIGHT_GREY_1;
+		border-radius: $_ICON_SIZE;
+		//	color: $_COLOR_BLACK !important;
+		content      : "";
+	}
+	&:focus,
+	&:hover {
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			background-color: $_COLOR_BLACK;
+			border-radius   : $_ICON_SIZE;
+			box-shadow      : 0 0 1px $_COLOR_BLACK;
+			&:after {
+				border-radius: $_ICON_SIZE;
+				border       : $_BUTTON_ICON_BORDER_THICKNESS solid $_COLOR_BLACK;
+				//	color: $_COLOR_WHITE !important;
+			}
+			[id^="ShareDiv-reaction"] > * {
+				color: $_COLOR_WHITE !important;
+			}
+		}
+	}
+}
+#ShareDiv,
+#ShareDiv_lot {
+	width : auto !important;
+	height: auto !important;
+}
+div.gig-button-container {
+	margin : 0 5px !important;
+	padding: 0 !important;
+}
+.gig-button [id^="ShareDiv-reaction"] {
+	> * {
+		border-radius: $_ICON_SIZE;
+		height       : $_ICON_SIZE !important;
+		width        : $_ICON_SIZE !important;
+		//background: $_COLOR_WHITE !important;
+		color        : $_COLOR_BLACK !important;
+	}
+}

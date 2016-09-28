@@ -1,0 +1,30 @@
+//STYLEGUIDE DOCUMENTATION
+// Red 1 is used as an accent colour (hover highlights on navigational items)
+// White is the main background
+// Black is used for text, and occasionally as a background for functionalities that appears on top or within the layout in order to create contrast with the rest of the user interface (light box, drawer, information overlay)
+// Red 2 is used for any red text, always on a white background (article 2.0 category title, sale "happening now" messages). This is an edge case and should not be used with caution
+// Grey 1 is used to display CTAs and icons disabled state on black background
+// Grey 2 is used as a hover colour for black text button, as the main colour of small text (credits, captions, category titles) and as the colour of dividers needed over a black background
+// Light grey 1 is used as the colour of dividers over white or light grey 3 backgrounds, and as the colour of category titles that appear over a black background
+// Light grey 2 is used as the default state of secondary CTA
+// Light grey 3 is used in some cases as a background
+// Red 3 (Error red) is used in forms to highlight missed steps or issues. Use 100% opacity for text field outlines and informational text, and 10% opacity for text field background
+$_COLOR_BLACK        : #000000;
+$_COLOR_WHITE        : #ffffff;
+$_COLOR_GREY_1       : #575757;
+$_COLOR_GREY_2       : #808080;
+$_COLOR_LIGHT_GREY_1 : #CCCCCC;
+$_COLOR_LIGHT_GREY_2 : #efefef;
+$_COLOR_LIGHT_GREY_3 : #f8f8f8;
+$_COLOR_LIGHT_GREY_4 : #f1f1f1;
+$_COLOR_RED_1        : #D70C00;
+$_COLOR_RED_2        : #B30900;
+$_COLOR_RED_3        : #ED0000;
+$_COLOR_RED_4        : #ff3535;
+$_COLOR_ERROR_BG     : #fde5e5;
+$_OPACITY_DISABLED   : .5;
+$_OPACITY_HOVER      : 1;
+$_COLOR_IMG_OVERLAY  : rgba(0, 0, 0, 0.03);
+
+//Colors that are required for the header/footer to match the mobify'd version. They are not to be used for anything else.
+$_COLOR_LEGACY_GREY_1: #bbbbbb;

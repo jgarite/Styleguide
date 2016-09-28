@@ -1,0 +1,67 @@
+.body_p,
+p {
+	@include atlasGroteskWebLight;
+	margin: 0;
+	font-size: 14px;
+	line-height: 25px;
+	color: $_COLOR_BLACK;
+	body.Chinese & {
+		font-size: 16px;
+	}
+	// &.small {
+	// 	font-size: 14px;
+	// 	body.Chinese & {
+	// 		font-size: 16px;
+	// 	}
+	// }
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		font-size: 16px;
+		body.Chinese & {
+			font-size: 16px;
+		}
+	}
+}
+.body_p_small {
+	font-weight: 300px;
+	font-size: 14px;
+	line-height: 25px;
+	body.Chinese & {
+		font-size: 16px;
+	}
+}
+.p--category-title,
+.p--sale-reference,
+.category-title,
+.sale-reference {
+	@include atlasGroteskWebMedium;
+	font-size: 11px;
+	body.Chinese & {
+		font-size: 15px;
+		line-height: 32px;
+	}
+	line-height: 20px;
+	color: $_COLOR_GREY_2;
+	@include media-width($_BREAKPOINT_TABLET,($_BREAKPOINT_TABLET_TO_DESKTOP - 1)) {
+		line-height: 16px;
+	}
+}
+.p--captions,
+.p--credits,
+.captions,
+.credits {
+	@include atlasGroteskWebLight;
+	font-size: 12px;
+	line-height: 20px;
+	color: $_COLOR_GREY_2;
+	body.Chinese & {
+		font-size: 15px;
+		line-height: 24px;
+	}
+}
+
+.p--standfirst {
+	@include atlasGroteskWebLight;
+	font-size: 19px;
+	line-height: 30px;
+	font-weight: 300;
+}

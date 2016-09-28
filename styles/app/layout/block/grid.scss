@@ -1,0 +1,18 @@
+
+.grid {
+
+	left: $_COLUMN_GUTTER;
+	max-width: none;
+	right: $_COLUMN_GUTTER;
+
+
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		left: 0;
+		max-width: $_BASE_GRID_WIDTH;
+		right: 0;
+
+	}
+
+}

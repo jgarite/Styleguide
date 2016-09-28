@@ -1,0 +1,111 @@
+.accordion,
+.accordion-1,
+.accordion-footer {
+	section {
+		border-top: 1px solid $_COLOR_LIGHT_GREY_1;
+		position: relative;
+		&:last-of-type {
+			//border-bottom:1px solid $_COLOR_LIGHT_GREY_1;
+		}
+		.controls {
+			float: right;
+			position: relative;
+		}
+		.christies-icon_minus,
+		.christies-icon_plus {
+			transition: opacity $_HOVER_DURATION ease;
+			right: 1px;
+			position: absolute;
+		}
+		.christies-icon_plus {
+			opacity: 1;
+			z-index: 1;
+		}
+		.christies-icon_minus {
+			opacity: 0;
+			z-index: 0;
+		}
+		&.active {
+			.christies-icon_plus {
+				opacity: 0;
+				z-index: 0;
+			}
+			.christies-icon_minus {
+				opacity: 1;
+				z-index: 1;
+			}
+		}
+		.content {
+			clear: both;
+			float: none;
+			//	display: none;
+			padding-bottom: 30px;
+			// &:first-of-type {
+			// 	@include media-min-width($_BREAKPOINT_DESKTOP) {
+			// 		padding-top: 20px;
+			// 		width: auto;
+			// 		margin: auto;
+			// 		display: inline-block;
+			// 		left: 50%;
+			// 		transform: translateX(-50%);
+			// 		position: relative;
+			// 	}
+			// }
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				padding-bottom: 60px;
+			}
+			.close {
+				//	display: none;
+				opacity: 0;
+			}
+		}
+	}
+	header {
+		display: table;
+		width: 100%;
+		.header-content {
+			display: table-cell;
+			padding: 20px 0;
+		}
+		&:hover {
+			cursor: pointer;
+		}
+		.title {
+			//@extend .header-3;
+			float: left;
+			margin: 0;
+			line-height: $_ICON_FONT_SIZE;
+		}
+	}
+}
+//for bootstrap collapse version of accordion.
+//bootstrap collapse needs to replace SLP accordion. It has already replaced the LDP version.
+.accordion section {
+	.header-content {
+		.christies-icon_plus {
+			opacity: 0;
+			z-index: 0;
+		}
+		.christies-icon_minus {
+			opacity: 1;
+			z-index: 1;
+		}
+		&.collapsed {
+			.christies-icon_plus {
+				opacity: 1;
+				z-index: 1;
+			}
+			.christies-icon_minus {
+				opacity: 0;
+				z-index: 0;
+			}
+		}
+	}
+	.content {
+		//display: none;
+		&.collapsing,
+		&.in {
+			//display: block;
+		}
+	}
+}

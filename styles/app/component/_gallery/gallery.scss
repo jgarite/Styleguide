@@ -1,0 +1,54 @@
+
+$_GALLERY_BUTTONS_SIZE: 2 * $_BASE_LINE_HEIGHT;
+
+.gallery-title {
+
+	width: 100%;
+
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		padding-right: $_COLUMN_GUTTER;
+
+	}
+
+}
+
+.gallery-container {
+
+	overflow: hidden;
+	position: relative;
+	width   : 100%;
+
+}
+
+.gallery {
+	@include clearfix;
+
+	height  : 100%;
+	left    : 0;
+	position: absolute;
+	top     : 0;
+	width   : 100%;
+
+	> li {
+		@include transition(opacity 2 * $_PANEL_DURATION);
+
+		height  : 100%;
+		left    : 0;
+		opacity : 0;
+		padding : 0;
+		position: absolute;
+		top     : 0;
+		width   : 100%;
+
+		&.show {
+
+			opacity: 1;
+			z-index: 1;
+
+		}
+
+	}
+
+}

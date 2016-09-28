@@ -1,0 +1,116 @@
+.imo,
+.is-mobile-only {
+	display: block;
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		display: none !important;
+	}
+}
+.inm,
+.is-not-mobile {
+	display: block;
+	// mobile to tablet portrait-1
+	@include media-max-width($_BREAKPOINT_TABLET - 1) {
+		display: none !important;
+	}
+}
+.ido,
+.is-desktop-only {
+	display: none !important;
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		display: block !important;
+	}
+}
+.ind,
+.is-not-desktop {
+	// desktop
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		display: none !important;
+	}
+}
+.no-padding-top {
+	padding-top: 0;
+}
+.no-padding-bottom {
+	padding-bottom: 0;
+}
+.no-padding-left {
+	padding-left: 0;
+}
+.no-padding-right {
+	padding-right: 0;
+}
+.no-padding {
+	padding: 0;
+}
+.no-margin-bottom {
+	margin-bottom: 0;
+}
+.no-margin-left {
+	margin-left: 0;
+}
+.no-margin-right {
+	margin-right: 0;
+}
+.no-margin {
+	margin: 0;
+}
+.hidden {
+	display: none;
+}
+.reset-height {
+	&:after {
+		clear: both;
+		display: block;
+		content: "";
+	}
+}
+.verticallyCenter {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
+.pull-left-clear {
+	float: none;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		float: left;
+	}
+}
+.pull-right-clear {
+	float: none;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		float: right;
+	}
+}
+.icon_mask-text {
+	overflow: hidden;
+	white-space: nowrap;
+	&:after,
+	&:before {
+		text-indent: 0;
+	}
+}
+.flip {
+	display: inline-block;
+	transform: scaleX(-1);
+	/* standard */
+	filter: FlipH;
+	/* IE 6/7/8 */
+}
+.blur {
+	-webkit-filter: blur(3px);
+	-moz-filter: blur(3px);
+	-ms-filter: blur(3px);
+	-o-filter: blur(3px);
+	/* FF doesn't support blur filter, but SVG */
+	filter: url(  "data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='svgBlur' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceGraphic' stdDeviation='5'/></filter></svg>#svgBlur");
+	filter: progid:DXImageTransform.Microsoft.Microsoft.Blur(PixelRadius =  '3');
+	filter: blur(3px);
+}

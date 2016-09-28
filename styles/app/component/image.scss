@@ -1,0 +1,75 @@
+.image-preview-container {
+	background-color: transparent;//$_COLOR_LIGHT_GREY_3;
+	height: 0;
+	overflow: hidden;
+	padding-bottom: $_IMAGE_RATIO_LANDSCAPE;
+	position: relative;
+	width: 100%;
+	//Removed grey background inside image container
+	// &::before {
+	// 	content: '';
+	// 	background: rgba(0, 0, 0, 0.03);
+	// 	top: 0;
+	// 	right: 0;
+	// 	bottom: 0;
+	// 	left: 0;
+	// 	position: absolute;
+	// 	height: auto;
+	// 	width: 100%;
+	// }
+	&:hover {
+		//overlay buttons
+		.play-icon-overlay{
+			opacity:1;
+		}
+	}
+	&.portrait {
+		padding-bottom: $_IMAGE_RATIO_PORTRAIT;
+	}
+	&.thin {
+		padding-bottom: 2 * $_IMAGE_RATIO_PORTRAIT;
+	}
+	&.square {
+		padding-bottom: $_IMAGE_RATIO_SQUARE;
+	}
+	&.video {
+		padding-bottom: $_IMAGE_RATIO_VIDEO;
+	}
+	&.uncropped {
+		padding-bottom: $_IMAGE_RATIO_SQUARE;
+		.image-preview {
+			background-size: 90% auto;
+		}
+	}
+	&.with-margin-bottom {
+		margin-bottom: $_BASE_LINE_HEIGHT;
+	}
+	.image-preview {
+		@include position(absolute, -1px -1px -1px -1px);
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.buttons-image-sharing {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&.center img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+	}
+}
+.image-preview {
+	.play {
+		left: 50%;
+		margin: (-$_BUTTON_PLAY_SIZE_REAL / 2) 0 0 (-$_BUTTON_PLAY_SIZE_REAL / 2);
+		position: absolute;
+		top: 50%;
+	}
+}

@@ -1,0 +1,117 @@
+
+.inline-block {
+	display: inline-block;
+}
+.block {
+	display: block;
+}
+.table {
+	display: table;
+}
+.table-cell {
+	display: table-cell;
+}
+
+//Flexbox
+//REF: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+.flex-container_flex,
+.f-c_flex {
+	display: flex;
+}
+.flex-direction_row,
+.f-d_row {
+	flex-direction: row; //default
+}
+
+.flex-direction_column,
+.f-d_column {
+	flex-direction: column;
+}
+//Flex Wrap
+.flex-wrap_wrap,
+.f-w_wrap {
+	flex-wrap: wrap;
+}
+.flex-wrap_nowrap,
+.f-w_nowrap {
+	flex-wrap: nowrap;//default
+}
+
+//Flex Justify
+.flex-justify_left,
+.f-j_left {
+	justify-content: flex-start; //default
+}
+
+.flex-justify_right,
+.f-j_right {
+	justify-content: flex-end;
+}
+.flex-justify_center,
+.f-j_center {
+	justify-content: center;
+}
+//space between: items are evenly distributed in the line; first item is on the start line, last item on the end line
+.flex-justify_space-between,
+.f-j_space-between {
+	justify-content: space-between;
+}
+
+//Flex Align Items
+
+// align-items -this aligns items to each other
+// flex-start: cross-start margin edge of the items is placed on the cross-start line
+// flex-end: cross-end margin edge of the items is placed on the cross-end line
+// center: items are centered in the cross-axis
+// baseline: items are aligned such as their baselines align
+// stretch (default): stretch to fill the container (still respect min-width/max-width)
+.flex-align-items-top,
+.f-a-i_top {
+	align-items: flex-start;
+}
+.flex-align-items-bottom,
+.f-a-i_bottom {
+	align-items: flex-end;
+}
+.flex-align-items-center,
+.f-a-i_center {
+	align-items: center;
+}
+.flex-align-items-stretch,
+.f-a-i_stretch {
+	align-items: stretch;
+}
+//default
+.flex-align-items-baseline,
+.f-a-i_baseline {
+	align-items: baseline;
+}
+
+//Flex Align Content
+
+// align-content - this controls the fit of the items inside the content
+.flex-align-content-top,
+.f-a-c_top {
+	align-content: flex-start;
+}
+.flex-align-content-bottom,
+.f-a-c_bottom {
+	align-content: flex-end;
+}
+.flex-align-content-center,
+.f-a-c_center {
+	align-content: center;
+}
+.flex-align-content-stretch,
+.f-a-c_stretch {
+	align-content: stretch;
+}
+//default
+.flex-align-content-space-between,
+.f-a-c_space-between {
+	align-content: space-between;
+}
+.flex-align-content-space-around,
+.f-a-c_space-around {
+	align-content: space-around;
+}

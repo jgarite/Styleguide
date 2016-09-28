@@ -1,0 +1,77 @@
+.carousel-buttons-container,
+.image-preview-container.carousel-buttons-container {
+	display : none;
+	position: relative;
+	width   : 100%;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		display: block;
+	}
+	.carousel-container:hover &,
+	.carousel-slider-container:hover & {
+		opacity: 1;
+	}
+	.carousel-button {
+		//@extend .verticallyCenter;
+		//margin-top: $_ICON_FONT_SIZE * -1;
+		z-index: 1000;
+		border : none;
+		padding: 0;
+		position:absolute;
+		top:50%;
+		transform: translateY(-50%);
+		@include media-min-width($_BREAKPOINT_TABLET) {
+			//margin-top:-80px;
+		}
+		@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+			margin-top:-80px;
+		}
+		@include media-min-width($_BREAKPOINT_DESKTOP) {
+			margin-top:0;
+		}
+		&.hide {
+			@include hide-object;
+		}
+		&.carousel-button-previous {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				left: 10px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				left: 0;
+			}
+
+		}
+		&.carousel-button-next {
+			@include media-min-width($_BREAKPOINT_TABLET) {
+				right: 10px;
+			}
+			@include media-min-width($_BREAKPOINT_TABLET_TO_DESKTOP) {
+				right: 25px;
+			}
+		}
+	}
+}
+//Icons under the main image (zoom, scale, share, etc)
+.carousel-enhancements {
+	padding   : 15px 0;
+	text-align: center;
+	margin    : auto;
+	@include media-min-width($_BREAKPOINT_TABLET) {
+		padding-top   : 30px;
+		padding-bottom: 30px;
+	}
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+		padding-bottom: 42px;
+	}
+	.button-icon {
+		margin: 0 5px;
+	}
+	.SocialBlock_LotSale {
+		display       : inline-block;
+		position      : relative;
+		vertical-align: bottom;
+		// @include media-min-width($_BREAKPOINT_TABLET) {
+		// 	clear: none;
+		// 	top: -3px;
+		// }
+	}
+}

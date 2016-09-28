@@ -1,0 +1,69 @@
+$_GOLDEN_RATIO: 1.61803398875;
+$golden:           1.618;
+
+//Header
+    $_HEADER_HEIGHT: 50px;
+    $_HEADER_HEIGHT_2: 2 * $_HEADER_HEIGHT;
+    $_TABLET_PORTRAIT_HEADER_HEIGHT: 46px - 0.5;
+    $_TABLET_LANDSCAPE_HEADER_HEIGHT: 64px;
+    $_DESKTOP_HEADER_HEIGHT: $_HEADER_HEIGHT + 10;
+
+//Logo
+    $_LOGO_WIDTH: 175px;
+    $_TABLET_LOGO_WIDTH: 130px;
+    $_DESKTOP_LOGO_WIDTH: 214px;
+
+//Font
+    $_DEFAULT_BODY_FONT_SIZE: 62.5 / 100 !default;
+    $_BODY_COPY: 1.6 !default;
+    $_BODY_COPY_SMALL: 1.4;
+
+    // 10px is the rhythm
+    $_BASE_SIZE: 1 !default;
+    $_BASE_FONT_SIZE: $_BASE_SIZE * 1em !default;
+
+    // 150% of font-size
+    $_BASE_LINE_HEIGHT: 1.5em !default;
+
+    $_HEADER_FONT_SIZE: 13px;
+    $_HEADER_TABLET_FONT_SIZE: 9px;
+    $_HEADER_DESKTOP_FONT_SIZE: 12px;
+
+    $_INTERACTIVE_COPY: 1.5 !default;
+    $_LIST_COPY_DISC: 1.3 !default;
+    $_LIST_COPY_NUMBER: 1.3 !default;
+    $_ICON_FONT_SIZE: 40px;
+
+    $_FOOTER_COPY: 1.4;
+
+//Images
+    $_HERO_MIN_HEIGHT: 500px;
+    $_IMAGE_RATIO_PORTRAIT: (100% * 5 / 4);
+    $_IMAGE_RATIO_LANDSCAPE: (100% * 5 / 8);
+    $_IMAGE_RATIO_SQUARE: 100%;
+    $_IMAGE_RATIO_VIDEO: (100% * 9 / 16);
+
+//Breakpoints
+    $_BREAKPOINT_TABLET: 768px;
+    $_BREAKPOINT_TABLET_TO_DESKTOP: 1024px;
+    $_BREAKPOINT_DESKTOP: 1280px;
+
+//Buttons & CTA
+    $_BUTTON_ICON_BORDER_THICKNESS: 1px;
+    $_BUTTON_COPY: 1.6;
+    $_CTA_BORDER_THICKNESS: 2px;
+
+//Grid
+    $_MOBILE_FIXED_GRID_SIZE: 200px;
+    $_TABLET_FIXED_GRID_SIZE: 340px;
+    $_DESKTOP_FIXED_GRID_SIZE: 280px;
+    $_BASE_GRID_WIDTH: 1180px;
+    $_BASE_GRID_WIDTH_MAX: 1180px;
+    $_COLUMN_NUMBER: 12;
+    $_COLUMN_GUTTER: 1em;
+
+// Block
+    $_BASE_MAX_WIDTH: 45 !default;
+    $_BASE_MARGIN: $_BASE_SIZE * $_BASE_LINE_HEIGHT / $golden;
+    $_BASE_PADDING: $_BASE_LINE_HEIGHT / $golden;
+    $_INTERACTIVE_PADDING: 1.5;

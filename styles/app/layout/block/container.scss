@@ -1,0 +1,68 @@
+
+.container {
+
+	margin  : 0 auto;
+	overflow: hidden;
+	padding : $_HEADER_HEIGHT_2 0 0;
+	position: relative;
+	width   : 100%;
+
+	&.no-padding-top {
+
+		padding-top: 0;
+
+	}
+
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		padding-top: $_HEADER_HEIGHT;
+
+	}
+
+}
+
+.container-fluid {
+	margin    : 0 auto;
+	overflow-x: hidden;
+	padding   : $_HEADER_HEIGHT_2 0 0;
+	position  : relative;
+
+	&.no-padding-top {
+
+		padding-top: 0;
+
+	}
+
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		padding-top: $_HEADER_HEIGHT;
+
+	}
+}
+.content-container {
+	@include clearfix;
+
+	margin   : $_HEADER_HEIGHT auto;
+	max-width: $_BASE_GRID_WIDTH_MAX;
+	padding  : 0 $_COLUMN_GUTTER;
+	width    : 100%;
+
+	&.no-margin-bottom {
+
+		margin-bottom: 0;
+
+	}
+
+	&.no-margin-top {
+
+		margin-top: 0;
+
+	}
+
+	@include media-min-width($_BREAKPOINT_DESKTOP) {
+
+		padding: 0 ($_BASE_GRID_WIDTH_MAX - $_BASE_GRID_WIDTH) / 2;
+
+	}
+
+}
